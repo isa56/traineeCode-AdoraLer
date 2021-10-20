@@ -4,7 +4,7 @@
 
 #### Desenvolvedores:
 
-* [Pessoa 1](#);
+* [Henrique Colonese Echternacht](https://github.com/hcolonese);
 * [Pessoa 2](#);
 * [Pessoa 3](#);
 * [Pessoa 4](#);
