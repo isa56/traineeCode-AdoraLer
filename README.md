@@ -4,17 +4,20 @@
 
 #### Desenvolvedores:
 
-* [Fulano X]();
-* [Fulano X]();
-* [Fulano X]();
-* [Fulano X]();
-* [Fulano X]().
+* [Pessoa 1](#);
+* [Pessoa 2](#);
+* [Pessoa 3](#);
+* [Pessoa 4](#);
 
 #### Scrum Master:
 
-* [Isadora Gonçalves Ferreira](https://github.com/isa56).
+* [Isadora Gonçalves Ferreira](#).
 
-<hl>
+## Descrição do Projeto:
+
+* Site E-Commerce de treinamento e capacitação dos Trainees da CodeJR, na gestão 2021.2;
+* Possuirá Front-End em HTML, CSS, Bootstrap e Back-End em PHP (puro) no padrão MVC, com Banco de Dados MySQL;
+* Não possuirá todas as funcionalidades de um E-Commerce;
 
 ## Git:
 
@@ -38,7 +41,7 @@ git clone https://github.com/isa56/traineeCode-AdoraLer
 ```
 Entre na pasta criada pelo comando clone
 ```
-cd ./traineeCode-AdoraLer
+cd traineeCode-AdoraLer
 ```
 Crie sua branch usando como o padrão o nome da funcionalidade que você vai desenvolver
 ```
@@ -70,7 +73,7 @@ Envie o commit feito para sua branch
 git push origin nomeDaBranch
 ```
 
-### Quando terminar a funcionalidade
+### Quando terminar a funcionalidade - *com autorização do SCRUM Master*
 
 Volte para a main
 ```
