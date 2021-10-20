@@ -1,4 +1,4 @@
-# **Trainee 2021.2 Grupo X - AdoraLer Livraria**
+# **Trainee 2021.2 Grupo 3 - AdoraLer Livraria**
 
 ## Integrantes:
 
@@ -11,7 +11,7 @@
 
 #### Scrum Master:
 
-* [Isadora Gonçalves Ferreira](#).
+* [Isadora Gonçalves Ferreira](https://github.com/isa56/).
 
 ## Descrição do Projeto:
 
