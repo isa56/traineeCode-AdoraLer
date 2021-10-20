@@ -5,7 +5,7 @@
 #### Desenvolvedores:
 
 * [Henrique Colonese Echternacht](https://github.com/hcolonese);
-* [Pessoa 2](#);
+* [João Pedro Ferreira Pedreira](https://github.com/JoaoPedroFerreiraPedreira);
 * [Pessoa 3](#);
 * [Pessoa 4](#);
 
