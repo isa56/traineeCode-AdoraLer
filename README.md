@@ -6,7 +6,7 @@
 
 * [Henrique Colonese Echternacht](https://github.com/hcolonese);
 * [Pessoa 2](#);
-* [Pessoa 3](#);
+* [Gustavo Vieira](https://github.com/GustRib);
 * [Pessoa 4](#);
 
 #### Scrum Master:
