@@ -33,16 +33,25 @@ header {
     height: 500px;
 }
 
-.section-body {
+/*.section-body {
     margin-top: 20px;
-}
+}*/
 
 .container {
     padding: 0px;
 }
 
+.container {
+    overflow-x: hidden;
+}
+
+.container img {
+    width: 100%;
+}
+
 div[class^="col"] {
     text-align: center;
+    margin-top: 20px;
 }
 
 
