@@ -29,10 +29,20 @@ header {
     background-color: #F1C8C7;
 }
 
+.carousel-inner {
+    height: 500px;
+}
+
+.section-body {
+    margin-top: 20px;
+}
+
 .container {
     padding: 0px;
 }
 
-.carousel-inner {
-    height: 500px;
+div[class^="col"] {
+    text-align: center;
 }
+
+
