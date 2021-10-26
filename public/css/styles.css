@@ -1,27 +1,18 @@
 body{
     background-color: #F1C8C7;
+	font-family: 'Raleway', sans-serif;
 }
 
 .content h1{
 	color: #F7883F;
+	margin-left: 10px;
 	font-weight: normal;
 }
 
-.content h2{
-	color: #FFFCF9;
-	font-size: 16px;
-	text-transform: uppercase;
-	font-weight: normal;
-	margin-top: 20px;
-}
 
-.content h3{
-	color: #F7B32B;
-	font-size: 12px;
-	text-transform: uppercase;
-}
 
 .breadcrumbs {
+	margin-left: 10px;
 	list-style: none;
 	padding-left: 0px;
 	color:#F7883F;
@@ -42,24 +33,21 @@ body{
     margin-right: 10px;
 	margin-bottom: 15px;
 	overflow: hidden;
+    border: 1px solid #F7883F;
 }
 
-.miniatura img{
-    width: 240px;
-    height: fit-content;
-}
 
 .miniatura a{
 	text-decoration: none;
 }
 
+
+
 .blackbox{
-	width: 100%;
-	height: 100%;
-	background-color: black;
+	width: 240px;
+	height: 350px;
 	opacity: 0;
-	padding-top: 120px;
-	transition:1s;
+	
 }
 
 .blackbox:hover {
@@ -69,18 +57,60 @@ body{
 
 .blackbox_text{
 	text-align: center;
+	padding-top: 120px;
 }
 
 .blackbox_text h1{
 	font-size: 16px;
+	background-color: #7B5B5A;
 	color: #F7883F;
 	text-transform: uppercase;
 	margin-top: 0;
+	margin-left: 0;
+	padding-left: 0;
 }
 
 .blackbox_text h2{
     color: #F19B75;
+	background-color: #7B5B5A;
 	text-transform: none;
-	font-weight: 100;
+	font-weight: 400;
 	margin-top: 0;
 }
+
+.back_link{
+	margin-top: 20px;
+	margin-bottom: 10px;
+	color: #F19B75;
+	text-transform: none;
+}
+
+#myInput {
+    width: 80%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 10px; /* Add some padding */
+    border: 1px solid #F7883F; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+    margin-left: 10px;
+  }
+  
+  #uList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #uList li a {
+    border: 1px solid #F7883F; /* Add a border to all links */
+    margin-top: -1px; /* Prevent double borders */
+    background-color: #f6f6f6; /* Grey background color */
+    padding: 12px; /* Add some padding */
+    text-decoration: none; /* Remove default text underline */
+    font-size: 18px; /* Increase the font-size */
+    color: black; /* Add a black text color */
+    display: block; /* Make it into a block element to fill the whole list */
+  }
+  
+  #uList li a:hover:not(.header) {
+    background-color: #eee; /* Add a hover effect to all links, except for headers */
+  }
