@@ -6,17 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="public/css/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Raleway&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
 
-    <script src="js/jquery-3.6.0.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
+            <!--Botão relacionado ao menu para expandir ou diminuir ele em monitores pequenos-->
+
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!--Menu-->
+
+            <div id="navbarMenu" class="navbar-collapse collapse">
+                <a href="#" class="nav-item nav-link active">Homepage</a>
+                <a href="#" class="nav-item nav-link">About Us</a>
+                <a href="#" class="nav-item nav-link">Contact</a>
+                <a href="#" class="nav-item nav-link">Services</a> 
+            </div>
+
+        </nav>
+    </header>
+
+    <script src="public/js/jquery-3.6.0.min.js"></script>
+    <script src="public/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

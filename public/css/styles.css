@@ -1,0 +1,30 @@
+* {
+    margin: 0px;
+}
+
+body {
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #D488AD;
+    display: flex;
+    justify-content: center;
+    /*font-family: 'Marck Script', cursive;*/
+    font-family: 'Raleway', sans-serif;
+}
+
+#navbarMenu a {
+    color: #232121;
+    border: 1px solid #F1C8C7;
+    margin-right: 10px;
+}
+
+#navbarMenu .active {
+    background-color: #F1C8C7;
+}
+
+#navbarMenu a:hover {
+    background-color: #F1C8C7;
+}
+
