@@ -1,18 +1,15 @@
 body{
-    background-color: #F1C8C7;
-	font-family: 'Raleway', sans-serif;
+	background-color: #F1C8C7;
 }
 
-.content h1{
+.container h1{
+	background-color: #F1C8C7 ;
 	color: #F7883F;
-	margin-left: 10px;
+	margin-left: 0px;
 	font-weight: normal;
 }
 
-
-
 .breadcrumbs {
-	margin-left: 10px;
 	list-style: none;
 	padding-left: 0px;
 	color:#F7883F;
@@ -92,15 +89,15 @@ body{
     border: 1px solid #F7883F; /* Add a grey border */
     margin-bottom: 12px; /* Add some space below the input */
     margin-left: 10px;
-  }
+}
   
-  #uList {
+#uList {
     list-style-type: none;
     padding: 0;
     margin: 0;
-  }
+}
   
-  #uList li a {
+#uList li a {
     border: 1px solid #F7883F; /* Add a border to all links */
     margin-top: -1px; /* Prevent double borders */
     background-color: #f6f6f6; /* Grey background color */
@@ -109,8 +106,27 @@ body{
     font-size: 18px; /* Increase the font-size */
     color: black; /* Add a black text color */
     display: block; /* Make it into a block element to fill the whole list */
-  }
+}
   
-  #uList li a:hover:not(.header) {
+#uList li a:hover:not(.header) {
     background-color: #eee; /* Add a hover effect to all links, except for headers */
-  }
+}
+
+.card{
+	border: #F7883F;
+	display: inline-block;	
+}
+
+.card-img-top img{
+	max-height: 536px;
+}
+ .botaoCompra{
+	 background-color:#F1C8C7;
+	 color:#F7883F;
+	 border: #F7883F;
+ }
+ 
+ .botaoCompra:hover{
+	background-color:#7B5B5A;
+	color: #f7883f !important;;
+ }
