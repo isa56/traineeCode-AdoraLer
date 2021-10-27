@@ -1,0 +1,25 @@
+
+body{
+
+    font-family: arial;
+    background-color: #f1c8c7;
+}
+.titulo-site{
+    margin-left: 40px;
+    margin-bottom: -30px;
+    margin-top: 70px;
+    color:#ec7221;
+
+}
+.texto{
+    margin-top: -450px;
+    margin-left: 40px;
+    margin-right: 500px;
+}
+
+.imagem{
+
+    margin-left: 800px;
+    margin-top: -10px;
+    width: 0px; 
+}
