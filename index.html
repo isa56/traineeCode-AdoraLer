@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="public/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Raleway&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <!--Isso aqui é só para ter uma ideia, qql mudança é valida
+    lets que bora!!-->
+
+
+    <section class="section-carousel">
+        <div class="container">
+            
+            <div id="slideshow" class="slide carousel">
+
+                <!--Lista responsavel pelo número de partições do carousel-->
+
+                <ol class="carousel-indicators">
+                    <li data-target="#slideshow" data-slide-to="0" class="active"></li>
+                    <li data-target="#slideshow" data-slide-to="1"></li>
+                    <li data-target="#slideshow" data-slide-to="2"></li>
+                    <li data-target="#slideshow" data-slide-to="3"></li>
+                </ol>
+
+                <!--Local onde as imagens são inseridas, junto a título e paragrafo adicionais, caso necessario-->
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="public/img/livroconectadas.jpg" class="w-100" />
+                    </div>
+                    <div class="carousel-item">
+                        <img src="public/img/livroguiadefinitivo.jpg" class="w-100" />
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Testando</h5>
+                            <p>Isso aqui</p>
+                          </div>
+                    </div>
+                </div>
+
+                <!--Responsavel pela movimentação do carousel-->
+
+                <a class="carousel-control-prev expand-sm" href="#slideshow" data-slide-to="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+
+                <a class="carousel-control-next carousel-control-next-expand-sm" href="#slideshow" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!--Area dos produtos adicionados!-->
+
+    <section class="section-body">
+
+        <!--As divs ".col" tem o texto alinhado a esquerda por padrão, mas
+        mudei no css pro centro-->
+        <div class="container" style="background-color: #F1C8C7;">
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <a href="#"><img src="public/img/livroconectadas.jpg"></a>
+                    <h5>Produto tal</h5>
+                    <p>Descrição tal</p>
+                </div>
+                <div class="col-sm-6">
+                    <a href="#"><img src="public/img/livroguiadefinitivo.jpg"></a>
+                    <h5>Produto tal</h5>
+                    <p>Descrição tal</p>
+                </div>
+
+            </div>
+            
+
+        <!--Sim, por algum motivo a class row adiciona algum tipo de margin
+        ou padding que eu não consigo tirar de jeito nenhum, mas que eu imagino
+        que não vá interferir em nada, pois o limite continua sendo a width da div container
+        -->    
+        
+            <div class="row" style="background-color: yellow;margin-top: 20px;">
+
+                <div class="col-sm-4">
+                    <a href="#"><img src="public/img/livroconectadas.jpg"></a>
+                    <h5>Produto tal</h5>
+                    <p>Descrição tal</p>
+                 </div>
+                 <div class="col-sm-4">
+                    <a href="#"><img src="public/img/livroguiadefinitivo.jpg"></a>
+                    <h5>Produto tal</h5>
+                    <p>Descrição tal</p>
+                 </div>
+                 <div class="col-sm-4">
+                    <a href="#"><img src="public/img/livroconectadas.jpg"></a>
+                    <h5>Produto tal</h5>
+                    <p>Descrição tal</p>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+
+    <script src="public/js/jquery-3.6.0.min.js"></script>
+    <script src="public/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
