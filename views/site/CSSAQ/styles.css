@@ -26,10 +26,10 @@ body{
 
 .content img{
     margin-right: 50px;
-    margin-top: 20px;
+    margin-top: -5px;
    
-    width: 250px;
-    height: 250px;
+    width: 340px;
+    height: 340px;
 }
 
 .bolas {
@@ -49,7 +49,7 @@ body{
     text-align: center;
     margin-right: 30px;
     margin-left: 30px;
-    margin-top: 75px;
+    margin-top: 30px;
     display: flex;
     width: 200px;
     height: 200px;
