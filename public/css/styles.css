@@ -9,3 +9,67 @@ body {
 	background-color: #F1C8C7;
     font-family: 'Raleway', sans-serif;
 }
+
+.logo {
+	width: 40%;
+	text-align: center;
+
+	animation-name: conteudo;
+	animation-duration: 2s;
+}
+
+.logo img {
+	width: 150px;
+	border-radius: 320px;
+	margin-bottom: -70px;
+	margin-left: -330px;
+}
+
+.main {
+	padding: 40px 180px 80px 100px;
+
+	animation-name: conteudo;
+	animation-duration: 2s;
+}
+
+.main li.contact-icon {
+	display: inline-block;
+	font-size: 22px;
+}
+
+.main iframe {
+	text-align: center;
+}
+
+.main h1 {
+	color: #232121;
+}
+
+.main h3 {
+	color: #D488AD;
+	font-size: 18px;
+	text-transform: none;
+}
+
+.social-img {
+	width: 40px;
+	margin-right: 10px;
+}
+
+.textbox {
+	margin-left: 100px;
+	text-align: center;
+}
+
+.textbox h3 {
+	margin-right: 85px;
+	color: #D488AD;
+	font-size: 18px;
+	text-transform: none;
+	text-align: center;
+}
+
+@keyframes conteudo {
+	0% {opacity: 0; transform: translate(-20px,0px)}
+	100% {opacity: 1; transform: translate(0px,0px)}
+}
