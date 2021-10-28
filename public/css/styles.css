@@ -6,7 +6,10 @@ body {
 
 
 body {
-	background-color: #F1C8C7;
+	background-image: url('../../public/img/background2.jpg');
+	background-size: 100%;
+	text-align: center!important;
+	background-color: #F1C8C7!important;
     font-family: 'Raleway', sans-serif;
 }
 
@@ -26,13 +29,11 @@ body {
 }
 
 .main {
-	padding: 40px 180px 80px 100px;
-
 	animation-name: conteudo;
 	animation-duration: 2s;
 }
 
-.main li.contact-icon {
+.main svg.xmins {
 	display: inline-block;
 	font-size: 22px;
 }
@@ -57,16 +58,15 @@ body {
 }
 
 .textbox {
-	margin-left: 100px;
+	
 	text-align: center;
 }
 
 .textbox h3 {
-	margin-right: 85px;
+	
 	color: #D488AD;
 	font-size: 18px;
-	text-transform: none;
-	text-align: center;
+	
 }
 
 @keyframes conteudo {
