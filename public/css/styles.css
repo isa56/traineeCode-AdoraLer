@@ -1,9 +1,13 @@
 body{
-	background-color: #F1C8C7;
+	background-image: url('../../public/img/background2.jpg');
+	width: 100%;
+	height: 100%;
+	background-repeat: no;
+	font-family: 'Marck Script', sans-serif;
+	font-family: 'Raleway', sans-serif;
 }
 
 .container h1{
-	background-color: #F1C8C7 ;
 	color: #F7883F;
 	margin-left: 0px;
 	font-weight: normal;
@@ -78,55 +82,57 @@ body{
 .back_link{
 	margin-top: 20px;
 	margin-bottom: 10px;
+	padding-bottom: 300px;
 	color: #F19B75;
 	text-transform: none;
 }
 
-#myInput {
-    width: 80%; /* Full-width */
-    font-size: 16px; /* Increase font-size */
-    padding: 12px 20px 12px 10px; /* Add some padding */
-    border: 1px solid #F7883F; /* Add a grey border */
-    margin-bottom: 12px; /* Add some space below the input */
-    margin-left: 10px;
-}
-  
-#uList {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-  
-#uList li a {
-    border: 1px solid #F7883F; /* Add a border to all links */
-    margin-top: -1px; /* Prevent double borders */
-    background-color: #f6f6f6; /* Grey background color */
-    padding: 12px; /* Add some padding */
-    text-decoration: none; /* Remove default text underline */
-    font-size: 18px; /* Increase the font-size */
-    color: black; /* Add a black text color */
-    display: block; /* Make it into a block element to fill the whole list */
-}
-  
-#uList li a:hover:not(.header) {
-    background-color: #eee; /* Add a hover effect to all links, except for headers */
-}
 
+
+.search-btn{
+	color: #F7883F!important;
+	border-color: #F7883F!important;
+}
+.search-btn:hover{
+	background-color: #7B5B5A;
+
+}
+.container h1{
+	font-weight: 600;
+}
 .card{
-	border: #F7883F;
+	margin-top: 20px;
 	display: inline-block;	
 }
-
-.card-img-top img{
-	max-height: 536px;
+.card-body{
+	height: 180px;
 }
- .botaoCompra{
-	 background-color:#F1C8C7;
-	 color:#F7883F;
-	 border: #F7883F;
- }
- 
- .botaoCompra:hover{
+.card-title{
+	color: #7B5B5A;
+	height: 60px;
+}
+.card-text{
+	color: #7B5B5A;
+	margin-bottom: 0;
+}
+.card-img-top img{
+	max-height: 340px!important;
+}
+.botaoCompra{
+	background-color:#F1C8C7;
+	color:#F7883F;
+	border: #F7883F;
+}
+.botaoCompra:hover{
 	background-color:#7B5B5A;
-	color: #f7883f !important;;
- }
+	color: #F7883F !important;;
+}
+.paginacao{
+	margin-top: 30px!important;
+	margin-bottom: 0;
+
+}
+.page-link{
+	color: #7B5B5A;
+}
+
