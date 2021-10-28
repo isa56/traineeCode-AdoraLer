@@ -12,13 +12,13 @@ body{
 }
 .content{
         text-align: left;
-        background-color: blue;
+        
         display: flex;
     
 }
 .content h3{
-    font-family: Marck Script;
-    background-color: red;
+        font-family: Marck Script;
+   
     margin-left: 40px;
     margin-right: 100px;
     font-size: 17px;
@@ -27,15 +27,32 @@ body{
 .content img{
     margin-right: 50px;
     margin-top: 20px;
-    background-color:gray;
+   
     width: 250px;
     height: 250px;
 }
 
 .bolas {
+    margin-top: -3%;
     margin-left: 25%;
     width: 50%;
     height: 30%;
+}
 
-
+.bolinha{
+    display: flex;
+    justify-content: center;
+}
+.caract{
+    font-family: Marck Script;
+    font-size: 16px;
+    text-align: center;
+    margin-right: 30px;
+    margin-left: 30px;
+    margin-top: 75px;
+    display: flex;
+    width: 200px;
+    height: 200px;
+    background-color: #F7883F;
+    border-radius: 1000px;
 }
