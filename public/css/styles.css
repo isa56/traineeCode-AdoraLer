@@ -1,3 +1,46 @@
-.carousel-slide{
-	width: 30%;
+body{
+	background-image: url('../../public/img/background.jpg');
+	width: 100%;
+	height: 100%;
+	background-size: 100%;
+	background-repeat: no;
+	font-family: 'Raleway', sans-serif;
 }
+
+.container h1{
+	color: #232121;
+	margin-left: 0px;
+	font-weight: normal;
+}
+
+.breadcrumbs {
+	list-style: none;
+	padding-left: 0px;
+	color:#232121;
+}
+.breadcrumbs li{
+	display: inline-block;
+}
+
+.breadcrumbs a{
+	color:#232121;
+}
+#carouselExampleIndicators{
+	width: 350px;
+}
+
+.carousel-item img{
+	width: fit-content;
+	height: fit-content;
+}
+
+.content{
+	background-color: white;
+}
+
+.content h2{
+	color: #232121;
+	font-size: 16px;	
+}
+
+
