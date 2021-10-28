@@ -29,5 +29,13 @@ body{
     margin-top: 20px;
     background-color:gray;
     width: 250px;
-    height: 250px;;
+    height: 250px;
+}
+
+.bolas {
+    margin-left: 25%;
+    width: 50%;
+    height: 30%;
+
+
 }
