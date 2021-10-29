@@ -1,0 +1,13 @@
+footer .container {
+    text-align: center;
+}
+
+footer .container h1 {
+    margin-top: 10px;
+    font-size: 45px;
+}
+
+footer .col-4 {
+    margin: 20px 0px;
+    font-size: 35px;
+}
