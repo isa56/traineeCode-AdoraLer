@@ -4,6 +4,8 @@
     background-image: url(../img/space.jpg);
     background-size: cover;
     background-position: center;
+    /*font-family: 'Marck Script', cursive;*/
+    font-family: 'Raleway', sans-serif;
 }
 
 .container-fluid {
@@ -18,6 +20,10 @@
 .card-container .btn:hover {
     background-color: black;
     color: white;
+}
+
+.card-header {
+    font-family: 'Marck Script', cursive;
 }
 
 /*fim da área de login*/
