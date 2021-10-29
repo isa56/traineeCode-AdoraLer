@@ -4,6 +4,8 @@ body {
     background-image: url(../img/background2.jpg);
     background-position: center;
     background-size: cover;
+    /*font-family: 'Marck Script', cursive;*/
+    font-family: 'Raleway', sans-serif;
 }
 
 i {
@@ -13,6 +15,11 @@ i {
 .card {
     background-color: transparent;
     border: none;
+}
+
+.card-big .card-text {
+    margin: auto;
+    width: 400px;
 }
 
 .container-home {
