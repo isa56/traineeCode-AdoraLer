@@ -1,3 +1,4 @@
+/*Parte do nav-bar */
 header {
     display: flex;
     justify-content: center;
@@ -18,3 +19,37 @@ header {
 #navbarMenu a:hover {
     background-color: #F1C8C7;
 }
+/*Fim da parte da nav-bar*/
+/*Parte da pagina-principal-administrativa*/
+
+.body-main-adm {
+    background-image: url(../../public/img/space2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    overflow-x: hidden;
+}
+
+.col-sm-4 {
+    padding: 0px;
+}
+
+.card {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+}
+
+.card img {
+    width: 80%;
+    opacity: 0.8;
+    height: 380px;
+}
+
+
+/*Fim da pagina-principal-administrativa*/
