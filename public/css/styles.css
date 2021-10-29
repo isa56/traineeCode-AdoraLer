@@ -1,7 +1,18 @@
 /*Começo da home ----------------
 ----------------------------*/
+body {
+    background-image: url(../img/background2.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
 i {
     font-size: 35px;
+}
+
+.card {
+    background-color: transparent;
+    border: none;
 }
 
 .container-home {
@@ -14,6 +25,7 @@ i {
 }
 
 .carousel-item img {
+    min-height: 460px;
     max-height: 640px;
 }
 
@@ -25,5 +37,6 @@ div[class^="col"] {
     max-width: 400px;
     max-height: 500px;
 }
+
 /*Fim da home ----------
 ------------------------*/
