@@ -10,7 +10,7 @@ body{
 .container h1{
 	color: #232121;
 	margin-left: 0px;
-	font-weight: normal;
+	font-weight: 300;
 }
 
 .breadcrumbs {
@@ -25,8 +25,12 @@ body{
 .breadcrumbs a{
 	color:#232121;
 }
+.col{
+	padding: 0;
+}
 #carouselExampleIndicators{
 	width: 350px;
+	margin-right: 10px;
 }
 
 .carousel-item img{
@@ -36,11 +40,36 @@ body{
 
 .content{
 	background-color: white;
+	margin-bottom: 15px;
 }
 
 .content h2{
 	color: #232121;
 	font-size: 16px;	
+	font-weight: 200;
+}
+.content h3{
+	display: inline-block;
+	color:#F7883F;
+	width: 100%;
+}
+
+.botaoCompra{
+	width: 100%;
+	background-color:#F1C8C7;
+	color:#F7883F;
+	border: #F7883F;
+}
+.botaoCompra:hover{
+	background-color:#7B5B5A;
+	color: #F7883F !important;;
+}
+
+.back_link{
+	color: #232121;
+}
+.back_link:hover{
+	color: #232121;
 }
 
 
