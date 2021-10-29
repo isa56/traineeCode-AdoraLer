@@ -8,6 +8,10 @@ body{
 	font-family: 'Marck Script', sans-serif;
 	font-family: 'Raleway', sans-serif;
 }
+.container{
+	background-color: white;
+	padding-top: 20 10 20 10;
+}
 .container h1{
 	color: #F7883F;
 	margin-left: 0px;
