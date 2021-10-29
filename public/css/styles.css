@@ -1,0 +1,23 @@
+/*Inicio da área de login*/
+
+.body-login {
+    background-image: url(../img/space.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.container-fluid {
+    height: 100vh;
+    max-width: 600px;
+}
+
+.card {
+    background-color: rgba( 255, 255, 255, 0.8);
+}
+
+.card-container .btn:hover {
+    background-color: black;
+    color: white;
+}
+
+/*fim da área de login*/
