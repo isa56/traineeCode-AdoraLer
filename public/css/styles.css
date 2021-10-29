@@ -29,15 +29,15 @@ header {
     background-size: cover;
 }
 
-.container {
+.body-main-adm .container {
     overflow-x: hidden;
 }
 
-.col-sm-4 {
+.body-main-adm .col-sm-4 {
     padding: 0px;
 }
 
-.card {
+.body-main-adm .card {
     margin-top: 40px;
     display: flex;
     align-items: center;
@@ -45,11 +45,16 @@ header {
     background-color: transparent;
 }
 
-.card img {
+.body-main-adm .card img {
     width: 80%;
-    opacity: 0.8;
+    opacity: 0.9;
     height: 380px;
 }
 
-
+@media (max-width: 320px) {
+    .body-main-adm .navbar {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+}
 /*Fim da pagina-principal-administrativa*/
