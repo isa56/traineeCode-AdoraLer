@@ -1,13 +1,7 @@
-* {
-    margin: 0px;
-}
-
-body {
-    box-sizing: border-box;
-}
+/*navbar começa aqui--------
+--------------------*/
 
 header {
-    background-color: #D488AD;
     display: flex;
     justify-content: center;
     /*font-family: 'Marck Script', cursive;*/
@@ -27,4 +21,7 @@ header {
 #navbarMenu a:hover {
     background-color: #F1C8C7;
 }
+
+/*fim da navbar-----------
+-------------------------*/
 
