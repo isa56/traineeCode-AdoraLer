@@ -9,8 +9,13 @@ body {
 	background-image: url('../../public/img/background2.jpg');
 	background-size: 100%;
 	text-align: center!important;
-	background-color: #F1C8C7!important;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway', sans-serif!important;
+}
+
+.container {
+	background-color: white;
+	opacity: 0.9;
+	padding-top: 20 10 20 10;
 }
 
 .logo {
@@ -24,8 +29,9 @@ body {
 .logo img {
 	width: 150px;
 	border-radius: 320px;
-	margin-bottom: -70px;
-	margin-left: -330px;
+	margin-bottom: -30px;
+	margin-left: -410px;
+	margin-top: 20px;
 }
 
 .main {
@@ -50,11 +56,21 @@ body {
 	color: #D488AD;
 	font-size: 18px;
 	text-transform: none;
+	margin-top: 50px;
+}
+
+.mb-3 {
+	text-align: left!important;
+	color:#D488AD;
 }
 
 .social-img {
 	width: 40px;
 	margin-right: 10px;
+}
+
+.a social-img:hover {
+	color:#D488AD;
 }
 
 .textbox {
