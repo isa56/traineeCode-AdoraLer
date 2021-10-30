@@ -51,6 +51,11 @@ header {
     height: 380px;
 }
 
+i {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
 @media (max-width: 320px) {
     .body-main-adm .navbar {
         padding-right: 0px;
