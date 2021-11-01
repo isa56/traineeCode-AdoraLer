@@ -8,21 +8,21 @@
     font-family: 'Raleway', sans-serif;
 }
 
-.container-fluid {
+.body-login .container-fluid {
     height: 100vh;
     max-width: 600px;
 }
 
-.card {
+.body-login .card {
     background-color: rgba( 241, 200, 199, 0.8);
 }
 
-.card-container .btn:hover {
+.body-login .card-container .btn:hover {
     background-color: black;
     color: white;
 }
 
-.card-header {
+.body-login .card-header {
     font-family: 'Marck Script', cursive;
 }
 
