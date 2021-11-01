@@ -12,6 +12,10 @@ i {
     font-size: 35px;
 }
 
+h1 {
+    margin-bottom: 20px;
+}
+
 .card {
     background-color: transparent;
     border: none;
