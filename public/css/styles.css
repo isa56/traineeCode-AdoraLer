@@ -1,6 +1,6 @@
 /*Começo da home ----------------
 ----------------------------*/
-body {
+.home {
     background-image: url(../img/background2.jpg);
     background-position: center;
     background-size: cover;
@@ -8,20 +8,20 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
-i {
+.container-home i {
     font-size: 35px;
 }
 
-h1 {
+.container-home h1 {
     margin-bottom: 20px;
 }
 
-.card {
+.container-home .card {
     background-color: transparent;
     border: none;
 }
 
-.card-big .card-text {
+.container-home .card-big .card-text {
     margin: auto;
     width: 400px;
 }
