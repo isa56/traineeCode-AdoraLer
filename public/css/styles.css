@@ -30,7 +30,7 @@
     border: none;
 }
 
-.card-body{
+.container-home .card-body{
 	background-color:white;
 }
 .container-home .card-big  {
