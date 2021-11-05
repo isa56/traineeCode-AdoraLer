@@ -1,17 +1,17 @@
 
 body{
 
-    font-family: arial;
+    font-family: 'Raleway', sans-serif;
     background-image: url("../img/fundo.jpg");
 }
 .titulo-site{
-    font-family: raleway;
+    
     margin-left: 40px;
     color:#ec7221;
 
 }
 .content{
-        
+    font-family: 'Raleway', sans-serif;
         margin-bottom: -80px;
         text-align: left;
         display: flex;
