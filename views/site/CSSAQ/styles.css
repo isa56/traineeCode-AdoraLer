@@ -2,7 +2,7 @@
 body{
 
     font-family: arial;
-    background-image: url("");
+    background-image: url("../img/fundo.jpg");
 }
 .titulo-site{
     font-family: raleway;
@@ -11,6 +11,7 @@ body{
 
 }
 .content{
+        
         margin-bottom: -80px;
         text-align: left;
         display: flex;
@@ -21,7 +22,8 @@ body{
    
     margin-left: 40px;
     margin-right: 100px;
-    font-size: 17px;
+    font-size: 19px;
+    line-height: 25px;
 }
 
 .content img{
@@ -45,6 +47,7 @@ body{
 }
 .caract{
     font-family: Marck Script;
+    color:#bb4b00;
     font-size: 16px;
     text-align: center;
     margin-right: 30px;
@@ -53,6 +56,6 @@ body{
     display: flex;
     width: 200px;
     height: 200px;
-    background-color: #F7883F;
+    background-color: #F19B75;
     border-radius: 1000px;
 }
