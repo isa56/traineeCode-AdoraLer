@@ -1,25 +1,27 @@
 
 body{
-
     font-family: 'Raleway', sans-serif;
     background-image: url("../img/fundo.jpg");
 }
-.titulo-site{
-    
-    margin-left: 40px;
-    color:#ec7221;
 
+.titulo-site{
+    color:#ec7221;
+    font-family: 'Marck Script', cursive;
+    margin-left: 40px;
 }
+
 .content{
     font-family: 'Raleway', sans-serif;
-        margin-bottom: -80px;
-        text-align: left;
-        display: flex;
-    
+    margin-bottom: -80px;
+    text-align: left;
+    display: flex;
+    /* background-color: #fff;
+    margin: 5%;
+    padding: 3%;
+    border-radius: 20%; */
 }
 .content h3{
-        font-family: Marck Script;
-   
+
     margin-left: 40px;
     margin-right: 100px;
     font-size: 19px;
@@ -29,7 +31,6 @@ body{
 .content img{
     margin-right: 50px;
     margin-top: -5px;
-   
     width: 340px;
     height: 340px;
 }
@@ -45,17 +46,23 @@ body{
     display: flex;
     justify-content: center;
 }
+
 .caract{
-    font-family: Marck Script;
-    color:#bb4b00;
+    align-items: center;
+    color:#F7883F;
     font-size: 16px;
     text-align: center;
     margin-right: 30px;
     margin-left: 30px;
-    
     display: flex;
-    width: 200px;
-    height: 200px;
-    background-color: #F19B75;
+    width: 260px;
+    height: 260px;
+    background-color: #F1C8C7;
     border-radius: 1000px;
+}
+
+.brand-mission {
+    margin-top: -2px;
+    font-family: 'Marck Script', cursive;
+    font-size: 1.2em;
 }
