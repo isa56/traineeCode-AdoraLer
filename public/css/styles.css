@@ -101,11 +101,25 @@ div[class^="col"] {
 .miniatura a{
 	text-decoration: none;
 }
-.cardMenor{
-	height: 400px;
+.card-img-top{
+	height: 220px!important;
+	width: 200px!important;
 }
-.cardMenor .card-img {
-	height: 250px;
+.card-body{
+	padding-bottom: 0;
+	width: 200px!important;
+	height: 220px!important;
+}
+
+.botaoCompra{
+	margin-top: 15px;
+	background-color:#F1C8C7;
+	color:#F7883F;
+	border: #F7883F;
+}
+.botaoCompra:hover{
+	background-color:#7B5B5A;
+	color: #F7883F !important;;
 }
 /*Fim da home ----------
 ------------------------*/
