@@ -1,7 +1,7 @@
 /*navbar começa aqui--------
 --------------------*/
 
-header {
+.navbar-header {
     display: flex;
     justify-content: center;
     /*font-family: 'Marck Script', cursive;*/
