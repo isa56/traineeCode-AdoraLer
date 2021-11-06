@@ -1,14 +1,25 @@
 
 body{
     font-family: 'Raleway', sans-serif;
-    background-image: url("../img/fundo.jpg");
+    /*background-image: url("../img/fundo.jpg"); */
+    
+    background: linear-gradient(
+        rgba(235, 206, 231, 0.808),
+        rgba(231, 212, 229, 0.767) ) ,
+        url("../img/fundo.jpg");
 }
-
+/*&::before{
+    content: '';
+}*/
 .titulo-site{
+    font-size: 25px;
     color:#ec7221;
     font-family: 'Marck Script', cursive;
     margin-left: 40px;
 }
+
+
+
 
 .content{
     font-family: 'Raleway', sans-serif;
@@ -19,13 +30,15 @@ body{
     margin: 5%;
     padding: 3%;
     border-radius: 20%; */
+    
 }
 .content h3{
 
     margin-left: 40px;
     margin-right: 100px;
-    font-size: 19px;
-    line-height: 25px;
+    font-size: 20px;
+    line-height: 30px;
+    
 }
 
 .content img{
