@@ -1,9 +1,9 @@
 /*Inicio da área de login*/
 
 .body-login {
-    background-image: url(../img/space.jpg);
+    background-image: url(../img/background2.jpg);
     background-size: cover;
-    background-position: center;
+    background-position:bottom;
     /*font-family: 'Marck Script', cursive;*/
     font-family: 'Raleway', sans-serif;
 }
