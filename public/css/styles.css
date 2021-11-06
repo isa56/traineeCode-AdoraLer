@@ -23,8 +23,8 @@ header {
 /*Parte da pagina-principal-administrativa*/
 
 .body-main-adm {
-    background-image: url(../../public/img/space2.jpg);
-    background-position: center;
+    background-image: url(../../public/img/background2.jpg);
+    background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
 }
