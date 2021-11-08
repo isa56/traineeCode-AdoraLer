@@ -27,12 +27,17 @@ body{
 	color:#7B5B5A;
 	font-weight: 300;
 }
+.p{
+    padding-top: 0px;
+    padding-bottom: 5px;
+}
 .container .card {
     background-color: transparent;
     border: none;
 }
 
 .container .card-body{
+    padding-top: 5px;
 	background-color:white;
 }
 
@@ -76,7 +81,6 @@ body{
 	height: 220px!important;
 }
 .botaoCompra{
-	margin-top: 15px;
 	background-color:#F1C8C7;
 	color:#F7883F;
 	border: #F7883F;
@@ -93,17 +97,14 @@ body{
 	background-color:#7B5B5A;
 	color: #F7883F !important;;
 }
-.editarCard{
-    padding: 0;
-    height: 20px!important;
-}
-.deleteButton{
-    display: inline-block;
+
+.Botaos{
+    display: space-between;
     text-align: end;
+
 }
 .botaoDeletar{
     background-color: transparent;
-    height: 36px!important;
     padding-left: 10px!important;
 }
 .material-icons{
