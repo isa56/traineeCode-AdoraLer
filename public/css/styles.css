@@ -10,7 +10,6 @@ body{
 
 
 .container{
-	background-color: white;
 	padding-top: 20 10 20 10;
 }
 .container h1{
@@ -85,6 +84,34 @@ body{
 .botaoCompra:hover{
 	background-color:#7B5B5A;
 	color: #F7883F !important;;
+}
+.botaoEditar{
+	color:#F7883F;
+	border: #F7883F;
+}
+.botaoEditar:hover{
+	background-color:#7B5B5A;
+	color: #F7883F !important;;
+}
+.editarCard{
+    padding: 0;
+    height: 20px!important;
+}
+.deleteButton{
+    display: inline-block;
+    text-align: end;
+}
+.botaoDeletar{
+    background-color: transparent;
+    height: 36px!important;
+    padding-left: 10px!important;
+}
+.material-icons{
+    text-align: center;
+
+}
+.editingButtons{
+    text-align:right;
 }
 /*Fim da administrativaProdutos ----------
 ------------------------*/

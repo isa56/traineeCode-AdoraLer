@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administração produtos
     </title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
     <link rel="stylesheet" href="../../public/css/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,44 +16,91 @@
 </head>
 <body>
     <div class="container">
+        <div class="editingButtons">
+            <button type="button" class="btn btn-outline-light botaoEditar">
+                <span class="material-icons-outlined">
+                    add_circle_outline
+                </span>
+            </button>    
+            <button type="button" class="btn btn-outline-light botaoEditar">
+                <span class="material-icons">
+                    mode_edit
+                </span>
+            </button>
+        </div>
         <div class="card-deck">
             <div class="card">
                 <img class="card-img-top" src="../../public/img/livroconectadas1.jpg" alt="Imagem de capa do card">
                 <div class="card-body">
-                    <h5 class="card-title">Título do card</h5>
-                    <p class="card-text">Este é um card mais longo com suporte a texto embaixo.</p>
+                    <h5 class="card-title">Título do card
+                        <button type="button" class="btn btn-outline-light botaoEditar editarCard">
+                            <span class="material-icons" style="font-size:15px;">
+                                mode_edit
+                            </span>
+                        </button>
+                    </h5>
+                    <p class="card-text">Este é um card mais longo com suporte a texto embaixo.
+                        <button type="button" class="btn btn-outline-light botaoEditar editarCard">
+                            <span class="material-icons" style="font-size:15px;">
+                                mode_edit
+                            </span>
+                        </button>
+                        Preço: R$20,00.
+                        <button type="button" class="btn btn-outline-light botaoEditar editarCard">
+                            <span class="material-icons" style="font-size:15px;">
+                                mode_edit
+                            </span>
+                        </button>
+                    </p>
                     <a href="#" class="btn btn-primary botaoCompra">Comprar</a>
+                    <div class="deleteButton">
+                        <button type="button" class="btn btn-outline-light botaoCompra botaoDeletar ">
+                            <span class="material-icons-outlined">
+                                delete
+                            </span>
+                        </button>
+                    </div>
                 </div>
             </div>
             <div class="card">
-              <img class="card-img-top" src="../../public/img/livroguiadefinitivo.jpg" alt="Imagem de capa do card">
-              <div class="card-body">
-                <h5 class="card-title">Título do card</h5>
-                <p class="card-text">Este é um card com suporte a texto embaixo.</p>
-                <a href="#" class="btn btn-primary botaoCompra">Comprar</a>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="../../public/img/livroconectadas1.jpg" alt="Imagem de capa do card">
-              <div class="card-body">
-                <h5 class="card-title">Título do card</h5>
-                <p class="card-text">Este é um card maior com suporte a texto embaixo.</p>
-                <a href="#" class="btn btn-primary botaoCompra">Comprar</a>
-              </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="../../public/img/livroconectadas1.jpg" alt="Imagem de capa do card">
+                <img class="card-img-top" src="../../public/img/livroguiadefinitivo.jpg" alt="Imagem de capa do card">
                 <div class="card-body">
-                  <h5 class="card-title">Título do card</h5>
-                  <p class="card-text">Este é um card maior com suporte a texto embaixo.</p>
-                  <a href="#" class="btn btn-primary botaoCompra">Comprar</a>
+                    <h5 class="card-title">Título do card
+                        <button type="button" class="btn btn-outline-light botaoEditar editarCard">
+                            <span class="material-icons" style="font-size:15px;">
+                                mode_edit
+                            </span>
+                        </button>
+                    </h5>
+                    <p class="card-text">Este é um card mais longo com suporte a texto embaixo.
+                        <button type="button" class="btn btn-outline-light botaoEditar editarCard">
+                            <span class="material-icons" style="font-size:15px;">
+                                mode_edit
+                            </span>
+                        </button>
+                        Preço: R$20,00.
+                        <button type="button" class="btn btn-outline-light botaoEditar editarCard">
+                            <span class="material-icons" style="font-size:15px;">
+                                mode_edit
+                            </span>
+                        </button>
+                    </p>
+                    <a href="#" class="btn btn-primary botaoCompra">Comprar</a>
+                    <div class="deleteButton">
+                        <button type="button" class="btn btn-outline-light botaoCompra botaoDeletar ">
+                            <span class="material-icons-outlined">
+                                delete
+                            </span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
 
-    <script src="../../public/js/jquery-3.6.0.min.js"></script>
-    <script src="../../public/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>
