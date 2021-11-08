@@ -1,0 +1,90 @@
+/*Começo da administrativaProdutos ----------------
+----------------------------*/
+body{
+    background-image: url(../img/background2.jpg);
+    background-position: center;
+    background-size: cover;
+    /*font-family: 'Marck Script', cursive;*/
+    font-family: 'Raleway', sans-serif;
+}
+
+
+.container{
+	background-color: white;
+	padding-top: 20 10 20 10;
+}
+.container h1{
+	color: #F7883F;
+	margin-left: 0px;
+	font-weight: normal;
+}
+
+.container h5 {
+	font-weight: 600;
+    color:#7B5B5A;
+}
+
+.card-text {
+	color:#7B5B5A;
+	font-weight: 300;
+}
+.container .card {
+    background-color: transparent;
+    border: none;
+}
+
+.container .card-body{
+	background-color:white;
+}
+
+.container {
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+.container img {
+    width: 100%;
+}
+
+
+
+.h1{
+	color: #7B5B5A;
+	padding-top: 15px;
+	font-weight: 600;
+	font-size: 28px;
+	margin-bottom: 5px;
+	text-align: center;
+}
+.miniatura{
+	width: 140px;
+	height: 140px;
+	display: inline-block;
+	margin-right: 10px;
+	margin-bottom: 15px;
+	overflow: hidden;
+}
+.miniatura a{
+	text-decoration: none;
+}
+.card-img-top{
+	height: 220px!important;
+	width: 200px!important;
+}
+.card-body{
+	padding-bottom: 0;
+	width: 200px!important;
+	height: 220px!important;
+}
+.botaoCompra{
+	margin-top: 15px;
+	background-color:#F1C8C7;
+	color:#F7883F;
+	border: #F7883F;
+}
+.botaoCompra:hover{
+	background-color:#7B5B5A;
+	color: #F7883F !important;;
+}
+/*Fim da administrativaProdutos ----------
+------------------------*/
