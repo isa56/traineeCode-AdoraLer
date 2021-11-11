@@ -4,10 +4,13 @@ body{
     /*background-image: url("../img/fundo.jpg"); */
     
     background: linear-gradient(
-        rgba(235, 206, 231, 0.808),
-        rgba(231, 212, 229, 0.767) ) ,
+        rgba(235, 206, 231, 0.849),
+        rgba(231, 212, 229, 0.842) ) ,
         url("../img/fundo.jpg");
+        background-position: right, left;
+        transition: 5s;
 }
+
 /*&::before{
     content: '';
 }*/
@@ -17,13 +20,10 @@ body{
     font-family: 'Marck Script', cursive;
     margin-left: 40px;
 }
-
-
-
-
 .content{
     font-family: 'Raleway', sans-serif;
     margin-bottom: -80px;
+    margin-top: 30px;
     text-align: left;
     display: flex;
     /* background-color: #fff;
@@ -35,7 +35,7 @@ body{
 .content h3{
 
     margin-left: 40px;
-    margin-right: 100px;
+    margin-right: 150px;
     font-size: 20px;
     line-height: 30px;
     
@@ -43,27 +43,28 @@ body{
 
 .content img{
     margin-right: 50px;
-    margin-top: -5px;
+    margin-top:-20px;
     width: 340px;
     height: 340px;
 }
 
 .bolas {
-    
     margin-left: 25%;
     width: 50%;
     height: 30%;
 }
 
 .bolinha{
+    margin-top: 50px;
     display: flex;
     justify-content: center;
 }
 
 .caract{
+    
     align-items: center;
-    color:#F7883F;
-    font-size: 16px;
+    color:#f1660a;
+    font-size: 18px;
     text-align: center;
     margin-right: 30px;
     margin-left: 30px;
@@ -72,10 +73,12 @@ body{
     height: 260px;
     background-color: #F1C8C7;
     border-radius: 1000px;
+    line-height: 30px;
 }
 
 .brand-mission {
+    
     margin-top: -2px;
     font-family: 'Marck Script', cursive;
-    font-size: 1.2em;
+    font-size: 2em;
 }
