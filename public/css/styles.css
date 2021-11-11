@@ -90,10 +90,19 @@ body {
 	margin-bottom: 30px;
 }
 
-.social-icons {
-	width: 62px!important;
-	height: 32px;
+.icon {
+	text-decoration: none;
+	color: #0f0f0f;
+	padding: 1%;
+}
 
+.icon:hover {
+	color: #D488AD;
+	padding: 2%;
+}
+
+.social-icons {
+	font-size: 32px;
 }
 
 @keyframes conteudo {
