@@ -331,4 +331,12 @@ body{
     margin-top: -2px;
     font-family: 'Marck Script', cursive;
     font-size: 2em;
+body{
+    
+        background: linear-gradient(
+    
+        rgba(245, 183, 183, 0.849),
+        rgba(245, 183, 183, 0.849)) ,
+        url('../img/fundo.jpg');
+    
 }
