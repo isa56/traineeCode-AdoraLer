@@ -123,4 +123,123 @@ form .button input:hover {
 .user-details::-webkit-scrollbar{
 	width: 0;
 }
+body {
+	margin: 0px;
+	padding: 0px;
 }
+
+
+body {
+	background-image: url('../../public/img/background2.jpg');
+	background-size: 100%;
+	text-align: center!important;
+    font-family: 'Raleway', sans-serif!important;
+}
+
+
+
+.logo {
+	width: 40%;
+	text-align: center;
+
+	animation-name: conteudo;
+	animation-duration: 2s;
+}
+
+.logo img {
+	width: 150px;
+	border-radius: 320px;
+	margin-bottom: -30px;
+	margin-left: -410px;
+	margin-top: 20px;
+}
+
+.main {
+	animation-name: conteudo;
+	animation-duration: 2s;
+}
+
+.main svg.xmins {
+	display: inline-block;
+	font-size: 22px;
+}
+
+.main h1 {
+	color: #232121;
+}
+
+.main h3 {
+	color: #D488AD;
+	font-size: 18px;
+	text-transform: none;
+	margin-top: 50px;
+}
+
+.mb-3 {
+	text-align: left!important;
+	color:#D488AD;
+}
+
+.map-responsive{
+    overflow:hidden;
+    padding-bottom:40%;
+    position:relative;
+    height:0;
+}
+
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+
+.textbox {
+	
+	text-align: center;
+}
+
+.textbox h3 {
+	
+	color: #D488AD;
+	font-size: 18px;
+	
+}
+
+.background {
+	background-color:white;
+	opacity: 0.9;
+	padding-top: 1px;
+	margin-bottom: 30px;
+}
+
+.icon {
+	text-decoration: none;
+	color: #0f0f0f;
+	padding: 1%;
+}
+
+.icon:hover {
+	color: #D488AD;
+	padding: 2%;
+}
+
+.social-icons {
+	font-size: 32px;
+}
+
+@keyframes conteudo {
+	0% {opacity: 0; transform: translate(-20px,0px)}
+	100% {opacity: 1; transform: translate(0px,0px)}
+}
+
+@media (max-width: 1000px) {
+
+	.logo img {
+	width: 150px;
+	border-radius: 320px;
+	margin-bottom: -30px;
+	margin-left: -185px;
+	margin-top: 20px;
+	}
