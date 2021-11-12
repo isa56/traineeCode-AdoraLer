@@ -482,31 +482,53 @@ div[class^="col"] {
 /*CSS Página produtos começa aqui*/
 body{
 	background-image: url('../../public/img/background2.jpg');
+/* CSS Pagina Produto Individual começa aqui*/
+body{
+	background-image: url('../../public/img/background.jpg');
 	width: 100%;
 	height: 100%;
 	background-size: 100%;
 	background-repeat: no;
+<<<<<<< HEAD
 	font-family: 'Marck Script', sans-serif;
+=======
+>>>>>>> paginaProdutoIndiv
 	font-family: 'Raleway', sans-serif;
 }
 .container{
 	background-color: white;
+<<<<<<< HEAD
 	padding-top: 20 10 20 10;
 }
 .container h1{
 	color: #F7883F;
 	margin-left: 0px;
 	font-weight: normal;
+=======
+	padding-top: 20px;
+	padding-right: 30px;
+	padding-left: 30px;
+}
+.container h1{
+	color: #232121;
+	margin-left: 0px;
+	font-weight: 300;
+>>>>>>> paginaProdutoIndiv
 }
 .breadcrumbs {
 	list-style: none;
 	padding-left: 0px;
+<<<<<<< HEAD
 	color:#F7883F;
+=======
+	color:#232121;
+>>>>>>> paginaProdutoIndiv
 }
 .breadcrumbs li{
 	display: inline-block;
 }
 .breadcrumbs a{
+<<<<<<< HEAD
 	color:#F7883F;
 }
 .miniatura{
@@ -586,6 +608,38 @@ body{
 	max-height: 340px!important;
 }
 .botaoCompra{
+=======
+	color:#232121;
+}
+.col{
+	padding: 0;
+}
+#carouselExampleIndicators{
+	width: 350px;
+	margin-right: 10px;
+}
+.carousel-item img{
+	width: fit-content;
+	height: fit-content;
+}
+.content{
+	background-color: white;
+	margin-bottom: 15px;
+	padding-right: 30px;
+}
+.content h2{
+	color: #232121;
+	font-size: 16px;	
+	font-weight: 200;
+}
+.content h3{
+	display: inline-block;
+	color:#F7883F;
+	width: 100%;
+}
+.botaoCompra{
+	width: 100%;
+>>>>>>> paginaProdutoIndiv
 	background-color:#F1C8C7;
 	color:#F7883F;
 	border: #F7883F;
@@ -594,6 +648,7 @@ body{
 	background-color:#7B5B5A;
 	color: #F7883F !important;;
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 .info {
 	background-color: #F7883F;
@@ -661,3 +716,13 @@ body{
 }
 /*CSS Página produtos termina aqui*/
 >>>>>>> paginaProdutos
+=======
+.back_link{
+	color: #232121;
+}
+.back_link:hover{
+	color: #232121;
+}
+/* CSS Pagina Produto Individual termina aqui*/
+
+>>>>>>> paginaProdutoIndiv
