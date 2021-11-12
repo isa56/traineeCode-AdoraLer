@@ -1,29 +1,9 @@
 body{
-    background-color:;
-}
-.categorias ul{
-    list-style: none;
-    padding-left: 0px;
-}
-.categorias{
-    width: 230px;
-    float: left;
-    margin-left: 20px;
-}
-.categorias li{
-    border-bottom: 1px solid white;
-    padding: 5px;
-    padding-left: 15px;
-    font-size: 20px;
-    background-color:  #D488AD;
-}
-
-.categorias a{
-        text-decoration: none;
-    color: white
-}
-
-.categorias li:hover{
-    background-color: #F1C8C7;
-    transition: 1s;
+    
+        background: linear-gradient(
+    
+        rgba(245, 183, 183, 0.849),
+        rgba(245, 183, 183, 0.849)) ,
+        url('../img/fundo.jpg');
+    
 }
