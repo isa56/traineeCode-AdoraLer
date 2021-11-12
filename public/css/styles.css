@@ -365,10 +365,16 @@ body{
     background-image: url(../img/background2.jpg);
     background-position: center;
     background-size: cover;
+/*Footer começa aqui --------
+---------------------------*/
+
+footer {
+    background-color: #F1C8C7;
     /*font-family: 'Marck Script', cursive;*/
     font-family: 'Raleway', sans-serif;
 }
 
+<<<<<<< HEAD
 
 .container{
 	padding-top: 20 10 20 10;
@@ -827,3 +833,26 @@ body{
 /*Fim da administrativaProdutos ----------
 ------------------------*/
 >>>>>>> administrativaProdutos
+=======
+footer p {
+    margin-bottom: 5px;
+}
+
+footer .col-sm-4 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+footer .col-sm-4 h5 {
+    font-family: 'Marck Script', cursive;
+}
+
+footer i {
+    font-size: 35px;
+}
+
+
+
+/*Footer termina aqui ---------
+-----------------------------*/
+>>>>>>> footer
