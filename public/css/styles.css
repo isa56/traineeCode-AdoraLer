@@ -91,11 +91,11 @@ div[class^="col"] {
 .botoesCategoria{
 	margin-left: 30px;
 }
-.contactPage {
+.contactPage-home {
 	background-image: url(../../public/img/fundoContato1.png);
 	width: 100%;
 	height: 200px;
-	opacity: 0.8;
+	opacity: 1;
 	border-radius: 8px;
 	display: grid;
 	text-align: center;
@@ -104,13 +104,13 @@ div[class^="col"] {
 
 }
 
-.contactPage h4 {
+.contactPage-home h4 {
 	color: #7B5B5A;
 	font-weight: 700;
 	padding-bottom: 10px;
 }
 
-.contactPage a {
+.contactPage-home a {
 	color: #F7883F;
 	background-color: #F1C8C7;
 	box-shadow: 2px 2px 7px #7B5B5A;
@@ -118,7 +118,7 @@ div[class^="col"] {
 	font-weight: 550;
 }
 
-.contact a:hover {
+.contact-home a:hover {
 	background-color: #7B5B5A;
 	color: #F7883F;
 }
