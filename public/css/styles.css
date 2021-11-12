@@ -1,5 +1,7 @@
 
 body{
+       
+        
     font-family: 'Raleway', sans-serif;
     /*background-image: url("../img/fundo.jpg"); */
     
@@ -33,15 +35,18 @@ body{
     
 }
 .content h3{
-
+        /* max-width: 50%;
+        min-width: 50%;*/
     margin-left: 40px;
-    margin-right: 150px;
+    margin-right: 10px;
     font-size: 20px;
     line-height: 30px;
     
 }
 
 .content img{
+       /* max-width: 50%;
+        min-width: 50%;*/
     margin-right: 50px;
     margin-top:-20px;
     width: 340px;
