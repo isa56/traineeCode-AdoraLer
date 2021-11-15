@@ -1,0 +1,189 @@
+/*Começo da home ----------------
+----------------------------*/
+.home {
+    background-image: url(../img/background2.jpg);
+    background-position: center;
+    background-size: cover;
+    font-family: 'Marck Script', cursive;
+    font-family: 'Raleway', sans-serif;
+}
+
+.container-home i {
+    font-size: 35px;
+}
+
+.container-home h1 {
+    margin-bottom: 20px;
+}
+
+.container-home h5 {
+	font-weight: 600;
+    color:#7B5B5A;
+}
+
+.card-text {
+	color:#7B5B5A;
+	font-weight: 300;
+}
+.container-home .card {
+    background-color: transparent;
+    border: none;
+}
+
+.container-home .card-body{
+	background-color:white;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+}
+.container-home .card-big  {
+	border: 15px;
+    
+}
+
+.container-home .card-big .card-text {
+    width: auto;
+    
+}
+
+.container-home {
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+.container-home img {
+    width: 100%;
+}
+
+.carousel-item img {
+    min-height: 460px;
+    max-height: 640px;
+}
+
+div[class^="col"] {
+    margin-top: 20px;
+}
+
+.col-sm-6 a img {
+    max-width: 400px;
+    max-height: 500px;
+}
+.col-sm-6 a{
+	text-decoration: none;
+	font-weight: 600;
+	color: #7B5B5A;
+}
+.col-sm-6 a:hover{
+	color: #F7883F;
+}
+
+.row1{
+	display: flex space-between;
+}
+
+.home h1{
+	color: #7B5B5A;
+	padding-top: 15px;
+	font-weight: 600;
+	font-size: 28px;
+	margin-bottom: 5px;
+	text-align: center;
+}
+.botoesCategoria{
+	margin-left: 30px;
+}
+.contactPage-home {
+	background-image: url(../../public/img/fundoContato1.png);
+	width: 100%;
+	height: 200px;
+	opacity: 1;
+	border-radius: 8px;
+	display: grid;
+	text-align: center;
+	align-items: center;
+	margin: 40px 0 40px 0;
+
+}
+
+.contactPage-home h4 {
+	color: #7B5B5A;
+	font-weight: 700;
+	padding-bottom: 10px;
+}
+
+.contactPage-home a {
+	color: #F7883F;
+	background-color: #F1C8C7;
+	box-shadow: 2px 2px 7px #7B5B5A;
+	font-size: large;
+	font-weight: 550;
+}
+
+.contact-home a:hover {
+	background-color: #7B5B5A;
+	color: #F7883F;
+}
+
+
+
+.card-img-top{
+	height: 220px!important;
+	width: 200px!important;
+}
+.card-body{
+	padding-bottom: 0;
+	width: 200px!important;
+	height: 220px!important;
+}
+
+.botaoCompra{
+	margin-top: 15px;
+	background-color:#F1C8C7;
+	color:#F7883F;
+	border: #F7883F;
+}
+.botaoCompra:hover{
+	background-color:#7B5B5A;
+	color: #F7883F !important;;
+}
+.info {
+	background-color: #F7883F;
+	border-radius: 8px;
+	opacity: 90%;
+	height: 70%;
+	margin: 25px 0 35px 0;
+	padding: 10px 20px 10px 20px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-ms-border-radius: 8px;
+	-o-border-radius: 8px;
+}
+.info img {
+	display: block;
+	max-width: 50%;
+	height: auto;
+}
+.info-inside h4 {
+	text-align: center;
+	font-family: 'Marck Script';
+	color: #fffff5;
+	text-shadow: #070607 2px 1px 4px;
+	font-size: xx-large;
+}
+.info-inside p {
+	text-align: justify;
+	font-size: medium;
+	font-weight: 500;
+}
+.info-inside a {
+	color: #7B5B5A;
+	background-color: #F1C8C7;
+	box-shadow: 2px 2px 7px #7B5B5A;
+	font-size: 22px;
+	font-weight: 300;
+}
+.info-inside a:hover {
+	background-color: #7B5B5A;
+	color: whitesmoke;
+}
+/*Fim da home ----------
+------------------------*/

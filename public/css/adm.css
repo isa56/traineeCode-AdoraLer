@@ -1,0 +1,65 @@
+/*Parte do nav-bar */
+header {
+    display: flex;
+    justify-content: center;
+    /*font-family: 'Marck Script', cursive;*/
+    font-family: 'Raleway', sans-serif;
+}
+
+#navbarMenu a {
+    color: #232121;
+    border: 1px solid #F1C8C7;
+    margin-right: 10px;
+}
+
+#navbarMenu .active {
+    background-color: #F1C8C7;
+}
+
+#navbarMenu a:hover {
+    background-color: #F1C8C7;
+}
+/*Fim da parte da nav-bar*/
+/*Parte da pagina-principal-administrativa*/
+
+.body-main-adm {
+    background-image: url(../../public/img/background2.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.body-main-adm .container {
+    overflow-x: hidden;
+}
+
+.body-main-adm .col-sm-4 {
+    padding: 0px;
+}
+
+.body-main-adm .card {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+}
+
+.body-main-adm .card img {
+    width: 80%;
+    opacity: 0.9;
+    height: 380px;
+}
+
+.body-main-adm i {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+@media (max-width: 320px) {
+    .body-main-adm .navbar {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+}
+/*Fim da pagina-principal-administrativa*/

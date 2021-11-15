@@ -1,0 +1,29 @@
+/*Inicio da área de login*/
+
+.body-login {
+    background-image: url(../img/background2.jpg);
+    background-size: cover;
+    background-position:bottom;
+    /*font-family: 'Marck Script', cursive;*/
+    font-family: 'Raleway', sans-serif;
+}
+
+.body-login .container-fluid {
+    height: 100vh;
+    max-width: 600px;
+}
+
+.body-login .card {
+    background-color: rgba( 241, 200, 199, 0.8);
+}
+
+.body-login .card-container .btn:hover {
+    background-color: black;
+    color: white;
+}
+
+.body-login .card-header {
+    font-family: 'Marck Script', cursive;
+}
+
+/*fim da área de login*/

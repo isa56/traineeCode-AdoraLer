@@ -1,0 +1,30 @@
+/*Footer começa aqui --------
+---------------------------*/
+
+footer {
+    background-color: #F1C8C7;
+    /*font-family: 'Marck Script', cursive;*/
+    font-family: 'Raleway', sans-serif;
+}
+
+footer p {
+    margin-bottom: 5px;
+}
+
+footer .col-sm-4 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+footer .col-sm-4 h5 {
+    font-family: 'Marck Script', cursive;
+}
+
+footer i {
+    font-size: 35px;
+}
+
+
+
+/*Footer termina aqui ---------
+-----------------------------*/
