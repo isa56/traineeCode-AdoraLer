@@ -1,64 +1,99 @@
-body{
-       
-        
-    font-family: 'Raleway', sans-serif;
-    background: linear-gradient(
-    rgba(235, 206, 231, 0.849),
-    rgba(231, 212, 229, 0.842) ) ,
-    url("../img/fundo.jpg");
-    background-position: right, left;
-    transition: 5s;
-}
 
+body{
+    background: linear-gradient(
+        rgba(235, 206, 231, 0.849),
+        rgba(231, 212, 229, 0.842) ) ,
+        url("../img/fundo.jpg");
+        background-position: right, left;
+        transition: 5s;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+}
 
 .titulo-site{
-    font-size: 25px;
     color:#ec7221;
     font-family: 'Marck Script', cursive;
-    
+    font-size: 25px;
+    height: 100px;
+    margin-left: 2%;
+    margin-top: 8%;
+    text-align: start;
 }
 
-.content h3{
-    
+.content {
+    margin: 2%;
+}
+
+.content p{
     align-items: center;
-    text-align: center;
     font-family: 'Raleway', sans-serif;
     font-size: 20px;
     line-height: 30px;
-    
+    text-align: center;
 }
 
 .content img{
-    
-   
-    width: 340px;
-    height: 340px;
+    align-items: center;
+    /* height: 50%; */
+    width: 60%;
 }
 
+.bolinha {
+    align-items: center;
+    justify-content: center;
+    margin: 0 !important;
+    text-align: center;
+}
+
+.caract {
+    background-color: #F1C8C7;
+    border: none;
+    border-radius: 50%;
+    height: 300px;
+    margin: 5%;
+    width: 300px;
+}
 
 .caract h3{
-    
-    text-align: center;
-    font-family: 'Marck Script', cursive;
-    font-size: 50px;
     color:#f1660a;
-    align-items: center;
-    
+    font-family: 'Marck Script', cursive;
+    font-size: 46px;
+    margin-top: 10%;
+    padding-top: 3%;
+    text-align: center;
 }
 
 .brand-mission {
-    
-    align-items: center;
     color:#f1660a;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    padding: 2%;
     text-align: center;
-    margin-right: 30px;
-    margin-left: 30px;
-    
-    width: 260px;
-    height: 260px;
-    background-color: #F1C8C7;
-    border-radius: 1000px;
-    line-height: 30px;
-    font-family: 'raleway', cursive;
-    font-size: 25px;
+}
+
+/* MEDIA QUERY: */
+
+@media (max-width: 768px) {
+
+    .content p {
+        font-size: 18px;
+    }
+
+    .content img {
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        text-align: center;
+    }
+
+    .caract {
+        height: 240px;
+        margin: 3%;
+        width: 240px;
+    }
+
+    .brand-mission{
+        font-size: 18px;
+        padding: 1%;
+    }
 }
