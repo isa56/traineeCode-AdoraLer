@@ -91,6 +91,14 @@ div[class^="col"] {
 .botoesCategoria{
 	margin-left: 30px;
 }
+.miniatura{
+	width: 140px;
+	height: 140px;
+	display: inline-block;
+	margin-right: 10px;
+	margin-bottom: 15px;
+	overflow: hidden;
+}
 .contactPage-home {
 	background-image: url(../../public/img/fundoContato1.png);
 	width: 100%;
