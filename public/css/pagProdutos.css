@@ -16,6 +16,7 @@ body{
 	color: #F7883F;
 	margin-left: 0px;
 	font-weight: normal;
+	font-family: 'Marck Script';
 }
 .breadcrumbs {
 	list-style: none;
@@ -24,6 +25,7 @@ body{
 }
 .breadcrumbs li{
 	display: inline-block;
+	font-weight: 300;
 }
 .breadcrumbs a{
 	color:#F7883F;
@@ -83,12 +85,20 @@ body{
 .container h1{
 	font-weight: 600;
 }
+
 .card{
+	max-width: 200px!important;
 	margin-top: 20px;
 	display: inline-block;	
 }
+.card-img-top{
+	height: 220px!important;
+	width: 200px!important;
+}
 .card-body{
-	height: 180px;
+	padding-bottom: 0;
+	width: 200px!important;
+	height: 220px!important;
 }
 .card-title{
 	color: #7B5B5A;
@@ -97,12 +107,6 @@ body{
 .card-text{
 	color: #7B5B5A;
 	margin-bottom: 0;
-}
-.card-img-top img{
-	max-height: 340px!important;
-}
-.card-img-top img:hover{
-	max-height: 340px!important;
 }
 .botaoCompra{
 	background-color:#F1C8C7;
@@ -133,5 +137,10 @@ body{
 }
 .back_link:hover{
 	color: #F19B75;
+}
+@media (max-width: 1000px) {
+
+	
+}
 }
 /*CSS Página produtos termina aqui*/
