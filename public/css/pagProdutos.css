@@ -1,0 +1,137 @@
+/*CSS Página produtos começa aqui*/
+body{
+	background-image: url('../../public/img/background2.jpg');
+	width: 100%;
+	height: 100%;
+	background-size: 100%;
+	background-repeat: no;
+	font-family: 'Marck Script', sans-serif;
+	font-family: 'Raleway', sans-serif;
+}
+.container{
+	background-color: white;
+	padding-top: 20 10 20 10;
+}
+.container h1{
+	color: #F7883F;
+	margin-left: 0px;
+	font-weight: normal;
+}
+.breadcrumbs {
+	list-style: none;
+	padding-left: 0px;
+	color:#F7883F;
+}
+.breadcrumbs li{
+	display: inline-block;
+}
+.breadcrumbs a{
+	color:#F7883F;
+}
+.miniatura{
+	width: 240px;
+	height: 350px;
+	display: inline-block;
+	margin-left: 10px;
+    margin-right: 10px;
+	margin-bottom: 15px;
+	overflow: hidden;
+    border: 1px solid #F7883F;
+}
+.miniatura a{
+	text-decoration: none;
+}
+.blackbox{
+	width: 240px;
+	height: 350px;
+	opacity: 0;
+	
+}
+.blackbox:hover {
+	opacity: 0.8;
+	transition:1s;
+}
+.blackbox_text{
+	text-align: center;
+	padding-top: 120px;
+}
+.blackbox_text h1{
+	font-size: 16px;
+	background-color: #7B5B5A;
+	color: #F7883F;
+	text-transform: uppercase;
+	margin-top: 0;
+	margin-left: 0;
+	padding-left: 0;
+}
+.blackbox_text h2{
+    color: #F19B75;
+	background-color: #7B5B5A;
+	text-transform: none;
+	font-weight: 400;
+	margin-top: 0;
+}
+.search-btn{
+	background-color: #F1C8C7;
+	color: #F7883F!important;
+	border-color: transparent!important;
+}
+.search-btn:hover{
+	background-color: #7B5B5A;
+
+}
+.container h1{
+	font-weight: 600;
+}
+.card{
+	margin-top: 20px;
+	display: inline-block;	
+}
+.card-body{
+	height: 180px;
+}
+.card-title{
+	color: #7B5B5A;
+	height: 60px;
+}
+.card-text{
+	color: #7B5B5A;
+	margin-bottom: 0;
+}
+.card-img-top img{
+	max-height: 340px!important;
+}
+.card-img-top img:hover{
+	max-height: 340px!important;
+}
+.botaoCompra{
+	background-color:#F1C8C7;
+	color:#F7883F;
+	border: #F7883F;
+}
+.botaoCompra:hover{
+	background-color:#7B5B5A;
+	color: #F7883F !important;;
+}
+.paginacao{
+	margin-top: 30px!important;
+	margin-bottom: 0;
+
+}
+.page-link{
+	color: #7B5B5A;
+}
+.page-link:hover{
+	color: #7B5B5A;
+}
+.back_link{
+	margin-top: 20px;
+	margin-bottom: 10px;
+	padding-bottom: 300px;
+	color: #F19B75;
+	text-transform: none;
+}
+.back_link:hover{
+	color: #F19B75;
+}
+/*CSS Página produtos termina aqui*/
