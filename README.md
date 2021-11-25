@@ -15,7 +15,7 @@
 
 ## Descrição do Projeto:
 
-* Site E-Commerce de treinamento e capacitação dos Trainees da CodeJR, na gestão 2021.2;
+* Site E-Commerce / Sistema de treinamento e capacitação dos Trainees da CodeJR, na gestão 2021.2;
 * Possuirá Front-End em HTML, CSS, Bootstrap e Back-End em PHP (puro) no padrão MVC, com Banco de Dados MySQL;
 * Não possuirá todas as funcionalidades de um E-Commerce;
 
@@ -75,11 +75,11 @@ git push origin nomeDaBranch
 
 ### Quando terminar a funcionalidade - *com autorização do SCRUM Master*
 
-Volte para a main
+Volte para a master
 ```
-git checkout main
+git checkout master
 ```
-Atualize a main
+Atualize a master
 ```
 git pull
 ```
@@ -87,24 +87,24 @@ Volte pra sua branch
 ```
 git checkout nomeDaBranch
 ```
-Mescle a main com a sua branch <sub>(estando dentro da sua branch)<sub/>
+Mescle a master com a sua branch <sub>(estando dentro da sua branch)<sub/>
 ```
-git merge main
+git merge master
 ```
 Confirme o merge <sub>(quando solicitado pelo Scrum Master)<sub/>
 ```
 git push origin nomeDaBranch
 ```
 Espere a confirmação do seu Scrum Master\
-Volte para a main
+Volte para a master
 ```
-git checkout main
+git checkout master
 ```
-Mescle a main com as alterações enviadas para sua branch <sub>(quando solicitado pelo Scrum Master)<sub/> 
+Mescle a master com as alterações enviadas para sua branch <sub>(quando solicitado pelo Scrum Master)<sub/> 
 ```
 git merge nomeDaBranch
 ```
 Confirme o merge <sub>(quando solicitado pelo Scrum Master)<sub/>
 ```
-git push origin main
+git push origin master
 ```

@@ -1,3 +1,6 @@
 
 # Ignorando os arquivos do VSCode:
 .vscode
+
+# Ignorando pasta gerada:
+vendor/
