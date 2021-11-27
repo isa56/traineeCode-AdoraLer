@@ -11,7 +11,9 @@ class Request
      */
     public static function uri()
     {
+        //trim retira espaço no inicio e final da string
         return trim(
+            //parse_url interpreta a url
             parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/'
         );
     }
