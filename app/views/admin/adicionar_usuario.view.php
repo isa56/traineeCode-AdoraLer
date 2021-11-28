@@ -34,9 +34,9 @@
                     </div> 
                 </div>
                 <div class="gender-details">
-                    <input type="radio" name="genero" id="dot-1">
-                    <input type="radio" name="genero" id="dot-2">
-                    <input type="radio" name="genero" id="dot-3">
+                    <input type="radio" name="genero" value="H" id="dot-1">
+                    <input type="radio" name="genero" value="F"id="dot-2">
+                    <input type="radio" name="genero" value="I"id="dot-3">
                     <span class="gender-title">Genero</span>
                     <div class="category">
                         <label for="dot-1">
@@ -62,19 +62,6 @@
 </html>
 
 
-<!--<?php
-    if($_POST) {
-        $senha          = $_POST['senha'];
-        $senhaConfirma  = $_POST['senha_confirma'];
-        if ($senha == "") {
-            $mensagem = "<span class='aviso'><b>Aviso</b>: Senha não foi alterada!</span>";
-        } else if ($senha == $senhaConfirma) {
-            $mensagem = "<span class='sucesso'><b>Sucesso</b>: As senhas são iguais: ".$senha."</span>";
-        } else {
-            $mensagem = "<span class='erro'><b>Erro</b>: As senhas não conferem!</span>";
-        }
-        echo "<p id='mensagem'>".$mensagem."</p>";
-    }
-?>-->
 
+                    
 

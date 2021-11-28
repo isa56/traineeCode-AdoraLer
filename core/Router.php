@@ -49,9 +49,9 @@ class Router
         //echo $uri;
         //echo '<br/>';
         $this->routes['GET'][$uri] = $controller;
-        echo '<pre>';
+        /*echo '<pre>';
         print_r($this->routes);
-        echo '</pre>';
+        echo '</pre>';*/
     }
 
     /**
@@ -124,7 +124,6 @@ class Router
      */
     protected function callAction($controller, $action)
     {
-        echo $controller . ' -- ' . $action;
         //echo '<br/>';
         /* aqui eu passo para $controller o local do 
         arquivo que eu desejo buscar

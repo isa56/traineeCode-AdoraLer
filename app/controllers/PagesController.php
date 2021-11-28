@@ -35,4 +35,8 @@ class PagesController
         return view('quem_somos');
     }
 
+    public function adicionar_usuario() {
+        return view('admin/adicionar_usuario');
+    }
+
 }
