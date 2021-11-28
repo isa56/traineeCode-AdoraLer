@@ -2,6 +2,7 @@
 
 <html>
 
+	<?php require('includes/navbar.php'); ?>
 	<head>
 		<title>Contato - AdoraLer</title>
 
@@ -19,10 +20,6 @@
 	<div class="container">
 
 		<div class="capa">
-
-		<div class="logo">
-			<img src="../../public/assets/AdoraLerLogoSFundo.png" alt="Foto de AdoraLer">
-		</div>
 
 		</div>
 		
@@ -90,5 +87,6 @@
 
 	</div>
 	
+    <?php require('includes/footer.php'); ?>
     
 </body>

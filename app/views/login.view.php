@@ -14,6 +14,8 @@
 </head>
 <body class="body-login">
     
+
+    <?php require('includes/navbar.php'); ?>
     <div class="container-fluid d-flex justify-content-center align-items-center">
         <div class="card-container d-flex justify-content-center align-items-center w-100">
             <div class="card w-100">
@@ -35,7 +37,10 @@
                             <input type="password" class="form-control" placeholder="*********">
                         </div>
                         <div class="form-group">
-                            <input type="submit" value="LogIn" class="btn float-right login_btn">
+                            <a href="adicionar_usuario" style="background: red"><input type="submit" value="Cadastrar" class="btn float-right login_btn"></a>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="LogIn" class="btn float-right login_btn" style="margin-right:20px" >
                         </div>
                     </form>
                 </div>

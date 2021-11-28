@@ -28,11 +28,11 @@
             <!--Menu-->
 
             <div id="navbarMenu" class="navbar-collapse collapse">
-                <a href="navbar.html" class="nav-item nav-link active">Início</a>
-                <a href="paginaProdutosBootStrap.html" class="nav-item nav-link">Produtos</a>
-                <a href="contato.html" class="nav-item nav-link">Contato</a>
-                <a href="quem-somos.html" class="nav-item nav-link">Quem somos</a>
-                <a href="login.html" class="nav-item nav-link">Login</a> 
+                <a href="/" class="nav-item nav-link active">Início</a>
+                <a href="produtos" class="nav-item nav-link">Produtos</a>
+                <a href="contato" class="nav-item nav-link">Contato</a>
+                <a href="quem_somos" class="nav-item nav-link">Quem somos</a>
+                <a href="login" class="nav-item nav-link">Login</a> 
             </div>
 
         </nav>

@@ -15,8 +15,10 @@
 </head>
 <body class="home">
     
+    <?php require('includes/navbar.php'); ?>
     <!--Isso aqui é só para ter uma ideia, qql mudança é valida
-    lets que bora!!-->
+    !-->
+
     <section class="head">
         <div class="container container-home text-center">
             <h1>Conheça nossos principais produtos</h1>
@@ -173,6 +175,7 @@
 
     </section>
 
+    <?php require('includes/footer.php'); ?>
 
     <script src="../../public/js/jquery-3.6.0.min.js"></script>
     <script src="../../public/js/bootstrap.bundle.min.js"></script>

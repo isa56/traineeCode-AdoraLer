@@ -5,7 +5,7 @@
         <title>Registrar-Usuario</title>
         
         <meta charset="utf-8">
-        <link rel="stylesheet" href="../../public/css/usuary.css">
+        <link rel="stylesheet" href="../../../public/css/usuary.css">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,23 +14,23 @@
     <body>
         <div class="container">
             <div class="title">Registrar</div>
-            <form action="#">
+            <form method="POST" action="adicionar_usuario">
                 <div class="user-details">
                     <div class="input-box">
                         <span class="details">Nome de Usuario</span>
-                        <input type="text" placeholder="Escreva seu nome de Usuario" required>
+                        <input type="text" placeholder="Escreva seu nome de Usuario" name="nome" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Email</span>
-                        <input type="text" placeholder="Digite seu Email" required>
+                        <input type="text" placeholder="Digite seu Email" name="email" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Senha</span>
-                        <input type="text" placeholder="Digite sua senha" required>
+                        <input type="text" placeholder="Digite sua senha" name="senha" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Confirmar senha</span>
-                        <input type="text" placeholder="Confirme sua senha" required>
+                        <input type="text" placeholder="Confirme sua senha" name="senha_confirma" required>
                     </div> 
                 </div>
                 <div class="gender-details">
@@ -62,6 +62,19 @@
 </html>
 
 
-
+<!--<?php
+    if($_POST) {
+        $senha          = $_POST['senha'];
+        $senhaConfirma  = $_POST['senha_confirma'];
+        if ($senha == "") {
+            $mensagem = "<span class='aviso'><b>Aviso</b>: Senha não foi alterada!</span>";
+        } else if ($senha == $senhaConfirma) {
+            $mensagem = "<span class='sucesso'><b>Sucesso</b>: As senhas são iguais: ".$senha."</span>";
+        } else {
+            $mensagem = "<span class='erro'><b>Erro</b>: As senhas não conferem!</span>";
+        }
+        echo "<p id='mensagem'>".$mensagem."</p>";
+    }
+?>-->
 
 
