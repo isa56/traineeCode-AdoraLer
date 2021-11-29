@@ -49,14 +49,22 @@ class QueryBuilder
         header("Location: /adm");
     }
 
-    public function edit()
+    public function edit($table, $parametro)
     {
+         //ESSE PARAMETRO AQUI POSSIVELMENTE É DIFERENTE, COM NOVOS CAMPOS COMO POR EXEMPLO, SENHA E NOVA SENHA, EMAIL E NOVO EMAIL, NOME E NOVO NOME, SEXO E NOVO SEXO;
          
     }
 
-    public function delete()
+    public function delete($table, $parametro)
     {
-      
+        $parametro['nome'] = "";
+        echo 'chegou no delete query builder';
+        if(!empty($this->validUser($table, $parametro))) {
+            $query = "delete from tb_".$table." where email = '".$parametro['email']."'";
+            $this->pdo->query($query);
+            echo 'entrou no if';
+        };
+
     }
 
     public function read($table, $parametro)

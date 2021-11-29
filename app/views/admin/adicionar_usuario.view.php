@@ -1,5 +1,6 @@
 <?php
-$action = "adicionar_usuario";
+$action = "delete_usuario";
+//<?php $action ?>
 ?>
 
 
@@ -20,7 +21,7 @@ $action = "adicionar_usuario";
         <div class="container">
             <div class="title">Registrar</div>
             <!--action="adicionar_usuario-->
-            <form method="POST" action=<?php $action ?>>
+            <form method="POST" action="edit_usuario">
                 <div class="user-details">
                     <div class="input-box">
                         <span class="details">Nome de Usuario</span>

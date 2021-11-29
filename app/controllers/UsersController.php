@@ -37,6 +37,7 @@ class UsersController {
                     //header("Location: /adicionar_usuario");
                 }
             } else {
+                echo "entrou no errado";
                 echo $resultado;
             }
 
@@ -54,6 +55,16 @@ class UsersController {
                 'sexo'=>$_POST['sexo']
             ]
         );*/
+    }
+
+    public function delete() {
+        echo 'chegou no delete';
+        App::get('database')->delete('usuarios', $_POST);
+    }
+
+    public function edit() {
+        echo 'chegou no edit';
+        App::get('database')->edit('usuarios', $_POST);
     }
 
     protected function alreadyExists() {

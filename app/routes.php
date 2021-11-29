@@ -3,9 +3,9 @@
 //Sendo utilizado até o momento
 //USUÁRIO - post:
 $router->post('adicionar_usuario', 'UsersController@create');
-$router->post('delete_user', 'UsersController@delete');
-$router->post('view_user', 'UsersController@view');
-$router->post('edit_user', 'UsersController@edit');
+$router->post('delete_usuario', 'UsersController@delete');
+$router->post('view_usuario', 'UsersController@view');
+$router->post('edit_usuario', 'UsersController@edit');
 $router->post('editar_usuario', 'UsersController@editar');
 
 //Sendo utilizado até o momento
