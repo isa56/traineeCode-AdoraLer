@@ -109,5 +109,3 @@ class QueryBuilder
         echo '<br/>';*/
     }
 }
-
-"Gambiarra no delete feita, usuario passa o email do usuario que ele deseja deletar pelo $_POST, esse email é passado para a UsersController que chama a App::get para recuperar a conexão com a database(QueryBuilder.php), então chama a delete() passando a tabela e o $_POST como parametros, dentro da delete é verificado se o email existe no banco de dados, caso exista, a linha dele é deletada, caso não exista, é printada uma msg na tela"
