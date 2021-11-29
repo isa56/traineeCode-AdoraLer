@@ -46,6 +46,7 @@ class QueryBuilder
         } catch (Exception $e) {
             die($e->getMessage());
         }
+        header("Location: /adm");
     }
 
     public function edit()
@@ -58,8 +59,45 @@ class QueryBuilder
       
     }
 
-    public function read()
+    public function read($table, $parametro)
     {
-      
+        
+        /*try {
+            $stmt = $this->pdo->prepare($sql);
+            echo '<br/>';
+            echo 'chegou aq';
+            $stmt->execute($parametros);
+            
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }*/
+    
+    }
+
+    public function validUser($table, $parametro) {
+        echo '<br/>';
+        echo '<br/>';
+        $sql = "select nome from tb_".$table. " WHERE nome='".$parametro['nome']."'"; 
+        $stmt = $this->pdo->query($sql);
+        $nome = $stmt->fetch();
+        $sql = "select nome from tb_".$table. " WHERE email='".$parametro['email']."'";
+        $stmt = $this->pdo->query($sql);
+        $email = $stmt->fetch();
+        if(empty($nome) && empty($email)) {
+            return "correto";
+        } else {
+            if(!empty($nome) && !empty($email)) {
+                return "nome e email já utilizados";
+            } else if(!empty($nome)) {
+                return "nome já utilizado";
+            } else {
+                return "email já utilizado";
+            }
+        }
+        /*print_r($usuario);
+        if($usuario == "") {
+            echo "dale";
+        }
+        echo '<br/>';*/
     }
 }

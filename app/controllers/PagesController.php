@@ -11,32 +11,36 @@ class PagesController
 {
 
     public function index() {
-        return view('index');
+        return view('site/index');
     }
 
     public function contato() {
         //var_dump("Bateu no Controller");
-        return view('contato');
+        return view('site/contato');
     }
 
     public function login() {
-        return view('login');
+        return view('site/login');
     }
 
     public function guiaMochileiro() {
-        return view('paginaGuiaMochileiro');
+        return view('site/paginaGuiaMochileiro');
     }
 
     public function produtos() {
-        return view('paginaProdutos');
+        return view('site/paginaProdutos');
     }
 
     public function quem_somos() {
-        return view('quem_somos');
+        return view('site/quem_somos');
     }
 
     public function adicionar_usuario() {
         return view('admin/adicionar_usuario');
+    }
+
+    public function adm() {
+        return view('admin/adm');
     }
 
 }

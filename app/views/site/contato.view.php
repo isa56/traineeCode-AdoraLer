@@ -2,7 +2,8 @@
 
 <html>
 
-	<?php require('includes/navbar.php'); ?>
+    <?php require('includes/navbar.php'); ?>
+
 	<head>
 		<title>Contato - AdoraLer</title>
 
@@ -86,7 +87,7 @@
 
 
 	</div>
-	
-    <?php require('includes/footer.php'); ?>
+
+    <?php require('app\views\includes\footer.php'); ?>
     
 </body>

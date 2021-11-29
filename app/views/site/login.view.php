@@ -15,7 +15,8 @@
 <body class="body-login">
     
 
-    <?php require('includes/navbar.php'); ?>
+    <?php include_once('app\views\includes\navbar.php'); ?>
+
     <div class="container-fluid d-flex justify-content-center align-items-center">
         <div class="card-container d-flex justify-content-center align-items-center w-100">
             <div class="card w-100">
@@ -47,6 +48,8 @@
             </div>
         </div>
     </div>
+
+    <?php require('app\views\includes\footer.php'); ?>
 
     <script src="../../public/js/jquery-3.6.0.min.js"></script>
     <script src="../../public/js/bootstrap.bundle.min.js"></script>

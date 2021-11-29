@@ -14,9 +14,9 @@ class Connection
      */
     public static function make($config)
     {
-        echo '<pre>';
+        /*echo '<pre>';
         print_r($config);
-        echo '</pre>';
+        echo '</pre>';*/
         try {
             return new PDO(
                 $config['connection'].';dbname='.$config['name'],

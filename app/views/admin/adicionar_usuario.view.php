@@ -1,3 +1,8 @@
+<?php
+$action = "adicionar_usuario";
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -14,7 +19,8 @@
     <body>
         <div class="container">
             <div class="title">Registrar</div>
-            <form method="POST" action="adicionar_usuario">
+            <!--action="adicionar_usuario-->
+            <form method="POST" action=<?php $action ?>>
                 <div class="user-details">
                     <div class="input-box">
                         <span class="details">Nome de Usuario</span>
@@ -53,6 +59,9 @@
                         </label>
                     </div>
                 </div>
+                <?php
+
+                ?>
                 <div class="button">
                     <input type="submit" value="Registrar">
                 </div>

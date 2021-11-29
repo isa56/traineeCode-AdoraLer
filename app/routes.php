@@ -17,6 +17,7 @@ $router->get('login', 'PagesController@login');
 $router->get('guia_mochileiro', 'PagesController@guiaMochileiro');
 $router->get('produtos', 'PagesController@produtos');
 $router->get('adicionar_usuario', 'PagesController@adicionar_usuario');
+$router->get('adm','PagesController@adm');
 
 //Sendo utilizado até o momento
 //Pages - post
