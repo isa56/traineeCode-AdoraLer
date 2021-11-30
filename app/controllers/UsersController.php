@@ -3,16 +3,29 @@
 namespace App\Controllers; // atribuindo caminho para este arquivo aqui
 use App\Core\App; // utilizando função da App
 
-
-$recado = "";
 class UsersController {
+
+    public static $message;
+
+    public function admOptions() {
+
+        session_start();
+
+        $usuarios = App::get('database')->selectAll('usuarios');
+        echo $usuarios[0]->nome;
+        return view('admin/userOption', compact('usuarios'));
+    }
+
+    public static function getMessage() {
+        return static::$message;
+    }
 
     public function create() {
 
             //if()
-            $resultado = $this->alreadyExists();
             //echo 'passou o resultado';
             //echo $resultado . '---';
+            $resultado = $this->alreadyExists();
             if($resultado == "correto") {
                 'entrou';
                 $senha = $_POST['senha'];
@@ -29,16 +42,20 @@ class UsersController {
                             'sexo'=>$_POST['genero']
                         ]   
                     );
-                    header("Location: /login");
+                    header("Location: /userOption");
                 } else {
-                    $mensagem = "<span class='erro'><b>Erro</b>: As senhas não conferem!</span>";
-                    echo "<p id='mensagem'>".$mensagem."</p>";
+                    echo 'entrou nessa caralho';
+                    //ISSO AQ FUNCIONA 1X SÓ
+                    //$_SESSION['recado'] = "<span class='erro'><b>Erro</b>: As senhas não conferem!</span>";
+                    static::$message="As senhas não conferem";
+                    //echo "<p id='mensagem'>".$mensagem."</p>";
                     //$recado = $mensagem;
                     //header("Location: /adicionar_usuario");
+                    return view("admin/adicionar_usuario");
                 }
             } else {
-                echo "entrou no errado";
-                echo $resultado;
+                static::$message = $resultado;
+                return view("admin/adicionar_usuario");
             }
 
             /*App::get('database')->insert('usuarios', [

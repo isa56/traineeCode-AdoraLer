@@ -13,26 +13,28 @@
 </head>
 
 <body>
+    
+    <?php include_once('app\views\includes\navbarAdm.php'); ?>
+    <div class="pegatd">
+        <div class="container">
+            <H1 class="text-center">CATEGORIAS-Administração </H1><br>
+            <div CLASS="ROW">
+                <div class="col-md-12 col-sm-12">
+                    <h2 class="text-center">Cadastro de categorias</h2>
+                    <form name="fmCategorias" method="get" action="categorias.html">
+                        <label>Nome da Categoria:</label>
+                        <input type="text" name="txtCategoria" class="form-control" maxlength="50"><br>
+                        <div class="d-grid gap-2">
+                            <button onclick="alertausuario('mensagem do java')" class="btn btn-primary"
+                                type="button">Cadastrar</button>
+                        </div>
 
-    <main class="container">
-        <H1 class="text-center">CATEGORIAS-Administração </H1><br>
-        <div CLASS="ROW">
-            <div class="col-md-12 col-sm-12">
-                <h2 class="text-center">Cadastro de categorias</h2>
-                <form name="fmCategorias" method="get" action="categorias.html">
-                    <label>Nome da Categoria:</label>
-                    <input type="text" name="txtCategoria" class="form-control" maxlength="50"><br>
-                    <div class="d-grid gap-2">
-                        <button onclick="alertausuario('mensagem do java')" class="btn btn-primary"
-                            type="button">Cadastrar</button>
-                    </div>
-
-                </form>
-                <br>
-                <hr />
-                <h2 class="text-center">Categorias cadastradas</h2>
-            </div>
-    </main>
-
+                    </form>
+                    <br>
+                    <hr />
+                    <h2 class="text-center">Categorias cadastradas</h2>
+                </div>
+        </div>
+    </div>
 
 </body>

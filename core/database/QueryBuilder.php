@@ -14,9 +14,35 @@ class QueryBuilder
         $this->pdo = $pdo;
     }
 
-    public function selectAll()
+    public function selectAll($table)
     {
-        //$query = "select * from "
+        $query = "select * from tb_$table";
+        
+        try {
+            $query = $this->pdo->query($query);
+            //$query = $query->fetchAll(PDO::FETCH_OBJ);
+            /*print_r($query);
+            echo '<br/>';
+            $x = 0;
+            echo $x++;
+            echo $x;
+            echo $query[$x]->nome;
+            foreach($query as $value) {
+                echo '<br/>';
+                echo 'porra do value';
+                echo '<br/>';
+
+                print_r($value->nome);
+            }
+            var_dump();*/
+            $query = $query->fetchAll(PDO::FETCH_OBJ);
+            //print_r($query);
+            //echo '<br/>';*/
+            return $query;
+        } catch (Exception $e) {
+            die($e->getCode() . '--' . $e->getMessage());
+        }
+
     }
 
     public function select()
@@ -57,13 +83,13 @@ class QueryBuilder
 
     public function delete($table, $parametro)
     {
-        $parametro['nome'] = "";
+        //print_r($parametro);
+        //echo $parametro['id'];
         echo 'chegou no delete query builder';
-        if(!empty($this->validUser($table, $parametro))) {
-            $query = "delete from tb_".$table." where email = '".$parametro['email']."'";
+            $query = "delete from tb_".$table." where id = '".$parametro['id']."'";
             $this->pdo->query($query);
             echo 'entrou no if';
-        };
+        header("Location: /adm");
 
     }
 
@@ -99,6 +125,7 @@ class QueryBuilder
             } else if(!empty($nome)) {
                 return "nome já utilizado";
             } else {
+                $_SESSION['foi'] = "n foi";
                 return "email já utilizado";
             }
         }

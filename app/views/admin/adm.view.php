@@ -14,29 +14,7 @@
 </head>
 <body class="body-main-adm">
 
-    <header>
-        <div>
-            <img src="../../../public/img/outrogatofundo.png" style="width: 150px;opacity: 0.9;"> 
-        </div>
-        <nav class="navbar navbar-expand-lg navbar-light">
-
-            <!--Botão relacionado ao menu para expandir ou diminuir ele em monitores pequenos-->
-
-            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu" style="outline: none;" >
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!--Menu-->
-
-            <div id="navbarMenu" class="navbar-collapse collapse">
-                <a href="#" class="nav-item nav-link active"><i class="bi bi-people-fill"></i>Gerenciamento de usuário</a>
-                <a href="categorias.html" class="nav-item nav-link"><i class="bi bi-tags-fill"></i>Categorias</a>
-                <a href="administrativaProdutos.html" class="nav-item nav-link"><i class="bi bi-cart-fill"></i>Produtos</a>
-                <button class="btn btn-danger nav-item"><i class="bi bi-door-open-fill"></i>Deslogar</button> 
-            </div>
-
-        </nav>
-    </header>
+    <?php include_once('app\views\includes\navbarAdm.php'); ?>
 
     <section>
         <div class="container">

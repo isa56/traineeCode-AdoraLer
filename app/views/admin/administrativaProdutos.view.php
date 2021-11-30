@@ -15,6 +15,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <?php include_once('app\views\includes\navbarAdm.php'); ?>
+
     <div class="container">
         <div class="editingButtons">
             <button type="button" class="btn btn-outline-light botaoEditar">

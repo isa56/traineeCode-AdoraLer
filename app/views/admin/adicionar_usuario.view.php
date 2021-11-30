@@ -18,26 +18,68 @@ $action = "delete_usuario";
 
 	</head>
     <body>
+        <?php
+            
+            use App\Controllers\UsersController;
+        ?>
         <div class="container">
             <div class="title">Registrar</div>
             <!--action="adicionar_usuario-->
-            <form method="POST" action="edit_usuario">
+            <form method="POST" action="adicionar_usuario" id="badform">
                 <div class="user-details">
                     <div class="input-box">
                         <span class="details">Nome de Usuario</span>
                         <input type="text" placeholder="Escreva seu nome de Usuario" name="nome" required>
+                        <?php
+                            if(!isset($_SESSION['recado'])) {
+                                if(UsersController::getMessage() == "nome e email já utilizados" || UsersController::getMessage() == "nome já utilizado") {
+                                    echo "Nome já utilizado";
+                                }
+                            }
+                        ?>
                     </div>
                     <div class="input-box">
                         <span class="details">Email</span>
-                        <input type="text" placeholder="Digite seu Email" name="email" required>
+                        <input type="text" placeholder="Digite seu Email" name="email" id="email" required>
+                        <?php
+                            if(!isset($_SESSION['recado'])) {
+                                if(UsersController::getMessage() == "nome e email já utilizados" || UsersController::getMessage() == "email já utilizado") {
+                                    echo "Email já utilizado";
+                                }
+                            }
+                        ?>
                     </div>
                     <div class="input-box">
                         <span class="details">Senha</span>
                         <input type="text" placeholder="Digite sua senha" name="senha" required>
+                        <?php
+                            /*if($_SESSION['recado'] != "a") {
+                                echo 'porra';
+                                echo $_SESSION['recado']; 
+                            }*/
+                            if(!isset($_SESSION['recado'])) {
+                                if(UsersController::getMessage() == "As senhas não conferem") {
+                                    echo "As senhas não são iguais";
+                                }
+                            }
+                                
+                        ?>
                     </div>
                     <div class="input-box">
                         <span class="details">Confirmar senha</span>
                         <input type="text" placeholder="Confirme sua senha" name="senha_confirma" required>
+                        <?php
+                            /*if($_SESSION['recado'] != "a") {
+                                echo 'porra';
+                                echo $_SESSION['recado']; 
+                            }*/
+                            if(!isset($_SESSION['recado'])) {
+                                if(UsersController::getMessage() == "As senhas não conferem") {
+                                    echo "As senhas não são iguais";
+                                }
+                            }
+                                
+                        ?>
                     </div> 
                 </div>
                 <div class="gender-details">
@@ -60,18 +102,32 @@ $action = "delete_usuario";
                         </label>
                     </div>
                 </div>
-                <?php
 
-                ?>
+                <!--<script type="text/javascript" language="javascript">
+                        function valida_form (){
+                            if(document.getElementById("email").value == ""){
+                                //alert('Por favor, preencha o campo email');
+                                document.getElementById("email").focus();
+                                return false;
+                            }
+                            return true;
+                        }
+                    //var x = valida_form();
+                    var x = valida_form();
+                        if(x == false) {
+                           //alert('entrouaq');
+                           var x = document.getElementById("badform");
+                           x.setAttribute("action", "adicionar_usuario");
+                           x.setAttribute("method", "GET");
+                           //alert(x.getAttribute('action'));
+                        }
+                </script>-->
+
                 <div class="button">
-                    <input type="submit" value="Registrar">
+                    <input type="submit" value="Registrar" id="envia">
                 </div>
             </form>
         </div>
+
     </body>
 </html>
-
-
-
-                    
-

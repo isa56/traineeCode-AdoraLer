@@ -2,11 +2,10 @@
 
 <html>
 
-    <?php require('includes/navbar.php'); ?>
-
+	
 	<head>
 		<title>Contato - AdoraLer</title>
-
+		
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../../public/css/contatos.css">
@@ -15,21 +14,23 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
 	</head>
-</html>
-
-<body>
-	<div class="container">
+	</html>
+	
+	<body>
+		
+		<?php require('app\views\includes\navbar.php'); ?>
+		<div class="container">
 
 		<div class="capa">
 
-		</div>
-		
-
-		<div class="main">
-
-					
-					<h1>Contato</h1>
-
+			</div>
+			
+			
+			<div class="main">
+				
+				
+				<h1>Contato</h1>
+				
 			<div class="form-background">
 					<div class="mb-3">
 						<label for="exampleFormControlInput1" class="form-label">Nome: </label>
