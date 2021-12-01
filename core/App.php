@@ -30,7 +30,7 @@ class App
      */
     public static function get($key)
     {
-        echo $key;
+        //echo $key;
         if (! array_key_exists($key, static::$registry)) {
             throw new Exception("No {$key} is bound in the container.");
         }

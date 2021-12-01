@@ -66,8 +66,6 @@ class QueryBuilder
             //$stt = $this->pdo->prepare($sql);
             //$stt->execute($parametros);
             $stmt = $this->pdo->prepare($sql);
-            echo '<br/>';
-            echo 'chegou aq';
             $stmt->execute($parametros);
         } catch (Exception $e) {
             die($e->getMessage());
@@ -77,7 +75,7 @@ class QueryBuilder
 
     public function edit($table, $parametro)
     {
-         //ESSE PARAMETRO AQUI POSSIVELMENTE É DIFERENTE, COM NOVOS CAMPOS COMO POR EXEMPLO, SENHA E NOVA SENHA, EMAIL E NOVO EMAIL, NOME E NOVO NOME, SEXO E NOVO SEXO;
+        //ESSE PARAMETRO AQUI POSSIVELMENTE É DIFERENTE, COM NOVOS CAMPOS COMO POR EXEMPLO, SENHA E NOVA SENHA, EMAIL E NOVO EMAIL, NOME E NOVO NOME, SEXO E NOVO SEXO;
 
     }
 
@@ -85,11 +83,11 @@ class QueryBuilder
     {
         //print_r($parametro);
         //echo $parametro['id'];
-        echo 'chegou no delete query builder';
+        //echo 'chegou no delete query builder';
             $query = "delete from tb_".$table." where id = '".$parametro['id']."'";
             $this->pdo->query($query);
-            echo 'entrou no if';
-        header("Location: /adm");
+            //echo 'entrou no if';
+        header("Location: /userOption");
 
     }
 
@@ -109,8 +107,8 @@ class QueryBuilder
     }
 
     public function validUser($table, $parametro) {
-        echo '<br/>';
-        echo '<br/>';
+        //echo '<br/>';
+        //echo '<br/>';
         $sql = "select nome from tb_".$table. " WHERE nome='".$parametro['nome']."'"; 
         $stmt = $this->pdo->query($sql);
         $nome = $stmt->fetch();

@@ -1,9 +1,3 @@
-<?php
-$action = "delete_usuario";
-//<?php $action ?>
-?>
-
-
 <!DOCTYPE html>
 <html>
 
@@ -19,20 +13,28 @@ $action = "delete_usuario";
 	</head>
     <body>
         <?php
-            
-            use App\Controllers\UsersController;
+            use App\Controllers\UsersController; 
+            //to requerindo a classe UsersController para poder utilizar uma função static e uma variavel static de lá que vão permitir fazer a validação de senha/nome/email
         ?>
         <div class="container">
             <div class="title">Registrar</div>
             <!--action="adicionar_usuario-->
             <form method="POST" action="adicionar_usuario" id="badform">
+                <!--Essa formulario é enviado passando a url adicionar_usuario pelo método POST(tudo isso é necessario para que o index consiga concluir todas as etapas da rota)-->
                 <div class="user-details">
                     <div class="input-box">
                         <span class="details">Nome de Usuario</span>
                         <input type="text" placeholder="Escreva seu nome de Usuario" name="nome" required>
                         <?php
-                            if(!isset($_SESSION['recado'])) {
+                            if(!isset($_SESSION['recado'])) { 
+                                /* 
+                                    essa parte serve para tudo aqui do código, basicamente essa variavel é uma variavel global inicializada na chamada 
+                                    da PagesController, ela é responsavel por verificar se trata-se da primeira chamada da pagina ou se o usuario já inseriu algum valor e está errado
+                                    basicamente essa variavel na primeira vez que passa aq tem um valor ou seja não está vazia oq está sendo verificado com o isset, essa variavel global
+                                    só fica vazia a partir do momento em que o formulario é enviado para a UsersController, local onde as verificações ocorrem
+                                */
                                 if(UsersController::getMessage() == "nome e email já utilizados" || UsersController::getMessage() == "nome já utilizado") {
+                                    //métodos estaticos: estou utilizando a classe UsersController que é inserida no bloco php no inicio da pagina e sua função estatica que retorna a variavel presente lá com as msgs
                                     echo "Nome já utilizado";
                                 }
                             }
@@ -125,6 +127,7 @@ $action = "delete_usuario";
 
                 <div class="button">
                     <input type="submit" value="Registrar" id="envia">
+                    
                 </div>
             </form>
         </div>

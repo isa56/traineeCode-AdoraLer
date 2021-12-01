@@ -46,12 +46,13 @@ class Router
      */
     public function get($uri, $controller)
     {
-        //echo $uri;
-        //echo '<br/>';
+        
         $this->routes['GET'][$uri] = $controller;
-        /*echo '<pre>';
-        print_r($this->routes);
-        echo '</pre>';*/
+        /*
+            Como estamos requerindo o documento com todas as rotas e chamadas no require $file do construtor (load),
+            as chamadas são feitas lá e o recebimento da $uri, $controller aqui
+        */
+
     }
 
     /**
@@ -75,21 +76,31 @@ class Router
     {
         /*1--Oq está acontecendo aq é: ele ira verificar nesse array de routes
         se a $uri que estamos pesquisando está associada ao método que estamos
-        passando(ambos no parametro da função)
+        passando(ambos no parametro da função, o qual é recebido a partir do Request.php que retorna método e url)
         2--Como esse array da $router pode ter esses valores sendo que em nenhum
         momento estamos passando para ele?: Como estamos requerindo a $routes.php
         lá iremos requisitar todas as uri e caminhos que queremos chamando as funções
         get e post que passarão os valores para o array $routes dessa classe aq*/
         /*
             ao passar somente $this->routes[$requestType] oque se obtém é
-            tanto a $uri que equivale ao segundo parametro do $this->routes
-            quanto o $controller que foi passado ao chamar a função get ou post
+            a $uri que equivale ao segundo parametro do $this->routes
+            exemplo: supondo o $requestType sendo um método GET o segundo parametro pode variar entre todos os GET desse vetor($this->routes), porém como queremos só o adm
+            utilizamos da array_key_exists para verificar se existe um "adm" no segundo parametro desse vetor
+
         */
+        //print_r($this->routes[$requestType]);
+        //echo '</br>';
         if (array_key_exists($uri, $this->routes[$requestType])) {
             /*a partir dq a função callAction de $router.php é chamada
-            Passando como parametro o que está contido em routes divididado em duas partes
+            Passando como parametro o que está contido em routes dividindo em duas partes
             ou seja, completando os dois parametros que serão passados na função
             um anterior ao @ sendo o $requestType e o segundo após @ sendo a $uri em si*/
+            /*
+                como exemplo é possivel citar o proprio adm comentado na parte logo acima, assim que é chamado o $this->routes[$requestType][$uri] ou seja $this->routes[GET][adm]
+                o retorno dado por isso pode ser verificado na routes.php, porém já deixarei anotado aqui que sera PagesController@adm, sendo PagesController o documento que pretendemos acessar
+                e adm a função dentro da PagesController que pretendemos utilizar para retornar a view da pagina adm
+                
+            */
             //print_r($this->routes[$requestType]);
             //print_r(explode('@', $this->routes[$requestType][$uri]));
             return $this->callAction(
@@ -102,6 +113,9 @@ class Router
                         do $requestType
                     */
                 ...explode('@', $this->routes[$requestType][$uri])
+                /* A função explode serve para separar essa string do resultado em uma parte anterior ao @ e uma parte após, o que vai equivaler os dois parametros necessarios 
+                para a função callAction funcionar($controller,$action);
+                */
             );
 
         }
@@ -135,11 +149,16 @@ class Router
         /* Isso aqui está ocorrendo da seguinte forma: com o arquivo de autoloads_class e o static do vendor
         pelo oq eu entendi ele automaticamente carrega a classe do arquivo o qual estamos passando
         para o $controller*/
-        $controller = "App\\Controllers\\{$controller}";
+        //ou seja não é necessario usar o require ou "use" do composer
         //echo $controller;
-        //echo '<br/>';
+        $controller = "App\\Controllers\\{$controller}";
         $controller = new $controller;
-
+        /*
+            Essa parte é responsavel por criar uma nova classe do documento em que a pag que passamos a uri está ligada
+            por exemplo, se você encaminha adm no url do site ela sera chamada pela index que vai chamar esse doc aqui
+            chamando a função direct e passando como parametro os métodos que utilizamos(possivelmente get) junto a url(adm)
+            dentro da direct ele verifica se no nosso this.routes(vetor que recebe todos os valores a partir da chamada da função na routes )
+        */
         if (! method_exists($controller, $action)) {
             throw new Exception(
                 "{$controller} does not respond to the {$action} action."
@@ -147,5 +166,10 @@ class Router
         }
 
         return $controller->$action();
+        /* 
+            Se a url tiver sido adm a partir de um método get ele vai chamar a PagesController(função), sim trata-se da função presente no doc PagesController.php, o qual só é posisvel
+            ser chamado pois colocamos a referencia a ele e no caso de um método post ao UsersController na autoload_classmap.php e na autoload_static.php
+            a função então retorna oq está presente nessa função($PagesController->adm()) ou seja a view(admin/adm); para a index
+        */
     }
 }
