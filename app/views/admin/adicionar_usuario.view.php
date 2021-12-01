@@ -40,7 +40,7 @@ $action = "delete_usuario";
                     </div>
                     <div class="input-box">
                         <span class="details">Email</span>
-                        <input type="text" placeholder="Digite seu Email" name="email" id="email" required>
+                        <input type="email" placeholder="Digite seu Email" name="email" id="email" required>
                         <?php
                             if(!isset($_SESSION['recado'])) {
                                 if(UsersController::getMessage() == "nome e email já utilizados" || UsersController::getMessage() == "email já utilizado") {
