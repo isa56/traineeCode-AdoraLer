@@ -51,7 +51,7 @@ $action = "delete_usuario";
                     </div>
                     <div class="input-box">
                         <span class="details">Senha</span>
-                        <input type="text" placeholder="Digite sua senha" name="senha" required>
+                        <input type="password" placeholder="Digite sua senha" name="senha" required>
                         <?php
                             /*if($_SESSION['recado'] != "a") {
                                 echo 'porra';
@@ -67,7 +67,7 @@ $action = "delete_usuario";
                     </div>
                     <div class="input-box">
                         <span class="details">Confirmar senha</span>
-                        <input type="text" placeholder="Confirme sua senha" name="senha_confirma" required>
+                        <input type="password" placeholder="Confirme sua senha" name="senha_confirma" required>
                         <?php
                             /*if($_SESSION['recado'] != "a") {
                                 echo 'porra';
@@ -83,7 +83,7 @@ $action = "delete_usuario";
                     </div> 
                 </div>
                 <div class="gender-details">
-                    <input type="radio" name="genero" value="H" id="dot-1">
+                    <input type="radio" name="genero" value="H" id="dot-1" required>
                     <input type="radio" name="genero" value="F"id="dot-2">
                     <input type="radio" name="genero" value="I"id="dot-3">
                     <span class="gender-title">Genero</span>
