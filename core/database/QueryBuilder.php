@@ -75,7 +75,8 @@ class QueryBuilder
 
     public function edit($table, $parametro)
     {
-        echo $parametro['nome'];
+        echo "chegou";
+        echo $parametro['sexo'];
         echo "</br>";
         $query = "UPDATE tb_{$table} SET ";
         foreach($parametro as $key => $choise) {
@@ -85,8 +86,8 @@ class QueryBuilder
                 $query = $query . "{$key} = '{$choise}',";
             }
         }
-
-        $query = rtrim($query, " " . ",");
+        echo "</br>";
+        echo $query = rtrim($query, " " . ",");
         $query = $query . " WHERE id = {$parametro['id']}";
         try {
             $query = $this->pdo->query($query);
@@ -128,6 +129,7 @@ class QueryBuilder
     public function validUser($table, $parametro) {
         //echo '<br/>';
         //echo '<br/>';
+        echo "chegou";
         $sql = "select nome from tb_".$table. " WHERE nome='".$parametro['nome']."'"; 
         $stmt = $this->pdo->query($sql);
         $nome = $stmt->fetch();

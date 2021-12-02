@@ -13,8 +13,13 @@
 	</head>
     <body>
         <?php
-            use App\Controllers\UsersController; 
+            use App\Controllers\UsersController;
             //to requerindo a classe UsersController para poder utilizar uma função static e uma variavel static de lá que vão permitir fazer a validação de senha/nome/email
+            if(!isset($_GET['id'])) {
+                $_GET['id'] = UsersController::getId();
+                echo $_GET['id'];
+                echo "<br/>";
+            }
         ?>
         <div class="container">
             <div class="title">Editar(Modifique somente oq deseja mudar)</div>
@@ -28,7 +33,7 @@
                         <!--<input type="hidden" name="id" value=<?= $_GET['id'] ?>></input>-->
                         <input type = "hidden" name = "id" value=<?= $_GET['id'] ?>>
                         <?php
-                            if(!isset($_SESSION['recado'])) { // da pra tirar essa parte e manter só a segunda;
+                            //if(!isset($_SESSION['recado'])) { // da pra tirar essa parte e manter só a segunda;
                                 /* 
                                     essa parte serve para tudo aqui do código, basicamente essa variavel é uma variavel global inicializada na chamada 
                                     da PagesController, ela é responsavel por verificar se trata-se da primeira chamada da pagina ou se o usuario já inseriu algum valor e está errado
@@ -39,18 +44,18 @@
                                     //métodos estaticos: estou utilizando a classe UsersController que é inserida no bloco php no inicio da pagina e sua função estatica que retorna a variavel presente lá com as msgs
                                     echo "Nome já utilizado";
                                 }
-                            }
+                            //}
                         ?>
                     </div>
                     <div class="input-box">
                         <span class="details">Novo Email</span>
                         <input type="email" placeholder="Digite seu Email" name="email" id="email">
                         <?php
-                            if(!isset($_SESSION['recado'])) {
+                            //if(!isset($_SESSION['recado'])) {
                                 if(UsersController::getMessage() == "nome e email já utilizados" || UsersController::getMessage() == "email já utilizado") {
                                     echo "Email já utilizado";
                                 }
-                            }
+                            //}
                         ?>
                     </div>
                     <div class="input-box">
@@ -77,11 +82,11 @@
                                 echo 'porra';
                                 echo $_SESSION['recado']; 
                             }*/
-                            if(!isset($_SESSION['recado'])) {
+                            //if(!isset($_SESSION['recado'])) {
                                 if(UsersController::getMessage() == "As senhas não conferem") {
                                     echo "As senhas não são iguais";
                                 }
-                            }
+                            //}
                                 
                         ?>
                     </div> 

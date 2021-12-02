@@ -6,6 +6,7 @@ use App\Core\App; // utilizando função da App
 class UsersController {
 
     public static $message;
+    public static $id;
 
     public function admOptions() {
 
@@ -18,6 +19,10 @@ class UsersController {
 
     public static function getMessage() {
         return static::$message;
+    }
+
+    public static function getId() {
+        return static::$id;
     }
 
     public function create() {
@@ -96,6 +101,9 @@ class UsersController {
             }
         } else {
             static::$message= $resultado;
+            //"?id={$_POST['id']}"
+            static::$id = $_POST['id'];
+            return view("admin/editar_usuario");
         }       
     }
     
