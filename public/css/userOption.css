@@ -1,0 +1,34 @@
+body {
+    margin: 0px;
+}
+
+.usersOption {
+    background-color:rgba(255,192,203,0.5);
+}
+
+thead {
+    font-size: 20px;
+}
+
+.table i{
+    font-size: 30px;
+}
+
+td {
+    padding-top: 50px;
+    font-size: 20px;
+}
+
+
+button {
+    background-color: transparent;
+}
+
+
+
+body {
+    background-image: url(../../public/img/background2.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -14,6 +14,9 @@
 </head>
 <body class="body-login">
     
+
+    <?php include_once('app\views\includes\navbar.php'); ?>
+
     <div class="container-fluid d-flex justify-content-center align-items-center">
         <div class="card-container d-flex justify-content-center align-items-center w-100">
             <div class="card w-100">
@@ -21,7 +24,7 @@
                     <h3>Entre na sua conta</h3>
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form method="POST" action="login" >
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
@@ -35,13 +38,18 @@
                             <input type="password" class="form-control" placeholder="*********">
                         </div>
                         <div class="form-group">
-                            <input type="submit" value="LogIn" class="btn float-right login_btn">
+                            <a href="adicionar_usuario"><input style="background-color: #E9ECEF;" value="Cadastrar" class="btn float-right login_btn ex-submit"></a>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="LogIn" class="btn float-right login_btn" style="margin-right:20px" >
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <?php require('app\views\includes\footer.php'); ?>
 
     <script src="../../public/js/jquery-3.6.0.min.js"></script>
     <script src="../../public/js/bootstrap.bundle.min.js"></script>

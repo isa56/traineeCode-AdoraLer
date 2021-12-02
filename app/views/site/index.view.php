@@ -7,7 +7,7 @@
     <title>Home</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../../public/css/index.css" />
+    <link rel="stylesheet" href="../../../public/css/index.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
@@ -15,8 +15,10 @@
 </head>
 <body class="home">
     
+    <?php include_once('app\views\includes\navbar.php'); ?>
     <!--Isso aqui é só para ter uma ideia, qql mudança é valida
-    lets que bora!!-->
+    !-->
+
     <section class="head">
         <div class="container container-home text-center">
             <h1>Conheça nossos principais produtos</h1>
@@ -173,6 +175,7 @@
 
     </section>
 
+    <?php require('app\views\includes\footer.php'); ?>
 
     <script src="../../public/js/jquery-3.6.0.min.js"></script>
     <script src="../../public/js/bootstrap.bundle.min.js"></script>

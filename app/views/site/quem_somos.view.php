@@ -20,6 +20,8 @@
 
 <body>
 
+    <?php include_once('app\views\includes\navbar.php'); ?>
+
     <div class="titulo-site">
         <h1>
             Quem somos
@@ -77,6 +79,8 @@
         <!--  <img class="bolas" src="/public/img/bolinhaa-s fundo.png">-->
     </div>
 
+>
+    <?php require('app\views\includes\footer.php'); ?>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
