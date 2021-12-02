@@ -61,4 +61,8 @@ class PagesController
         return view('admin/userOption');
     }
 
+    public function edit() {
+        return view('admin/editar_usuario');
+    }
+
 }

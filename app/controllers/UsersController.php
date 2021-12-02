@@ -25,6 +25,7 @@ class UsersController {
             //if()
             //echo 'passou o resultado';
             //echo $resultado . '---';
+            echo "entrou";
             $resultado = $this->alreadyExists();
             if($resultado == "correto") {
                 //'entrou';
@@ -81,9 +82,23 @@ class UsersController {
 
     public function edit() {
         //echo 'chegou no edit';
-        App::get('database')->edit('usuarios', $_POST);
+        
+        $resultado = $this->alreadyExists();
+        if($resultado == "correto") {
+            $senha = $_POST['senha'];
+            $senhaConfirma  = $_POST['senha_confirma'];
+            //echo $senha . '----' . $senhaConfirma;
+            if ($senha == $senhaConfirma) {
+                App::get('database')->edit('usuarios', $_POST);
+            } else {
+                static::$message="As senhas não conferem";
+                return view("admin/editar_usuario");
+            }
+        } else {
+            static::$message= $resultado;
+        }       
     }
-
+    
     protected function alreadyExists() {
         //if($_POST['nome'] != App::get('database')->read('usuarios', 'nome'));
         //$_POST['nome'];
@@ -91,7 +106,6 @@ class UsersController {
     }
 
 }
-
 /*<?php
     if($_POST) {
         $senha          = $_POST['senha'];
@@ -106,5 +120,4 @@ class UsersController {
         echo "<p id='mensagem'>".$mensagem."</p>";
     }
 ?>*/
-
 ?>

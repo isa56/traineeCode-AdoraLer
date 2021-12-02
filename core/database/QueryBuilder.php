@@ -75,6 +75,25 @@ class QueryBuilder
 
     public function edit($table, $parametro)
     {
+        echo $parametro['nome'];
+        echo "</br>";
+        $query = "UPDATE tb_{$table} SET ";
+        foreach($parametro as $key => $choise) {
+            if($choise != "" && $key != "senha_confirma") {
+                echo $choise;
+                echo "</br>";
+                $query = $query . "{$key} = '{$choise}',";
+            }
+        }
+
+        $query = rtrim($query, " " . ",");
+        $query = $query . " WHERE id = {$parametro['id']}";
+        try {
+            $query = $this->pdo->query($query);
+            header("Location: /userOption");
+        } catch(Exception $e) {
+            die($e->getCode() . "---" . $e->getMessage());
+        }
         //ESSE PARAMETRO AQUI POSSIVELMENTE É DIFERENTE, COM NOVOS CAMPOS COMO POR EXEMPLO, SENHA E NOVA SENHA, EMAIL E NOVO EMAIL, NOME E NOVO NOME, SEXO E NOVO SEXO;
 
     }

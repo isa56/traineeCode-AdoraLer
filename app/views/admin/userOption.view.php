@@ -22,7 +22,7 @@
                         <h4>Contas</h4>
                     </div>
                     <div class="col-auto" style="margin-bottom: 10px">
-                        <a href="#" ><button type="submit" class="btn btn-primary">Novo usuario</button></a>
+                        <a href="adicionar_usuario" ><button type="submit" class="btn btn-primary">Novo usuario</button></a>
                     </div> 
                 </div>
 
@@ -45,7 +45,8 @@
                                         <td class="td"><?= $user->email; ?></td>
                                         <td>
                                             <div style="display: flex;">
-                                                <form method = "POST" action = "edit_user">
+                                            <!--action = "editar_usuario-->
+                                                <form method = "GET" action = "editar_usuario?">
                                                     <input type = "hidden" name = "id" value=<?= $user->id; ?>>
                                                     <button type="submit" class="btn"><i class="bi bi-pencil-square"></i>
                                                 </form>
@@ -70,6 +71,8 @@
         </div>
         <?php
             session_destroy();
+            //session_start();
+            //$_SESSION['user'] = $user->id;
         ?>
     </body>
 </html>
