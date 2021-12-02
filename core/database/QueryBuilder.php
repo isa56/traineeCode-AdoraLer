@@ -75,8 +75,7 @@ class QueryBuilder
 
     public function edit($table, $parametro)
     {
-        echo "chegou";
-        echo $parametro['sexo'];
+        print_r($parametro);
         echo "</br>";
         $query = "UPDATE tb_{$table} SET ";
         foreach($parametro as $key => $choise) {
@@ -86,9 +85,9 @@ class QueryBuilder
                 $query = $query . "{$key} = '{$choise}',";
             }
         }
-        echo "</br>";
-        echo $query = rtrim($query, " " . ",");
+        $query = rtrim($query, " " . ",");
         $query = $query . " WHERE id = {$parametro['id']}";
+        echo "</br>";
         try {
             $query = $this->pdo->query($query);
             header("Location: /userOption");

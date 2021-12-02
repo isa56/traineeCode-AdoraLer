@@ -97,6 +97,7 @@ class UsersController {
                 App::get('database')->edit('usuarios', $_POST);
             } else {
                 static::$message="As senhas não conferem";
+                static::$id = $_POST['id'];
                 return view("admin/editar_usuario");
             }
         } else {
