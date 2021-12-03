@@ -34,6 +34,10 @@
                     <hr />
                     <h2 class="text-center">Categorias cadastradas</h2>
                 </div>
+                <div class="btn-group" role="group" aria-label="basic sample">
+                        <a href=" " class="btn btn-primary">Edita</a>
+                        <a href=" " class="btn btn-secondery">Exclui</a>
+                </div>
         </div>
     </div>
 
