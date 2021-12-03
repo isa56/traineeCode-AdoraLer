@@ -2,7 +2,8 @@
 
 require 'vendor/autoload.php';
 require 'core/bootstrap.php';
-
+// essa chamada da bootstrap faz o link lá com o banco de dados logo na chamada da pag
+// logo a App::get fica com acesso ao bd, que é passado pela connection
 use App\Core\{Router, Request};
 
 
