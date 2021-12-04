@@ -19,16 +19,14 @@ td {
     font-size: 20px;
 }
 
-
 button {
     background-color: transparent;
 }
-
-
 
 body {
     background-image: url(../../public/img/background2.jpg);
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
+    overflow-x: hidden;
 }

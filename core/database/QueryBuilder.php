@@ -86,6 +86,10 @@ class QueryBuilder
             }
         }
         $query = rtrim($query, " " . ",");
+        /*
+            retira a virgula no final da string, por exemplo: UPDATE tb_usuarios SET nome = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',id = '29',sexo = 'F',
+            vai para UPDATE tb_usuarios SET nome = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',id = '29',sexo = 'F'
+        */
         $query = $query . " WHERE id = {$parametro['id']}";
         echo "</br>";
         try {
@@ -152,5 +156,44 @@ class QueryBuilder
             echo "dale";
         }
         echo '<br/>';*/
+    }
+
+    public function listagemProdutos($table,$table2, $parametro) {
+        //$parametro = "produto";
+        //echo "tá aq";
+        $query = "SELECT id FROM tb_".$table." WHERE categoria='".$parametro."'";
+        try {
+            //echo $query;
+            $query = $this->pdo->query($query);
+            $categoria = $query->fetch(PDO::FETCH_OBJ);
+            //if($categoria == false) {
+            if(empty($categoria)) {
+                $_SESSION['mensagem'] = "Não tem";
+                $produto = [];
+                return $produto;
+            } else {
+                $query = "SELECT * FROM tb_".$table2." Where categoria_id ='".$categoria->id."'";
+                try {
+                    $query = $this->pdo->query($query);
+                    $categoria = $query->fetchAll(PDO::FETCH_OBJ);
+                    
+                    
+                    //$object = new stdClass();
+                    //https://github.com/symfony/symfony/issues/2470;
+                    //$object = new \stdClass();
+                    //$object->categoria = $parametro;
+                    //$categoria[] = $object;
+                    //print_r($categoria);
+                    //var_dump;
+                    
+                    return  $categoria;
+                } catch(Exception $e) {
+                    echo $e->getCode() . "---" . $e->getMessage();
+                } 
+            }
+        } catch(Exception $e) {
+            echo $e->getCode() . "---" . $e->getMessage();
+        }
+        
     }
 }

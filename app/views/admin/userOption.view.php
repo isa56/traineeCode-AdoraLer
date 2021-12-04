@@ -40,7 +40,7 @@
                                 </thead>
                                 <tbody>
                                     <?php foreach($usuarios as $user) : ?>
-                                    <tr> 
+                                    <tr>
                                         <td class="td"><?= $user->nome; ?></td>
                                         <td class="td"><?= $user->email; ?></td>
                                         <td>

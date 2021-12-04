@@ -5,6 +5,7 @@ use App\Core\App; // utilizando função da App
 
 class UsersController {
 
+    public static $produto;
     public static $message;
     public static $id;
 
@@ -19,6 +20,10 @@ class UsersController {
 
     public static function getMessage() {
         return static::$message;
+    }
+
+    public static function getProduto() {
+        return static::$produto;
     }
 
     public static function getId() {
@@ -106,6 +111,17 @@ class UsersController {
             static::$id = $_POST['id'];
             return view("admin/editar_usuario");
         }       
+    }
+
+    public function listagem_produtos() {
+        session_start();
+        $_SESSION['mensagem'] = "a";
+        $produtos = App::get('database')->listagemProdutos('categorias','produtos',$_POST['mensagem']);
+        //print_r($produtos);
+        //var_dump();
+        static::$produto = $_POST['mensagem'];
+        static::$message = $_SESSION['mensagem'];
+        return view('admin/listagem_produtos', compact('produtos'));
     }
     
     protected function alreadyExists() {
