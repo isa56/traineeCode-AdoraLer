@@ -19,7 +19,7 @@
             //echo $_SESSION['total'];
             //echo $_SESSION['end'];
             //echo "</br>";
-            $total_linhas = $_SESSION['total']; // passo o total de linhas retornado da UsersController para me auxiliar a criar os botões da paginação;
+            echo $total_linhas = $_SESSION['total']; // passo o total de linhas retornado da UsersController para me auxiliar a criar os botões da paginação;
             $cont = 9; // me auxilia a passar o end para a UsersController na segunda chamada dessa página
             $y = 1; // me auxilia a númerar os botões
             //print_r($usuarios[0]);
@@ -83,7 +83,7 @@
                 </div>
             </div>
             <div style="margin-auto;display:flex;justify-content:center">
-                <?php for($i = 1;$i<$total_linhas;$i = $i*10) : ?> <!--Se-->
+                <?php for($i = 1;$i<$total_linhas;$i = $i+9) : ?> <!--Se-->
                     <form method = "GET" action = "userOption">
                         <input type = "hidden" name="end" value=<?= $cont ?>></input>
                         <button type="submit" class="btn" style="border:1px solid;border-color:green"><?= $y ?></button>
