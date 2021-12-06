@@ -5,13 +5,13 @@ use App\Core\App; // utilizando função da App
 
 class UsersController {
 
-    public static $produto;
+    public static $categoria;
     public static $message;
     public static $id;
 
     public function admOptions() {
 
-        session_start();
+        //session_start();
 
         $usuarios = App::get('database')->selectAll('usuarios');
         //echo $usuarios[0]->nome;
@@ -22,12 +22,20 @@ class UsersController {
         return static::$message;
     }
 
-    public static function getProduto() {
-        return static::$produto;
+    public static function getCategoria() {
+        return static::$categoria;
+        //essa função serve para auxiliar a saber qual categoria foi digitada inicialmente e retornar para a exibição na tabela
     }
 
     public static function getId() {
         return static::$id;
+        /*É mais simples do que parece. Na primeira vez que o adm quiser editar algum usuario ele vai clicar no botão da userOption 
+        e logo ali já vai enviar o id por um método GET para o editar_usuario lá esse id vai ser salvo em um input type hidden que vai ser enviado junto ao que o 
+        adm editar para o UsersController por um método POST, aqui ele vai passar pelas validações e enviado para o QueryBuilder para realizar as devidas alterações, lá ele vai alterar
+        tudo que foi solicitado e retornar para a UsersController, porém nessa brincadeira toda, caso ocorra algum erro, a pagina seria retornada para o usuario corrigir eles, só que como
+        a editar_usuario recebe o id do usuario que ela quer editar por um método GET, a variavel global $_GET dela não teria mais nenhum valor, fazendo com que quando enviado o ajuste
+        a UsersController não soubesse quem estaria sendo editado, pois o id de quem ele estaria tentando alterar não estaria mais disponivel, para evitar isso essa função getId salva o id da $_POST['id']
+        aqui na chamada da função caso ocorra algum erro e fica disponivel para a editar_usuario utilizar em caso de erro*/
     }
 
     public function create() {
@@ -116,11 +124,16 @@ class UsersController {
     public function listagem_produtos() {
         session_start();
         $_SESSION['mensagem'] = "a";
+        //só startando a variavel global aq;
         $produtos = App::get('database')->listagemProdutos('categorias','produtos',$_POST['mensagem']);
+        //pra dentro do QueryBuilder eu não ter de usar $_POST['mensagem'] eu já passo a mensagem aq pra acessar direto lá(preguiça)
         //print_r($produtos);
         //var_dump();
-        static::$produto = $_POST['mensagem'];
+        static::$categoria = $_POST['mensagem'];
         static::$message = $_SESSION['mensagem'];
+        /*por ser uma variavel global(que em php se perde se vc tentar acessar um 3° arquivo, por exemplo, tá aq, passou pra query builder, voltou pra cá e foi pra listagem_produtos
+        ela se perde, mas como só foi pra querybuilder e voltou pra cá e logo dps é passada pra uma variavel da UsersController que vai ser acessada por uma função dq, ela fica disponivel pra 
+        quem chamou)*/
         return view('admin/listagem_produtos', compact('produtos'));
     }
     

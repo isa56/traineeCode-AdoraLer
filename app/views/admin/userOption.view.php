@@ -70,7 +70,7 @@
             </div>
         </div>
         <?php
-            session_destroy();
+            //session_destroy();
             //session_start();
             //$_SESSION['user'] = $user->id;
         ?>

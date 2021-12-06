@@ -123,7 +123,7 @@
                                         <?php foreach($produtos as $produto):?>
                                         <tr>
                                             <td class="td"><?= $produto->nome; ?></td>
-                                            <td class="td"><?= UsersController::getProduto() ?></td>
+                                            <td class="td"><?= UsersController::getCategoria() ?></td>
                                             <td class="td"><?= $produto->preco; ?></td>
                                             <td class="td"><?= $produto->imagem; ?></td>
                                             <td class="td"><?= $produto->descricao; ?></td>

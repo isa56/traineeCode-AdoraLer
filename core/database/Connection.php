@@ -14,6 +14,7 @@ class Connection
      */
     public static function make($config)
     {
+        echo "entrou";
         /*echo '<pre>';
         print_r($config);
         echo '</pre>';*/
