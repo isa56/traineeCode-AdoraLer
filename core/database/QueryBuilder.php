@@ -17,27 +17,26 @@ class QueryBuilder
     public function selectAll($table)
     {
         $query = "select * from tb_$table";
-        
+        //retorna o total de elementos da tabela
+        $query2 = "SELECT COUNT(*) FROM tb_$table";
+        //echo($query2[0]);
+        /*$query2 = $this->pdo->query($query2);
+        $query2 = $query2->fetch();
+        $_SESSION['total'] = $query2[0];*/
+        //retorna o total de elementos da tabela
+        //var_dump();
         try {
             $query = $this->pdo->query($query);
             //$query = $query->fetchAll(PDO::FETCH_OBJ);
-            /*print_r($query);
-            echo '<br/>';
-            $x = 0;
-            echo $x++;
-            echo $x;
-            echo $query[$x]->nome;
-            foreach($query as $value) {
-                echo '<br/>';
-                echo 'porra do value';
-                echo '<br/>';
-
-                print_r($value->nome);
-            }
-            var_dump();*/
+            //print_r($query);
+            
             $query = $query->fetchAll(PDO::FETCH_OBJ);
             //print_r($query);
             //echo '<br/>';*/
+
+            $query2 = $this->pdo->query($query2);
+            $query2 = $query2->fetch();
+            $_SESSION['total'] = $query2[0]; // atribui a variavel global só o número total de linhas da tabela;
             return $query;
         } catch (Exception $e) {
             die($e->getCode() . '--' . $e->getMessage());
