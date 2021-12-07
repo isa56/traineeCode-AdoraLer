@@ -1,5 +1,8 @@
 <?php
 
+
+//CATEGORIAS - post: 
+
 //Sendo utilizado até o momento
 //USUÁRIO - post:
 $router->post('adicionar_usuario', 'UsersController@create');
@@ -19,7 +22,8 @@ $router->get('guia_mochileiro', 'PagesController@guiaMochileiro');
 $router->get('produtos', 'PagesController@produtos');
 $router->get('adicionar_usuario', 'PagesController@adicionar_usuario');
 $router->get('adm','PagesController@adm');
-$router->get('categorias', 'PagesController@categorias');
+$router->get('categorias', 'CategoriasController@view');
+$router->post('delete_categoria', 'CategoriasController@delete');
 $router->get('admProd', 'PagesController@admProd');
 $router->get('delete_usuario', 'PagesController@delete');
 $router->get('userOption', 'UsersController@admOptions');

@@ -36,7 +36,13 @@ class QueryBuilder
 
             $query2 = $this->pdo->query($query2);
             $query2 = $query2->fetch();
-            $_SESSION['total'] = $query2[0]; // atribui a variavel global só o número total de linhas da tabela;
+            //$_SESSION['total'] = $query2[0]; // atribui a variavel global só o número total de linhas da tabela;
+            if(isset($_SESSION['total'])) { 
+                /* se essa variavel tiver setada é por que a chamada dela veio da userOption que foi redirecionada para a UsersController, onde é setada
+                a variavel global que $_SESSION['total'];
+                */
+                $_SESSION['total'] = $query2[0]; // atribui a variavel global só o número total de linhas da tabela;
+            }
             return $query;
         } catch (Exception $e) {
             die($e->getCode() . '--' . $e->getMessage());
@@ -74,30 +80,33 @@ class QueryBuilder
 
     public function edit($table, $parametro)
     {
-        print_r($parametro);
-        echo "</br>";
-        $query = "UPDATE tb_{$table} SET ";
-        foreach($parametro as $key => $choise) {
-            if($choise != "" && $key != "senha_confirma") {
-                echo $choise;
-                echo "</br>";
-                $query = $query . "{$key} = '{$choise}',";
+        if(isset($parametro['categoria'])) {
+            $query = "select from tb_$table where id = ";
+        } else {
+            $query = "UPDATE tb_{$table} SET ";
+            foreach($parametro as $key => $choise) {
+                if($choise != "" && $key != "senha_confirma") {
+                    echo $choise;
+                    echo "</br>";
+                    $query = $query . "{$key} = '{$choise}',";
+                }
             }
+            $query = rtrim($query, " " . ",");
+            /*
+                retira a virgula no final da string, por exemplo: UPDATE tb_usuarios SET nome = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',id = '29',sexo = 'F',
+                vai para UPDATE tb_usuarios SET nome = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',id = '29',sexo = 'F'
+            */
+            $query = $query . " WHERE id = {$parametro['id']}";
+            echo "</br>";
+            try {
+                $query = $this->pdo->query($query);
+                header("Location: /userOption");
+            } catch(Exception $e) {
+                die($e->getCode() . "---" . $e->getMessage());
+            }
+            //ESSE PARAMETRO AQUI POSSIVELMENTE É DIFERENTE, COM NOVOS CAMPOS COMO POR EXEMPLO, SENHA E NOVA SENHA, EMAIL E NOVO EMAIL, NOME E NOVO NOME, SEXO E NOVO SEXO;
         }
-        $query = rtrim($query, " " . ",");
-        /*
-            retira a virgula no final da string, por exemplo: UPDATE tb_usuarios SET nome = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',id = '29',sexo = 'F',
-            vai para UPDATE tb_usuarios SET nome = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',id = '29',sexo = 'F'
-        */
-        $query = $query . " WHERE id = {$parametro['id']}";
-        echo "</br>";
-        try {
-            $query = $this->pdo->query($query);
-            header("Location: /userOption");
-        } catch(Exception $e) {
-            die($e->getCode() . "---" . $e->getMessage());
-        }
-        //ESSE PARAMETRO AQUI POSSIVELMENTE É DIFERENTE, COM NOVOS CAMPOS COMO POR EXEMPLO, SENHA E NOVA SENHA, EMAIL E NOVO EMAIL, NOME E NOVO NOME, SEXO E NOVO SEXO;
+        
 
     }
 
@@ -106,10 +115,19 @@ class QueryBuilder
         //print_r($parametro);
         //echo $parametro['id'];
         //echo 'chegou no delete query builder';
+        /*Existem 2 deletes chegando aqui, um da categorias e um do userOption, caso o comentario seja da categorias */
+        if(isset($parametro['categoria'])) { 
+            $query = "delete from tb_produtos where categoria_id = " .$parametro['id'];
+            $this->pdo->query($query);
+            $query = "delete from tb_$table where id = ".$parametro['id'];
+            $this->pdo->query($query);
+            header("Location: /categorias");
+        } else {
             $query = "delete from tb_".$table." where id = '".$parametro['id']."'";
             $this->pdo->query($query);
+            header("Location: /userOption");
+        }
             //echo 'entrou no if';
-        header("Location: /userOption");
 
     }
 
