@@ -2,6 +2,8 @@
 
 
 //CATEGORIAS - post: 
+$router->post('edit_categoria', 'PagesController@edit_categoria');
+
 
 //Sendo utilizado até o momento
 //USUÁRIO - post:
