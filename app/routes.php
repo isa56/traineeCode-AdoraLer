@@ -5,7 +5,7 @@
 $router->get('editarc', 'PagesController@editarc');
 
 //CATEGORIAS - get:
-$router->get('editar_categoria', 'CategoriasController@update');
+$router->post('editar_categorias', 'CategoriasController@update');
 
 //Sendo utilizado até o momento
 //USUÁRIO - post:
