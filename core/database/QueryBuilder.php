@@ -81,13 +81,13 @@ class QueryBuilder
     public function edit($table, $parametro)
     {
         if(isset($parametro['categoria'])) {
-            $query = "select from tb_$table where id = ";
+            $query = "select from tb_$table where id = "; // não tá terminado, mas não interfere no usuarios pq o $parametro['categoria'] não vem setado de lá de qql forma
         } else {
             $query = "UPDATE tb_{$table} SET ";
             foreach($parametro as $key => $choise) {
                 if($choise != "" && $key != "senha_confirma") {
-                    echo $choise;
-                    echo "</br>";
+                    //echo $choise;
+                    //echo "</br>";
                     $query = $query . "{$key} = '{$choise}',";
                 }
             }
@@ -117,15 +117,20 @@ class QueryBuilder
         //echo 'chegou no delete query builder';
         /*Existem 2 deletes chegando aqui, um da categorias e um do userOption, caso o comentario seja da categorias */
         if(isset($parametro['categoria'])) { 
-            $query = "delete from tb_produtos where categoria_id = " .$parametro['id'];
+            //$query = "delete from tb_produtos where categoria_id = " .$parametro['id'];
+            $query = "SELECT id from tb_categorias where categoria = 'default'"; // localizando onde o id do default está em tb_categorias
+            $query = $this->pdo->query($query);
+            $default = $query->fetch();
+            $default = $default[0]; // passando diretamente o id para a $default
+            $query = "UPDATE tb_produtos SET categoria_id = $default where categoria_id = ". $parametro['id']; // atualizando tb_produtos onde a categoria_id for igual a que a gente for excluir e colocando o id da categoria default
             $this->pdo->query($query);
-            $query = "delete from tb_$table where id = ".$parametro['id'];
+            $query = "delete from tb_$table where id = ".$parametro['id']; // deletando o id da categoria que a gente quer deletar
             $this->pdo->query($query);
-            header("Location: /categorias");
+            header("Location: /categorias"); // voltando pra categorias
         } else {
-            $query = "delete from tb_".$table." where id = '".$parametro['id']."'";
+            $query = "delete from tb_".$table." where id = '".$parametro['id']."'"; // aqui a chamada meio da userOption por isso basta excluir a linha onde o id está localizado
             $this->pdo->query($query);
-            header("Location: /userOption");
+            header("Location: /userOption"); // retornando pra userOption;
         }
             //echo 'entrou no if';
 

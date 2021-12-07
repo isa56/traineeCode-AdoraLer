@@ -15,11 +15,15 @@
         <?php
             use App\Controllers\UsersController;
             //to requerindo a classe UsersController para poder utilizar uma função static e uma variavel static de lá que vão permitir fazer a validação de senha/nome/email
-            if(!isset($_GET['id'])) {
+            if(!isset($_GET['id'])) { 
                 $_GET['id'] = UsersController::getId();
                 echo $_GET['id'];
                 echo "<br/>";
             }
+            /*quando for editar um usuario e ocorrer um erro como nome/email/senha invalido ele iria passar primeiro pelo UsersController oq faria com que a gente perdesse acesso ao id do usuario que estamos alterando
+            logo, eu passo esse id por um type hidden colocando o $_GET['id'] no value dele, oq torna isso valido 1x, então dentro da UsersController eu passo para uma variavel estatica a static::$id que recebe o método 
+            post $_POST['id'] e guarda ele, então quando a função  de edit retorna para essa pagina aqui caso algum erro aconteça eu verifico se $_GET['id'] não está setada ou seja não é a primeira vez que estamos aq
+            e caso ela não esteja eu atribuo a static::$id através da função statica getId para o mesmo $_GET['id'] fazendo com que a gente não perca o id de quem estamos alterando */
         ?>
         <div class="container">
             <div class="title">Editar(Modifique somente oq deseja mudar)</div>
