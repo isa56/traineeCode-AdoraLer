@@ -15,6 +15,15 @@
     <body>
 
         <?php include_once('app\views\includes\navbarAdm.php'); ?>
+        <?php 
+            //echo $_SESSION['total'];
+            //echo $_SESSION['end'];
+            //echo "</br>";
+            echo $total_linhas = $_SESSION['total']; // passo o total de linhas retornado da UsersController para me auxiliar a criar os botões da paginação;
+            $cont = 9; // me auxilia a passar o end para a UsersController na segunda chamada dessa página
+            $y = 1; // me auxilia a númerar os botões
+            //print_r($usuarios[0]);
+        ?>
         <div class="container usersOption" style="padding: 0px;">
             <div class="card-body" style="margin: 0px;">
                 <div class="row">
@@ -22,7 +31,7 @@
                         <h4>Contas</h4>
                     </div>
                     <div class="col-auto" style="margin-bottom: 10px">
-                        <a href="#" ><button type="submit" class="btn btn-primary">Novo usuario</button></a>
+                        <a href="adicionar_usuario" ><button type="submit" class="btn btn-primary">Novo usuario</button></a>
                     </div> 
                 </div>
 
@@ -39,27 +48,33 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach($usuarios as $user) : ?>
-                                    <tr> 
-                                        <td class="td"><?= $user->nome; ?></td>
-                                        <td class="td"><?= $user->email; ?></td>
-                                        <td>
-                                            <div style="display: flex;">
-                                                <form method = "POST" action = "edit_user">
-                                                    <input type = "hidden" name = "id" value=<?= $user->id; ?>>
-                                                    <button type="submit" class="btn"><i class="bi bi-pencil-square"></i>
-                                                </form>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div style="display: flex;">
-                                                <form method = "POST" action = "delete_usuario">
-                                                    <input type = "hidden" name="id" value=<?= $user->id; ?>>
-                                                    <button type="submit" class="btn"><i class="bi bi-trash"></i>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    <?php foreach($usuarios as $key => $user) : ?>
+                                        <?php if($key <= $_SESSION['end'] && $key > $_SESSION['end']-10) : ?>
+                                            <!--Estou printando 10 por x aqui, por exemplo, se o usuario clica no botão de n2 sera passado um end equivalente ao n19 por um método GET para a UserOption
+                                            lá essa $_GET['end'] sera passada para uma $_SESSION['end'] que sera retornada aqui nessa parte, logo esse if fica: if($key <=19 && $key > 9) faça, <=19 e >9 pois estou
+                                            printando de 10 em 10 e o vet($usuarios) começa do 0-->
+                                        <tr>
+                                            <td class="td"><?= $user->nome; ?></td>
+                                            <td class="td"><?= $user->email; ?></td>
+                                            <td>
+                                                <div style="display: flex;">
+                                                <!--action = "editar_usuario-->
+                                                    <form method = "GET" action = "editar_usuario?">
+                                                        <input type = "hidden" name = "id" value=<?= $user->id; ?>></input>
+                                                        <button type="submit" class="btn"><i class="bi bi-pencil-square"></i></button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex;">
+                                                    <form method = "POST" action = "delete_usuario">
+                                                        <input type = "hidden" name="id" value=<?= $user->id; ?>></input>
+                                                        <button type="submit" class="btn"><i class="bi bi-trash"></i></button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <?php endif; ?>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
@@ -67,9 +82,23 @@
                     </div>
                 </div>
             </div>
+            <div style="margin-auto;display:flex;justify-content:center">
+                <?php for($i = 1;$i<$total_linhas;$i = $i+9) : ?> <!--Se-->
+                    <form method = "GET" action = "userOption">
+                        <input type = "hidden" name="end" value=<?= $cont ?>></input>
+                        <button type="submit" class="btn" style="border:1px solid;border-color:green"><?= $y ?></button>
+                        <?php $y++; ?> <!--O y equivale ao número dos botões, aqui estou aumentando o número deles-->
+                        <?php $cont = $cont+10; ?> <!--Me auxilia a passar o end para o UsersController, se tiverem 19 linhas na tabela, o primeiro botão vai 9 e o segundo 19
+                                                        na hr de printar vou de >9-10 até <=9 e por ai vai, já que estou printando 10 por x-->                   
+                    </form>
+                <?php endfor; ?>
+            </div>
         </div>
         <?php
             session_destroy();
+            //destruindo sessão criada na UsersController responsavel por retornar o total de usuarios(rows) na tabela do banco de dados;
+            //session_start();
+            //$_SESSION['user'] = $user->id;
         ?>
     </body>
 </html>

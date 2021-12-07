@@ -17,27 +17,26 @@ class QueryBuilder
     public function selectAll($table)
     {
         $query = "select * from tb_$table";
-        
+        //retorna o total de elementos da tabela
+        $query2 = "SELECT COUNT(*) FROM tb_$table";
+        //echo($query2[0]);
+        /*$query2 = $this->pdo->query($query2);
+        $query2 = $query2->fetch();
+        $_SESSION['total'] = $query2[0];*/
+        //retorna o total de elementos da tabela
+        //var_dump();
         try {
             $query = $this->pdo->query($query);
             //$query = $query->fetchAll(PDO::FETCH_OBJ);
-            /*print_r($query);
-            echo '<br/>';
-            $x = 0;
-            echo $x++;
-            echo $x;
-            echo $query[$x]->nome;
-            foreach($query as $value) {
-                echo '<br/>';
-                echo 'porra do value';
-                echo '<br/>';
-
-                print_r($value->nome);
-            }
-            var_dump();*/
+            //print_r($query);
+            
             $query = $query->fetchAll(PDO::FETCH_OBJ);
             //print_r($query);
             //echo '<br/>';*/
+
+            $query2 = $this->pdo->query($query2);
+            $query2 = $query2->fetch();
+            $_SESSION['total'] = $query2[0]; // atribui a variavel global só o número total de linhas da tabela;
             return $query;
         } catch (Exception $e) {
             die($e->getCode() . '--' . $e->getMessage());
@@ -75,6 +74,29 @@ class QueryBuilder
 
     public function edit($table, $parametro)
     {
+        print_r($parametro);
+        echo "</br>";
+        $query = "UPDATE tb_{$table} SET ";
+        foreach($parametro as $key => $choise) {
+            if($choise != "" && $key != "senha_confirma") {
+                echo $choise;
+                echo "</br>";
+                $query = $query . "{$key} = '{$choise}',";
+            }
+        }
+        $query = rtrim($query, " " . ",");
+        /*
+            retira a virgula no final da string, por exemplo: UPDATE tb_usuarios SET nome = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',id = '29',sexo = 'F',
+            vai para UPDATE tb_usuarios SET nome = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',id = '29',sexo = 'F'
+        */
+        $query = $query . " WHERE id = {$parametro['id']}";
+        echo "</br>";
+        try {
+            $query = $this->pdo->query($query);
+            header("Location: /userOption");
+        } catch(Exception $e) {
+            die($e->getCode() . "---" . $e->getMessage());
+        }
         //ESSE PARAMETRO AQUI POSSIVELMENTE É DIFERENTE, COM NOVOS CAMPOS COMO POR EXEMPLO, SENHA E NOVA SENHA, EMAIL E NOVO EMAIL, NOME E NOVO NOME, SEXO E NOVO SEXO;
 
     }
@@ -109,6 +131,7 @@ class QueryBuilder
     public function validUser($table, $parametro) {
         //echo '<br/>';
         //echo '<br/>';
+        echo "chegou";
         $sql = "select nome from tb_".$table. " WHERE nome='".$parametro['nome']."'"; 
         $stmt = $this->pdo->query($sql);
         $nome = $stmt->fetch();
@@ -132,5 +155,44 @@ class QueryBuilder
             echo "dale";
         }
         echo '<br/>';*/
+    }
+
+    public function listagemProdutos($table,$table2, $parametro) {
+        //$parametro = "produto";
+        //echo "tá aq";
+        $query = "SELECT id FROM tb_".$table." WHERE categoria='".$parametro."'";
+        try {
+            //echo $query;
+            $query = $this->pdo->query($query);
+            $categoria = $query->fetch(PDO::FETCH_OBJ);
+            //if($categoria == false) {
+            if(empty($categoria)) {
+                $_SESSION['mensagem'] = "Não tem";
+                $produto = [];
+                return $produto;
+            } else {
+                $query = "SELECT * FROM tb_".$table2." Where categoria_id ='".$categoria->id."'";
+                try {
+                    $query = $this->pdo->query($query);
+                    $categoria = $query->fetchAll(PDO::FETCH_OBJ);
+                    
+                    
+                    //$object = new stdClass();
+                    //https://github.com/symfony/symfony/issues/2470;
+                    //$object = new \stdClass();
+                    //$object->categoria = $parametro;
+                    //$categoria[] = $object;
+                    //print_r($categoria);
+                    //var_dump;
+                    
+                    return  $categoria;
+                } catch(Exception $e) {
+                    echo $e->getCode() . "---" . $e->getMessage();
+                } 
+            }
+        } catch(Exception $e) {
+            echo $e->getCode() . "---" . $e->getMessage();
+        }
+        
     }
 }

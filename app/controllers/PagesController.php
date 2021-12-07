@@ -61,4 +61,14 @@ class PagesController
         return view('admin/userOption');
     }
 
+    public function edit() {
+        return view('admin/editar_usuario');
+    }
+
+    public function listagem_produtos() {
+        //session_start();
+        //$_SESSION['mensagem'] = "a";
+        return view('admin/listagem_produtos');
+    }
+
 }

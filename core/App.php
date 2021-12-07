@@ -21,6 +21,7 @@ class App
     public static function bind($key, $value)
     {
         static::$registry[$key] = $value;
+        //a conexão com o bootstrap.php ocorre aq, basta verificar na index como tudo está acontecendo;
     }
 
     /**
