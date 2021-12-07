@@ -72,6 +72,9 @@ body{
 .miniatura a{
 	text-decoration: none;
 }
+.card-deck{
+	align-items: center;
+}
 .card-img-top{
 	height: 220px!important;
 	width: 200px!important;

@@ -131,24 +131,47 @@ class QueryBuilder
     public function validUser($table, $parametro) {
         //echo '<br/>';
         //echo '<br/>';
-        echo "chegou";
-        $sql = "select nome from tb_".$table. " WHERE nome='".$parametro['nome']."'"; 
-        $stmt = $this->pdo->query($sql);
-        $nome = $stmt->fetch();
-        $sql = "select nome from tb_".$table. " WHERE email='".$parametro['email']."'";
-        $stmt = $this->pdo->query($sql);
-        $email = $stmt->fetch();
-        if(empty($nome) && empty($email)) {
-            return "correto";
-        } else {
-            if(!empty($nome) && !empty($email)) {
-                return "nome e email já utilizados";
-            } else if(!empty($nome)) {
-                return "nome já utilizado";
-            } else {
-                $_SESSION['foi'] = "n foi";
-                return "email já utilizado";
+        if(isset($parametro['produto'])) {
+            $sql = "select nome from tb_$table WHERE nome='".$parametro['Nome']."'";
+            $stmt = $this->pdo->query($sql);
+            $nome = $stmt->fetch();
+            $sql = "select categoria from tb_categorias WHERE categoria='".$parametro['Categoria']."'";
+            $stmt = $this->pdo->query($sql);
+            $categoria = $stmt->fetch();
+            if(empty($nome) && !empty($categoria)){
+                $sql = "select id from tb_categorias WHERE categoria='".$parametro['Categoria']."'";
+                $stmt = $this->pdo->query($sql);
+                $categoria = $stmt->fetch();
+                $_SESSION['categoria_id'] = $categoria[0];
+                return "correto";
             }
+            else if(empty($categoria)){
+                return "a categoria não existe";
+            }
+            else if (!empty($nome)) {
+                return "o produto já existe";
+            }
+            
+            var_dump();
+        } else{
+            $sql = "select nome from tb_".$table. " WHERE nome='".$parametro['nome']."'"; 
+            $stmt = $this->pdo->query($sql);
+            $nome = $stmt->fetch();
+            $sql = "select nome from tb_".$table. " WHERE email='".$parametro['email']."'";
+            $stmt = $this->pdo->query($sql);
+            $email = $stmt->fetch();
+            if(empty($nome) && empty($email)) {
+                return "correto";
+            } else {
+                if(!empty($nome) && !empty($email)) {
+                    return "nome e email já utilizados";
+                } else if(!empty($nome)) {
+                    return "nome já utilizado";
+                } else {
+                    $_SESSION['foi'] = "n foi";
+                    return "email já utilizado";
+                }
+            }   
         }
         /*print_r($usuario);
         if($usuario == "") {
