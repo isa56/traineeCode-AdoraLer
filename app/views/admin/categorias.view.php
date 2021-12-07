@@ -53,7 +53,7 @@
                                         <td class="td"><?= $categoria->categoria; ?></td>                    
                                         <td>
                                             <div style="display: flex;">
-                                                <form method = "POST" action = "edit_categoria">
+                                                <form method = "GET" action = "editarc">
                                                     <input type = "hidden" name = "id" value=<?= $categoria->id; ?>>
                                                     <input type = "hidden" name = "categoria" value=1; ?>
                                                     <button type="submit" class="btn"><i class="bi bi-pencil-square"></i>

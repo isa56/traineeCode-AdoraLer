@@ -1,7 +1,11 @@
 <?php
 
 
-//CATEGORIAS - post: 
+//CATEGORIAS - get: 
+$router->get('editarc', 'PagesController@editarc');
+
+//CATEGORIAS - get:
+$router->get('editar_categoria', 'CategoriasController@update');
 
 //Sendo utilizado até o momento
 //USUÁRIO - post:

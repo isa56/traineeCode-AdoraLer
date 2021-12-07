@@ -2,7 +2,7 @@
 <html>
 
     <head>
-        <title>Registrar-Usuario</title>
+        <title>Registrar-categorias</title>
         
         <meta charset="utf-8">
         <link rel="stylesheet" href="../../../public/css/usuary.css">
@@ -24,14 +24,15 @@
         <div class="container">
             <div class="title">Editar(Modifique somente oq deseja mudar)</div>
             <!--action="adicionar_usuario-->
-            <form method="POST" action="editar_usuario" id="badform">
+            <form method="GET" action="editar_categorias" id="badform">
                 <!--Essa formulario é enviado passando a url adicionar_usuario pelo método POST(tudo isso é necessario para que o index consiga concluir todas as etapas da rota)-->
                 <div class="user-details">
                     <div class="input-box">
                         <span class="details">Novo nome de Usuario</span>
-                        <input type="text" placeholder="Escreva seu nome de Usuario" name="nome">
+                        <input type="text" placeholder="Escreva um novo nome para Categoria" name="nome">
                         <!--<input type="hidden" name="id" value=<?= $_GET['id'] ?>></input>-->
                         <input type = "hidden" name = "id" value=<?= $_GET['id'] ?>>
+                        <input type = "hidden" name = "categoria" value=1>
                         <?php
                             //if(!isset($_SESSION['recado'])) { // da pra tirar essa parte e manter só a segunda;
                                 /* 
@@ -40,77 +41,33 @@
                                     basicamente essa variavel na primeira vez que passa aq tem um valor ou seja não está vazia oq está sendo verificado com o isset, essa variavel global
                                     só fica vazia a partir do momento em que o formulario é enviado para a UsersController, local onde as verificações ocorrem
                                 */
-                                if(UsersController::getMessage() == "nome e email já utilizados" || UsersController::getMessage() == "nome já utilizado") {
+                               /* if(UsersController::getMessage() == "nome e email já utilizados" || UsersController::getMessage() == "nome já utilizado") {
                                     //métodos estaticos: estou utilizando a classe UsersController que é inserida no bloco php no inicio da pagina e sua função estatica que retorna a variavel presente lá com as msgs
                                     echo "Nome já utilizado";
                                 }
-                            //}
+                            //}*/
                         ?>
                     </div>
+                    
+                   
                     <div class="input-box">
-                        <span class="details">Novo Email</span>
-                        <input type="email" placeholder="Digite seu Email" name="email" id="email">
-                        <?php
-                            //if(!isset($_SESSION['recado'])) {
-                                if(UsersController::getMessage() == "nome e email já utilizados" || UsersController::getMessage() == "email já utilizado") {
-                                    echo "Email já utilizado";
-                                }
-                            //}
-                        ?>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Nova senha</span>
-                        <input type="password" placeholder="Digite sua senha" name="senha">
-                        <?php
-                            /*if($_SESSION['recado'] != "a") {
-                                echo 'porra';
-                                echo $_SESSION['recado']; 
-                            }*/
-                            if(!isset($_SESSION['recado'])) {
-                                if(UsersController::getMessage() == "As senhas não conferem") {
-                                    echo "As senhas não são iguais";
-                                }
-                            }
-                                
-                        ?>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Confirmar nova senha</span>
-                        <input type="password" placeholder="Confirme sua senha" name="senha_confirma">
+                        <span class="details">Confirmar novo nome</span>
+                        <input type="text" placeholder="Confirme seu novo nome" name="nome_confirma">
                         <?php
                             /*if($_SESSION['recado'] != "a") {
                                 echo 'porra';
                                 echo $_SESSION['recado']; 
                             }*/
                             //if(!isset($_SESSION['recado'])) {
-                                if(UsersController::getMessage() == "As senhas não conferem") {
-                                    echo "As senhas não são iguais";
+                                if(UsersController::getMessage() == "Os nomes não conferem") {
+                                    echo "Os nomes não são iguais";
                                 }
                             //}
                                 
                         ?>
                     </div> 
                 </div>
-                <div class="gender-details">
-                    <input type="radio" name="sexo" value="H" id="dot-1">
-                    <input type="radio" name="sexo" value="F"id="dot-2">
-                    <input type="radio" name="sexo" value="I"id="dot-3">
-                    <span class="gender-title">Genero</span>
-                    <div class="category">
-                        <label for="dot-1">
-                            <span class="dot one"></span>
-                            <span class="gender">Homem</span>    
-                        </label>
-                        <label for="dot-2">
-                            <span class="dot two"></span>
-                            <span class="gender">Mulher</span>    
-                        </label>
-                        <label for="dot-3">
-                            <span class="dot three"></span>
-                            <span class="gender">Prefiro Não Informar</span>    
-                        </label>
-                    </div>
-                </div>
+
 
                 <!--<script type="text/javascript" language="javascript">
                         function valida_form (){

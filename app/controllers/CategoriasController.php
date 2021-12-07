@@ -26,6 +26,8 @@ class CategoriasController
 
     public function update()
     {
+        echo "entrou";
+        var_dump;
         App::get('database')->edit('categorias', $_POST);
         header("Location: /categorias");
     }
