@@ -15,33 +15,63 @@ class QueryBuilder
     }
 
     public function selectAll($table)
-    {
-        $query = "select * from tb_$table";
-        //retorna o total de elementos da tabela
-        $query2 = "SELECT COUNT(*) FROM tb_$table";
-        //echo($query2[0]);
-        /*$query2 = $this->pdo->query($query2);
-        $query2 = $query2->fetch();
-        $_SESSION['total'] = $query2[0];*/
-        //retorna o total de elementos da tabela
-        //var_dump();
-        try {
-            $query = $this->pdo->query($query);
-            //$query = $query->fetchAll(PDO::FETCH_OBJ);
-            //print_r($query);
-            
-            $query = $query->fetchAll(PDO::FETCH_OBJ);
-            //print_r($query);
-            //echo '<br/>';*/
-
-            $query2 = $this->pdo->query($query2);
+    {   
+        if(isset($_SESSION['categ'])) {
+            $query = "select categoria from tb_categorias";
+            $query2 = "select categoria_id from tb_produtos";
+            try {
+                $query = $this->pdo->query($query);
+                $query2 = $this->pdo->query($query2);
+                //$query = $query->fetchAll(PDO::FETCH_OBJ);
+                //print_r($query);
+                
+                $query = $query->fetchAll();
+                $query2 = $query2->fetchAll();
+                $array =[];
+                $total = count($query2);
+                $i=0;
+                //echo $query[0];
+                //echo $query[$query2[0]];
+                print_r($query);
+                var_dump();
+                for($i=0;$i<$total;$i++) {
+                    $array[] = $query[$query2[$i]-1];
+                }
+                print_r($array);
+                var_dump();
+                //print_r($query);
+                //echo '<br/>';*/
+                return $query;
+            } catch (Exception $e) {
+                die($e->getCode() . '--' . $e->getMessage());
+            }
+        } else {
+            $query = "select * from tb_$table";
+            //retorna o total de elementos da tabela
+            $query2 = "SELECT COUNT(*) FROM tb_$table";
+            //echo($query2[0]);
+            /*$query2 = $this->pdo->query($query2);
             $query2 = $query2->fetch();
-            $_SESSION['total'] = $query2[0]; // atribui a variavel global só o número total de linhas da tabela;
-            return $query;
-        } catch (Exception $e) {
-            die($e->getCode() . '--' . $e->getMessage());
+            $_SESSION['total'] = $query2[0];*/
+            //retorna o total de elementos da tabela
+            //var_dump();
+            try {
+                $query = $this->pdo->query($query);
+                //$query = $query->fetchAll(PDO::FETCH_OBJ);
+                //print_r($query);
+                
+                $query = $query->fetchAll(PDO::FETCH_OBJ);
+                //print_r($query);
+                //echo '<br/>';*/
+    
+                $query2 = $this->pdo->query($query2);
+                $query2 = $query2->fetch();
+                $_SESSION['total'] = $query2[0]; // atribui a variavel global só o número total de linhas da tabela;
+                return $query;
+            } catch (Exception $e) {
+                die($e->getCode() . '--' . $e->getMessage());
+            }
         }
-
     }
 
     public function select()

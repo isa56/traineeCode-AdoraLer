@@ -31,7 +31,7 @@
                 <a href="adm" class="nav-item nav-link active"><i class="bi bi-house-door-fill"></i>Home</a>
                 <a href="userOption" class="nav-item nav-link"><i class="bi bi-people-fill"></i>Gerenciamento de usuário</a>
                 <a href="categorias" class="nav-item nav-link"><i class="bi bi-tags-fill"></i>Categorias</a>
-                <a href="admProd" class="nav-item nav-link"><i class="bi bi-cart-fill"></i>Produtos</a>
+                <a href="admProdView" class="nav-item nav-link"><i class="bi bi-cart-fill"></i>Produtos</a>
                 <button action="/login" class="btn btn-danger nav-item"><i class="bi bi-door-open-fill"></i>Deslogar</button> 
             </div>
 

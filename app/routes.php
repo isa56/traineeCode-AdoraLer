@@ -17,7 +17,8 @@ $router->post('view_produto', 'ProdutosController@admOptions');
 $router->post('edit_produto', 'ProdutosController@edit');
 $router->post('editar_produto', 'ProdutosController@edit');
 $router->post('listagem_produtos', 'ProdutosController@listagem_produtos');
-
+//PRODUTO - get:
+$router->get('admProdView', 'ProdutosController@admProdView');
 
 //Sendo utilizado até o momento
 //PAGES - get:

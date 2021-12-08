@@ -10,14 +10,16 @@ class ProdutosController {
     public static $preco;
     public static $message;
     public static $id;
+    public static $categ;
 
-    public static function admOptions() {
+    public static function admProdView() {
 
         //if(!isset($_POST['start'])) {
             session_start(); // starta a sessão para acessar a QueryBuilder e buscar o número total de linhas na tabela na variavel $_SESSION['tabela'];
             $_SESSION['total'] = "a";
-            //echo "aaaaaaa aqui";
             $produtos = App::get('database')->selectAll('produtos'); // requisita tudo da tabela usuarios;
+            $_SESSION['categ'] = "a";
+            static::$categ = App::get('database')->selectAll('categorias'); // requisita tudo da tabela usuarios;
             $total = $_SESSION['total']; // passa o valor do total de linhas da tabela tb_usuarios para uma variavel, para que eu possa fechar essa sessão e abrir uma com a userOption
             session_destroy(); // fechando a sessão
             session_start(); // abrindo uma nova sessão
@@ -30,7 +32,7 @@ class ProdutosController {
         } else {
             $_SESSION['end'] = 9; // padrão é começar do 9 pois estou imprimindo 10 usuarios por vez;
         }
-        return view('admin/userOption', compact('produtos')); // retorno a view padrão e o compact com o vetor de usuarios retornado do Query Builder;
+        return view('admin/administrativaProdutos', compact('produtos')); // retorno a view padrão e o compact com o vetor de usuarios retornado do Query Builder;
 
         //antiga parte para backup
         /*$usuarios = App::get('database')->selectAll('usuarios');
@@ -51,6 +53,11 @@ class ProdutosController {
         //essa função serve para auxiliar a saber qual categoria foi digitada inicialmente e retornar para a exibição na tabela
     }
     
+    public static function getCateg() {
+        return static::$categ;
+        //essa função serve para auxiliar a saber qual categoria foi digitada inicialmente e retornar para a exibição na tabela
+    }
+
     public static function getId() {
         return static::$id;
         /*É mais simples do que parece. Na primeira vez que o adm quiser editar algum usuario ele vai clicar no botão da userOption 
@@ -81,7 +88,7 @@ class ProdutosController {
                         'info_uteis'=>$_POST['Info_uteis']
                         ]   
                 );
-                header("Location: /userOption");
+                header("Location: /admProdView");
             } else {
                 static::$message = $resultado;
                 return view("admin/adicionar_produto");
