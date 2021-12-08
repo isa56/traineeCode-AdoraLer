@@ -53,7 +53,7 @@
 						<textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
 					</div>
 			</div>			
-					
+			<button type="button" class="btn btn-primary btn-lg">Enviar</button>
 					<h3>Localização:</h3>
 					<div class = "map-responsive">
 					<iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3705.085686046426!2d-43.37117208490832!3d-21.776944504005193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1srua%20jos%C3%A9%20louren%C3%A7o%20kelmer%20ufjf%20-%20faculdade%20de%20ci%C3%AAncias%20exatas%20sala%203313!5e0!3m2!1spt-BR!2sbr!4v1635380823061!5m2!1spt-BR!2sbr" width="1300" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
