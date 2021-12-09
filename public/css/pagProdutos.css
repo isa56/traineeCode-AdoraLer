@@ -108,6 +108,9 @@ body{
 	color: #7B5B5A;
 	margin-bottom: 0;
 }
+.card-deck{
+	align-items: center;
+}
 .botaoCompra{
 	background-color:#F1C8C7;
 	color:#F7883F;

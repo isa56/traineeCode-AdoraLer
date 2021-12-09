@@ -25,23 +25,15 @@ class QueryBuilder
                 //$query = $query->fetchAll(PDO::FETCH_OBJ);
                 //print_r($query);
                 
-                $query = $query->fetchAll();
-                $query2 = $query2->fetchAll();
+                $query = $query->fetchAll(PDO::FETCH_OBJ);
+                $query2 = $query2->fetchAll(PDO::FETCH_OBJ);
                 $array =[];
                 $total = count($query2);
                 $i=0;
-                //echo $query[0];
-                //echo $query[$query2[0]];
-                print_r($query);
-                var_dump();
                 for($i=0;$i<$total;$i++) {
-                    $array[] = $query[$query2[$i]-1];
+                    $array[] = $query[$query2[$i]->categoria_id-1]->categoria;
                 }
-                print_r($array);
-                var_dump();
-                //print_r($query);
-                //echo '<br/>';*/
-                return $query;
+                return $array;
             } catch (Exception $e) {
                 die($e->getCode() . '--' . $e->getMessage());
             }

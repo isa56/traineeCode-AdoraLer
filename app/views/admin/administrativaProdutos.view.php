@@ -18,7 +18,6 @@
         <?php 
             use App\Controllers\ProdutosController;
             $categ = ProdutosController::getCateg();
-            print_r($categ);
             echo $total_linhas = $_SESSION['total']; // passo o total de linhas retornado da UsersController para me auxiliar a criar os botões da paginação;
             $cont = 9; // me auxilia a passar o end para a UsersController na segunda chamada dessa página
             $y = 1; // me auxilia a númerar os botões
@@ -37,14 +36,14 @@
                         <h4>Produtos:</h4>
                     </div>
                     <div class="col-auto" style="margin-bottom: 10px">
-                        <a href="addProd" ><button type="submit" class="btn btn-primary">Novo usuario</button></a>
+                        <a href="addProd" ><button type="submit" class="btn btn-primary">Novo Produto</button></a>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="table-responsive">
-                            <table class="table" >
+                        <div class="table-responsive-md ">
+                            <table class="table " >
                                 <thead >
                                 <tr class="dif">
                                     <th>Produto</th>
@@ -62,12 +61,12 @@
                                             lá essa $_GET['end'] sera passada para uma $_SESSION['end'] que sera retornada aqui nessa parte, logo esse if fica: if($key <=19 && $key > 9) faça, <=19 e >9 pois estou
                                             printando de 10 em 10 e o vet($usuarios) começa do 0-->
                                         <tr>
-                                            <td class="td"><?= $produto->nome; ?></td>
+                                            <td class="td "><?= $produto->nome; ?></td>
                                             <td class="td"><?= $categ[$key]; ?></td>
                                             <td class="td"><?= $produto->preco; ?></td>
                                             <td class="td"><?= $produto->imagem; ?></td>
-                                            <td class="td"><?= $produto->descricao; ?></td>
-                                            <td class="td"><?= $produto->info_uteis; ?></td>
+                                            <td class="td scope='col-2'"><?= $produto->descricao; ?></td>
+                                            <td class="td scope='col-2'"><?= $produto->info_uteis; ?></td>
                                             <td>
                                                 <div style="display: flex;">
                                                 <!--action = "editar_usuario-->
