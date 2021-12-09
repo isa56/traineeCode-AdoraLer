@@ -17,6 +17,7 @@
         <?php include_once('app\views\includes\navbarAdm.php'); ?>
         <?php 
             use App\Controllers\ProdutosController;
+            $categoria = ProdutosController::getCateg();
             
             /*if(empty(UsersController::getMessage())) {
                 echo "entrou aqui";
@@ -31,7 +32,7 @@
 
         <div class="container form-background usersOption">
             
-            <form method="POST" action="listagem_produtos" class="main" style="text-align:center;align-self:center;margin-right:-15px;margin-left:-15px">
+            <form method="POST" action="busca_produto" class="main" style="text-align:center;align-self:center;margin-right:-15px;margin-left:-15px">
                 
                 <h1>Resultados da busca</h1>
                 <div class="form-background">
@@ -84,10 +85,10 @@
                                         </tr>
                                     <?php else :?> 
                                         echo "entrou no 3";
-                                        <?php foreach($produtos as $produto):?>
+                                        <?php foreach($produtos as $key => $produto):?>
                                         <tr>
                                             <td class="td"><?= $produto->nome; ?></td>
-                                            <td class="td"><?= ProdutosController::getCategoria() ?></td>
+                                            <td class="td"><?= $categoria[$key]; ?></td>
                                             <td class="td"><?= $produto->preco; ?></td>
                                             <td class="td"><?= $produto->imagem; ?></td>
                                             <td class="td"><?= $produto->descricao; ?></td>
@@ -103,7 +104,7 @@
             </div>
         </div>
         <?php
-            //session_destroy();
+            session_destroy();
             //session_start();
             //$_SESSION['user'] = $user->id;
         ?>

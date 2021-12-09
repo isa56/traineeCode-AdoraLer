@@ -3,6 +3,7 @@
 namespace App\Core\Database;
 
 use PDO;
+use Exception;
 
 class QueryBuilder
 {
@@ -173,8 +174,6 @@ class QueryBuilder
             else if (!empty($nome)) {
                 return "o produto já existe";
             }
-            
-            var_dump();
         } else{
             $sql = "select nome from tb_".$table. " WHERE nome='".$parametro['nome']."'"; 
             $stmt = $this->pdo->query($sql);
@@ -242,11 +241,32 @@ class QueryBuilder
     }
 
     public function busca_produto($table, $parametro) {
-        $query = "select * from tb_$table where nome='".$parametro['nome']."'";
+        $query = "select * from tb_$table where nome='".$parametro['mensagem']."'";
         $query = $this->pdo->query($query);
         $query = $query->fetchAll(PDO::FETCH_OBJ);
         if(empty($query)) {
-            echo "Não existe";
+            $_SESSION['message'] = "Não tem";
         }
+        if(isset($_SESSION['categ'])) {
+            //echo $query[0]->categoria_id;
+            /* $query2 = "select * from tb_categorias";
+            $query2 = $this->pdo->query($query2);
+            $query2 = $query2->fetchAll(PDO::FETCH_OBJ); */
+            //echo $_SESSION['produto'][0]->categoria_id;
+            $total = count($_SESSION['produto']);
+            $array = [];
+            for ($i=0;$i<$total;$i++) {
+                $query2 = "select categoria from tb_categorias where id =".$_SESSION['produto'][$i]->categoria_id;
+                $query2 = $this->pdo->query($query2);
+                $query2 = $query2->fetchAll(PDO::FETCH_OBJ);
+                $query2 = $query2[0]->categoria;
+                $array[] = $query2;
+            }
+            return $array;
+            
+            
+        }
+        
+        return $query;
     }
 }
