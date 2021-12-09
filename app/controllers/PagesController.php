@@ -75,4 +75,8 @@ class PagesController
         return view('admin/listagem_produtos');
     }
 
+    public function busca_produto() {
+        return view('admin/busca_produtos');
+    }
+
 }

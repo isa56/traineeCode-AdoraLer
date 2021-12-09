@@ -153,6 +153,13 @@ class ProdutosController {
         quem chamou)*/
         return view('admin/listagem_produtos', compact('produtos'));
     }
+
+    public function busca_produto() {
+        session_start();
+        $_SESSION['message'] = "a";
+        App::get('database')->busca_produto('produtos', $_POST);
+        static::$message = $_SESSION['message'];
+    }
     
     protected function alreadyExists() {
         //if($_POST['nome'] != App::get('database')->read('usuarios', 'nome'));

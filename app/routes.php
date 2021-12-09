@@ -2,6 +2,9 @@
 
 //Sendo utilizado até o momento
 //USUÁRIO - post:
+
+use App\Controllers\ProdutosController;
+
 $router->post('adicionar_usuario', 'UsersController@create');
 $router->post('delete_usuario', 'UsersController@delete');
 $router->post('view_usuario', 'UsersController@admOptions');
@@ -17,8 +20,10 @@ $router->post('view_produto', 'ProdutosController@admOptions');
 $router->post('edit_produto', 'ProdutosController@edit');
 $router->post('editar_produto', 'ProdutosController@edit');
 $router->post('listagem_produtos', 'ProdutosController@listagem_produtos');
+$router->post('busca_produto', 'ProdutosController@busca_produto');
 //PRODUTO - get:
 $router->get('admProdView', 'ProdutosController@admProdView');
+$router->get('busca_produto','PagesController@busca_produto');
 
 //Sendo utilizado até o momento
 //PAGES - get:

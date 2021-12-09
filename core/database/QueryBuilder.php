@@ -240,4 +240,13 @@ class QueryBuilder
         }
         
     }
+
+    public function busca_produto($table, $parametro) {
+        $query = "select * from tb_$table where nome='".$parametro['nome']."'";
+        $query = $this->pdo->query($query);
+        $query = $query->fetchAll(PDO::FETCH_OBJ);
+        if(empty($query)) {
+            echo "Não existe";
+        }
+    }
 }

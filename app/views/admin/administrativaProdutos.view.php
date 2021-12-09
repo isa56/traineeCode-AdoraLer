@@ -93,7 +93,7 @@
                     </div>
                 </div>
             </div>
-            <div style="margin-auto;display:flex;justify-content:center">
+            <div style="margin:auto;display:flex;justify-content:center">
                 <?php for($i = 1;$i<$total_linhas;$i = $i+9) : ?> <!--Se-->
                     <form method = "GET" action = "admProdView">
                         <input type = "hidden" name="end" value=<?= $cont ?>></input>
