@@ -81,13 +81,14 @@ class QueryBuilder
     public function edit($table, $parametro)
     {
         if(isset($parametro['categoria'])) {
-            $query = "select from tb_$table where id = ";
+            $query = "UPDATE tb_$table SET categoria = '" . $parametro['nome'] . "' where id = ". $parametro['id']; // não tá terminado, mas não interfere no usuarios pq o $parametro['categoria'] não vem setado de lá de qql forma
+            $query = $this->pdo->query($query);
         } else {
             $query = "UPDATE tb_{$table} SET ";
             foreach($parametro as $key => $choise) {
                 if($choise != "" && $key != "senha_confirma") {
-                    echo $choise;
-                    echo "</br>";
+                    //echo $choise;
+                    //echo "</br>";
                     $query = $query . "{$key} = '{$choise}',";
                 }
             }
@@ -117,15 +118,20 @@ class QueryBuilder
         //echo 'chegou no delete query builder';
         /*Existem 2 deletes chegando aqui, um da categorias e um do userOption, caso o comentario seja da categorias */
         if(isset($parametro['categoria'])) { 
-            $query = "delete from tb_produtos where categoria_id = " .$parametro['id'];
+            //$query = "delete from tb_produtos where categoria_id = " .$parametro['id'];
+            $query = "SELECT id from tb_categorias where categoria = 'default'"; // localizando onde o id do default está em tb_categorias
+            $query = $this->pdo->query($query);
+            $default = $query->fetch();
+            $default = $default[0]; // passando diretamente o id para a $default
+            $query = "UPDATE tb_produtos SET categoria_id = $default where categoria_id = ". $parametro['id']; // atualizando tb_produtos onde a categoria_id for igual a que a gente for excluir e colocando o id da categoria default
             $this->pdo->query($query);
-            $query = "delete from tb_$table where id = ".$parametro['id'];
+            $query = "delete from tb_$table where id = ".$parametro['id']; // deletando o id da categoria que a gente quer deletar
             $this->pdo->query($query);
-            header("Location: /categorias");
+            header("Location: /categorias"); // voltando pra categorias
         } else {
-            $query = "delete from tb_".$table." where id = '".$parametro['id']."'";
+            $query = "delete from tb_".$table." where id = '".$parametro['id']."'"; // aqui a chamada meio da userOption por isso basta excluir a linha onde o id está localizado
             $this->pdo->query($query);
-            header("Location: /userOption");
+            header("Location: /userOption"); // retornando pra userOption;
         }
             //echo 'entrou no if';
 
@@ -149,30 +155,37 @@ class QueryBuilder
     public function validUser($table, $parametro) {
         //echo '<br/>';
         //echo '<br/>';
-        echo "chegou";
-        $sql = "select nome from tb_".$table. " WHERE nome='".$parametro['nome']."'"; 
-        $stmt = $this->pdo->query($sql);
-        $nome = $stmt->fetch();
-        $sql = "select nome from tb_".$table. " WHERE email='".$parametro['email']."'";
-        $stmt = $this->pdo->query($sql);
-        $email = $stmt->fetch();
-        if(empty($nome) && empty($email)) {
-            return "correto";
-        } else {
-            if(!empty($nome) && !empty($email)) {
-                return "nome e email já utilizados";
-            } else if(!empty($nome)) {
-                return "nome já utilizado";
+        if(isset($parametro['categoria'])) {
+            $sql = "select categoria from tb_".$table. " WHERE categoria='".$parametro['nome']."'"; 
+            $stmt = $this->pdo->query($sql);
+            $nome = $stmt->fetch();
+            if(empty($nome)) {
+                return "correto";
             } else {
-                $_SESSION['foi'] = "n foi";
-                return "email já utilizado";
+                if(!empty($nome)) {
+                    return "nome já utilizado";
+                }
+            }
+        } else {
+            $sql = "select nome from tb_".$table. " WHERE nome='".$parametro['nome']."'"; 
+            $stmt = $this->pdo->query($sql);
+            $nome = $stmt->fetch();
+            $sql = "select nome from tb_".$table. " WHERE email='".$parametro['email']."'";
+            $stmt = $this->pdo->query($sql);
+            $email = $stmt->fetch();
+            if(empty($nome) && empty($email)) {
+                return "correto";
+            } else {
+                if(!empty($nome) && !empty($email)) {
+                    return "nome e email já utilizados";
+                } else if(!empty($nome)) {
+                    return "nome já utilizado";
+                } else {
+                    $_SESSION['foi'] = "n foi";
+                    return "email já utilizado";
+                }
             }
         }
-        /*print_r($usuario);
-        if($usuario == "") {
-            echo "dale";
-        }
-        echo '<br/>';*/
     }
 
     public function listagemProdutos($table,$table2, $parametro) {

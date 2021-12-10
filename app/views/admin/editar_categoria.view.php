@@ -13,10 +13,10 @@
 	</head>
     <body>
         <?php
-            use App\Controllers\UsersController;
+            use App\Controllers\CategoriasController;
             //to requerindo a classe UsersController para poder utilizar uma função static e uma variavel static de lá que vão permitir fazer a validação de senha/nome/email
             if(!isset($_GET['id'])) {
-                $_GET['id'] = UsersController::getId();
+                $_GET['id'] = CategoriasController::getId();
                 echo $_GET['id'];
                 echo "<br/>";
             }
@@ -24,16 +24,22 @@
         <div class="container">
             <div class="title">Editar(Modifique somente oq deseja mudar)</div>
             <!--action="adicionar_usuario-->
-            <form method="GET" action="editar_categorias" id="badform">
+            <form method="POST" action="editar_categorias" id="badform">
                 <!--Essa formulario é enviado passando a url adicionar_usuario pelo método POST(tudo isso é necessario para que o index consiga concluir todas as etapas da rota)-->
                 <div class="user-details">
                     <div class="input-box">
-                        <span class="details">Novo nome de Usuario</span>
+                        <span class="details">Novo nome de categoria</span>
                         <input type="text" placeholder="Escreva um novo nome para Categoria" name="nome">
                         <!--<input type="hidden" name="id" value=<?= $_GET['id'] ?>></input>-->
                         <input type = "hidden" name = "id" value=<?= $_GET['id'] ?>>
-                        <input type = "hidden" name = "categoria" value=1>
+                        <input type = "hidden" name = "categoria" value=1> <!-- Gambiarra para saber que isso está vindo da editar_categorias e não editar_usuarios  -->
                         <?php
+                            if(!empty(CategoriasController::getMessage())) {
+                               echo CategoriasController::getMessage(); 
+                            }
+                            /*if(CategoriasController::getMessage() == "Os nomes não conferem") {
+                                echo "Os nomes não são iguais";
+                            }*/  
                             //if(!isset($_SESSION['recado'])) { // da pra tirar essa parte e manter só a segunda;
                                 /* 
                                     essa parte serve para tudo aqui do código, basicamente essa variavel é uma variavel global inicializada na chamada 
@@ -51,19 +57,15 @@
                     
                    
                     <div class="input-box">
-                        <span class="details">Confirmar novo nome</span>
+                        <span class="details">Confirmar o nome</span>
                         <input type="text" placeholder="Confirme seu novo nome" name="nome_confirma">
                         <?php
-                            /*if($_SESSION['recado'] != "a") {
-                                echo 'porra';
-                                echo $_SESSION['recado']; 
-                            }*/
-                            //if(!isset($_SESSION['recado'])) {
-                                if(UsersController::getMessage() == "Os nomes não conferem") {
-                                    echo "Os nomes não são iguais";
-                                }
-                            //}
-                                
+                            if(!empty(CategoriasController::getMessage())) {
+                                echo CategoriasController::getMessage(); 
+                             }
+                            /*if(CategoriasController::getMessage() == "Os nomes não conferem") {
+                                echo "Os nomes não são iguais";
+                            }*/           
                         ?>
                     </div> 
                 </div>
