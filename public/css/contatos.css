@@ -110,6 +110,15 @@ body {
 	100% {opacity: 1; transform: translate(0px,0px)}
 }
 
+.btn-lg{
+	background-color:#F1C8C7 !important;
+	color: black !important;
+	border-color: pink !important;
+
+	
+}
+
+
 @media (max-width: 1000px) {
 
 .logo img {
@@ -123,4 +132,6 @@ body {
 .form-background {
     background: white;
     }
+
+
 }

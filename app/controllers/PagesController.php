@@ -53,6 +53,10 @@ class PagesController
         return view('admin/administrativaProdutos');
     }
 
+    public function addProd() {
+        return view('admin/adicionar_produto');
+    }
+
     public function delete() {
         return view('admin/delete_usuario');
     }
@@ -73,6 +77,10 @@ class PagesController
 
     public function editarc(){
         return view('admin/editar_categoria');
+    }
+
+    public function busca_produto() {
+        return view('admin/busca_produtos');
     }
 
 }

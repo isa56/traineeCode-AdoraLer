@@ -9,12 +9,28 @@ $router->post('editar_categorias', 'CategoriasController@update');
 
 //Sendo utilizado até o momento
 //USUÁRIO - post:
+
+use App\Controllers\ProdutosController;
+
 $router->post('adicionar_usuario', 'UsersController@create');
 $router->post('delete_usuario', 'UsersController@delete');
 $router->post('view_usuario', 'UsersController@admOptions');
 $router->post('edit_usuario', 'UsersController@edit');
 $router->post('editar_usuario', 'UsersController@edit');
 $router->post('listagem_produtos', 'UsersController@listagem_produtos');
+
+
+//PRODUTO - post:
+$router->post('adicionar_produto', 'ProdutosController@create');
+$router->post('delete_produto', 'ProdutosController@delete');
+$router->post('view_produto', 'ProdutosController@admOptions');
+$router->post('edit_produto', 'ProdutosController@edit');
+$router->post('editar_produto', 'ProdutosController@edit');
+$router->post('listagem_produtos', 'ProdutosController@listagem_produtos');
+$router->post('busca_produto', 'ProdutosController@busca_produto');
+//PRODUTO - get:
+$router->get('admProdView', 'ProdutosController@admProdView');
+$router->get('busca_produto','PagesController@busca_produto');
 
 //Sendo utilizado até o momento
 //PAGES - get:
@@ -29,6 +45,7 @@ $router->get('adm','PagesController@adm');
 $router->get('categorias', 'CategoriasController@view');
 $router->post('delete_categoria', 'CategoriasController@delete');
 $router->get('admProd', 'PagesController@admProd');
+$router->get('addProd', 'PagesController@addProd');
 $router->get('delete_usuario', 'PagesController@delete');
 $router->get('userOption', 'UsersController@admOptions');
 $router->get('editar_usuario', 'PagesController@edit');

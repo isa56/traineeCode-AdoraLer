@@ -125,14 +125,13 @@ div[class^="col"] {
 	font-size: large;
 	font-weight: 550;
 }
-
 .contact-home a:hover {
 	background-color: #7B5B5A;
 	color: #F7883F;
 }
-
-
-
+.card-deck{
+	align-items: center;
+}
 .card-img-top{
 	height: 220px!important;
 	width: 200px!important;

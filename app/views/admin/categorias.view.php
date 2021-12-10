@@ -18,6 +18,11 @@
    
     ?>
     
+    <?php foreach ($categorias as $categoria) : ?>
+     <h2>
+    <?= $categoria->categoria ?>
+    </h2>
+    <?php endforeach; ?>
     <div class="pegatd">
         <div class="container">
             <H1 class="text-center">CATEGORIAS-Administração </H1><br>

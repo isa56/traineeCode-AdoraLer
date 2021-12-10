@@ -1,0 +1,52 @@
+.
+.usersOption {
+    background-color:rgba(255,192,203,0.5);
+}
+
+thead {
+    font-size: 20px;
+}
+
+.table i{
+    font-size: 30px;
+}
+
+td {
+    max-width: 200px;
+    padding-top: 50px;
+    font-size: 20px;
+}
+
+body {
+    background-image: url(../../public/img/background2.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /**/
+    display: flex;
+	flex-direction: column;
+	height: 100vh;
+	/*justify-content: ;*/
+	align-items: center;
+    overflow-x: hidden;
+}
+
+/*//////////////////////////////////////////////////////////////////////////*/
+
+form .button {
+	height: 45px;
+	margin: 15px 0;
+}
+form .button input {
+	height: 100%;
+	width: 100%;
+	outline: none;
+	color: black;
+	border: none;
+	font-size: 18px;
+	border-radius: 5px;
+	letter-spacing: 1px;
+}
+form .button input:hover {
+	opacity: 0.5;
+}

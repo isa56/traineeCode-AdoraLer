@@ -18,13 +18,12 @@ class CategoriasController
     public static function getMessage() {
         return static::$message;
     }
-
-
+    
     public function view() {
-        //echo "chegou";
         $categorias=App::get('database')->selectAll('categorias');
         return view('admin/categorias', compact('categorias'));
     }
+
 
     public function create()
     {
@@ -59,5 +58,6 @@ class CategoriasController
         //echo $_POST['categoria'];
         App::get('database')->delete('categorias', $_POST);
         header("Location: /categorias");
+        
     }
 }
