@@ -35,7 +35,7 @@ $router->get('guia_mochileiro', 'PagesController@guiaMochileiro');
 $router->get('produtos', 'PagesController@produtos');
 $router->get('adicionar_usuario', 'PagesController@adicionar_usuario');
 $router->get('adm','PagesController@adm');
-$router->get('categorias', 'PagesController@categorias');
+$router->get('categorias', 'CategoriasController@view');
 $router->get('admProd', 'PagesController@admProd');
 $router->get('addProd', 'PagesController@addProd');
 $router->get('delete_usuario', 'PagesController@delete');
