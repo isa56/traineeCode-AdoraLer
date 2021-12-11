@@ -33,12 +33,10 @@ class QueryBuilder
                 $total2 = count($query);
                 //var_dump();
                 $i=0;
-                print_r($_SESSION['array']);
                 for($i=0;$i<$total;$i++) {
                     $array[] = $this->getCategoria($_SESSION['array'][$i]->categoria_id);
                     //$array[] = $query[$query2[$i]->categoria_id-1]->categoria;
                 }
-                print_r($array);
                 //var_dump;
                 //var_dump();
                 //var_dump();
