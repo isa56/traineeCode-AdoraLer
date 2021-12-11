@@ -18,7 +18,7 @@ class QueryBuilder
     public function selectAll($table)
     {   
         if(isset($_SESSION['categ'])) {
-            $query = "select categoria from tb_categorias";
+            $query = "select id from tb_categorias";
             $query2 = "select categoria_id from tb_produtos";
             try {
                 $query = $this->pdo->query($query);
@@ -30,10 +30,18 @@ class QueryBuilder
                 $query2 = $query2->fetchAll(PDO::FETCH_OBJ);
                 $array =[];
                 $total = count($query2);
+                $total2 = count($query);
+                //var_dump();
                 $i=0;
+                print_r($_SESSION['array']);
                 for($i=0;$i<$total;$i++) {
-                    $array[] = $query[$query2[$i]->categoria_id-1]->categoria;
+                    $array[] = $this->getCategoria($_SESSION['array'][$i]->categoria_id);
+                    //$array[] = $query[$query2[$i]->categoria_id-1]->categoria;
                 }
+                print_r($array);
+                //var_dump;
+                //var_dump();
+                //var_dump();
                 return $array;
             } catch (Exception $e) {
                 die($e->getCode() . '--' . $e->getMessage());
@@ -65,6 +73,13 @@ class QueryBuilder
                 die($e->getCode() . '--' . $e->getMessage());
             }
         }
+    }
+
+    public function getCategoria($id) {
+        $query = "SELECT categoria from tb_categorias where id=$id";
+        $query = $this->pdo->query($query);
+        $query = $query->fetchAll(PDO::FETCH_OBJ);
+        return $query[0]->categoria;
     }
 
     public function select()
@@ -134,6 +149,13 @@ class QueryBuilder
             //echo 'entrou no if';
         header("Location: /userOption");
 
+    }
+
+    public function deleteCategorias($table, $parametro) {
+        $query = "delete from tb_".$table." where id = '".$parametro['id']."'";
+        $this->pdo->query($query);
+        $query = "UPDATE id from tb_$table where id > ".$parametro['id']." id=id-1";
+        header("Location: /userOption");
     }
 
     public function read($table, $parametro)

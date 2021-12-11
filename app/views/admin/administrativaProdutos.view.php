@@ -78,7 +78,7 @@
                                             </td>
                                             <td>
                                                 <div style="display: flex;">
-                                                    <form method = "POST" action = "delete_usuario">
+                                                    <form method = "POST" action = "delete_produto">
                                                         <input type = "hidden" name="id" value=<?= $produto->id; ?>></input>
                                                         <button type="submit" class="btn"><i class="bi bi-trash"></i></button>
                                                     </form>

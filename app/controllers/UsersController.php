@@ -143,6 +143,8 @@ class UsersController {
         }       
     }
 
+    //TIRAR ESSA FUNÇÃO AQUI(DEVE FICAR NA PRODUTOS CONTROLLER)
+
     public function listagem_produtos() {
         session_start();
         $_SESSION['mensagem'] = "a";
@@ -159,6 +161,8 @@ class UsersController {
         return view('admin/listagem_produtos', compact('produtos'));
     }
     
+    //TIRAR ESSA FUNÇÃO AQUI(DEVE FICAR NA PRODUTOS CONTROLLER)
+
     protected function alreadyExists() {
         //if($_POST['nome'] != App::get('database')->read('usuarios', 'nome'));
         //$_POST['nome'];
