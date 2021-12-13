@@ -29,13 +29,16 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="nome@provedor.com">
+                            <input type="text" class="form-control" placeholder="nome@provedor.com" value="name">
+                            <?php 
+                                echo 
+                            ?>
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
                             </div>
-                            <input type="password" class="form-control" placeholder="*********">
+                            <input type="password" class="form-control" placeholder="*********" value="senha">
                         </div>
                         <div class="form-group">
                             <a href="adicionar_usuario"><input style="background-color: #E9ECEF;" value="Cadastrar" class="btn float-right login_btn ex-submit"></a>

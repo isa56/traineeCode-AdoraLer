@@ -1,16 +1,17 @@
 <?php
 
 //Sendo utilizado até o momento
-//USUÁRIO - post:
 
 use App\Controllers\ProdutosController;
 
+//USUÁRIO - post:
 $router->post('adicionar_usuario', 'UsersController@create');
 $router->post('delete_usuario', 'UsersController@delete');
 $router->post('view_usuario', 'UsersController@admOptions');
 $router->post('edit_usuario', 'UsersController@edit');
 $router->post('editar_usuario', 'UsersController@edit');
-$router->post('listagem_produtos', 'UsersController@listagem_produtos');
+//$router->post('listagem_produtos', 'UsersController@listagem_produtos');
+$router->post('login', 'LoginControllers@login');
 
 
 //PRODUTO - post:
@@ -20,6 +21,7 @@ $router->post('view_produto', 'ProdutosController@admOptions');
 $router->post('editar_produto', 'ProdutosController@edit');
 $router->post('listagem_produtos', 'ProdutosController@listagem_produtos');
 $router->post('busca_produto', 'ProdutosController@busca_produto');
+$router->post('editar_produtos', 'PagesController@editar_produtos');
 //PRODUTO - get:
 $router->get('admProdView', 'ProdutosController@admProdView');
 $router->get('busca_produto','PagesController@busca_produto');
@@ -43,4 +45,4 @@ $router->get('listagem_produtos', 'PagesController@listagem_produtos');
 //Sendo utilizado até o momento
 //Pages - post
 
-$router->post('login', 'LoginControllers@login');
+

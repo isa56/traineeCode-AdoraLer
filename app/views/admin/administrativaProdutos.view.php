@@ -70,7 +70,7 @@
                                             <td>
                                                 <div style="display: flex;">
                                                 <!--action = "editar_usuario-->
-                                                    <form method = "POST" action = "editar_produto">
+                                                    <form method = "POST" action = "editar_produtos">
                                                         <input type = "hidden" name = "id" value=<?= $produto->id; ?>></input>
                                                         <button type="submit" class="btn"><i class="bi bi-pencil-square"></i></button>
                                                     </form>

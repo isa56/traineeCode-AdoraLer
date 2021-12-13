@@ -118,6 +118,7 @@ class UsersController {
     public function delete() {
         //echo 'chegou no delete';
         App::get('database')->delete('usuarios', $_POST);
+        $this->admOptions();
     }
 
     public function edit() {

@@ -119,7 +119,9 @@ class ProdutosController {
     public function delete() {
         //echo 'chegou no delete';
         App::get('database')->delete('produtos', $_POST);
+        $this->admProdView();
     }
+    
 
         
     public function edit()
@@ -127,13 +129,13 @@ class ProdutosController {
         $params = [
             "nome" => $_POST["nome"],
             "preco" => $_POST['preco'],
-            "categoria" => $_POST["categoria"],
             "descricao" => $_POST["descricao"],
             "imagem" => $_POST["imagem"],
-            "id" = $_POST["id"]
+            "id" => $_POST["id"]
         ];
     
-        App::get('database')->editProduto('produtos', $params);
+        App::get('database')->editProduto('produtos', $_POST);
+        return view('admin/administrativaProdutos');
     }      
 
     public function listagem_produtos() {

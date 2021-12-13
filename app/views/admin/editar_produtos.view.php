@@ -61,7 +61,7 @@
                     </div> 
                 </div>
                 <div class="button">
-                    <input type="submit" value="Registrar" id="envia">                   
+                    <input type="submit" value="Editar" id="envia">                   
                 </div>
             </form>
         </div>

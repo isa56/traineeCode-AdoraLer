@@ -136,6 +136,21 @@ class QueryBuilder
         //ESSE PARAMETRO AQUI POSSIVELMENTE É DIFERENTE, COM NOVOS CAMPOS COMO POR EXEMPLO, SENHA E NOVA SENHA, EMAIL E NOVO EMAIL, NOME E NOVO NOME, SEXO E NOVO SEXO;
 
     }
+    public function editProduto($table, $parametro)
+    {
+        $sql = "UPDATE tb_{$table} SET ";
+        foreach ($parametro as $key => $parametros) {
+            $sql = $sql . "{$key} = '{$parametro}',";
+        }
+        $sql = rtrim($sql, " " . ",");
+        $sql = $sql . " WHERE id = {$parametro['id']}";
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
 
     public function delete($table, $parametro)
     {
@@ -145,7 +160,7 @@ class QueryBuilder
             $query = "delete from tb_".$table." where id = '".$parametro['id']."'";
             $this->pdo->query($query);
             //echo 'entrou no if';
-        header("Location: /userOption");
+        //header("Location: /userOption");
 
     }
 
@@ -153,7 +168,7 @@ class QueryBuilder
         $query = "delete from tb_".$table." where id = '".$parametro['id']."'";
         $this->pdo->query($query);
         $query = "UPDATE id from tb_$table where id > ".$parametro['id']." id=id-1";
-        header("Location: /userOption");
+        //header("Location: /userOption");
     }
 
     public function read($table, $parametro)
@@ -219,6 +234,25 @@ class QueryBuilder
             echo "dale";
         }
         echo '<br/>';*/
+    }
+
+    public function valid_login($table, $parametro) {
+            $sql = "select email from tb_".$table. " WHERE email='".$parametro['email']."'"; 
+            $stmt = $this->pdo->query($sql);
+            $email = $stmt->fetch();
+            $sql = "select senha from tb_".$table. " WHERE email='".$parametro['email']."'";
+            $stmt = $this->pdo->query($sql);
+            $senha = $stmt->fetch();
+            if(!empty($email)) {
+                if($parametro['senha']==$senha){
+                    return "correto";
+                } else {
+                    return "senha incorreta";
+                }
+            }else {
+                return "email invalido";
+            }
+
     }
 
     public function listagemProdutos($table,$table2, $parametro) {

@@ -79,4 +79,7 @@ class PagesController
         return view('admin/busca_produtos');
     }
 
+    public function editar_produtos() {
+        return view('admin/editar_produtos');
+    }
 }
