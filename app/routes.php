@@ -17,7 +17,6 @@ $router->post('listagem_produtos', 'UsersController@listagem_produtos');
 $router->post('adicionar_produto', 'ProdutosController@create');
 $router->post('delete_produto', 'ProdutosController@delete');
 $router->post('view_produto', 'ProdutosController@admOptions');
-$router->post('edit_produto', 'ProdutosController@edit');
 $router->post('editar_produto', 'ProdutosController@edit');
 $router->post('listagem_produtos', 'ProdutosController@listagem_produtos');
 $router->post('busca_produto', 'ProdutosController@busca_produto');

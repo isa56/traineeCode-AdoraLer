@@ -121,28 +121,20 @@ class ProdutosController {
         App::get('database')->delete('produtos', $_POST);
     }
 
-    public function edit() {
-        //echo 'chegou no edit';
         
-        $resultado = $this->alreadyExists();
-        if($resultado == "correto") {
-            $senha = $_POST['senha'];
-            $senhaConfirma  = $_POST['senha_confirma'];
-            //echo $senha . '----' . $senhaConfirma;
-            if ($senha == $senhaConfirma) {
-                App::get('database')->edit('usuarios', $_POST);
-            } else {
-                static::$message="As senhas não conferem";
-                static::$id = $_POST['id'];
-                return view("admin/editar_usuario");
-            }
-        } else {
-            static::$message= $resultado;
-            //"?id={$_POST['id']}"
-            static::$id = $_POST['id'];
-            return view("admin/editar_usuario");
-        }       
-    }
+    public function edit()
+    {
+        $params = [
+            "nome" => $_POST["nome"],
+            "preco" => $_POST['preco'],
+            "categoria" => $_POST["categoria"],
+            "descricao" => $_POST["descricao"],
+            "imagem" => $_POST["imagem"],
+            "id" = $_POST["id"]
+        ];
+    
+        App::get('database')->editProduto('produtos', $params);
+    }      
 
     public function listagem_produtos() {
         session_start();
