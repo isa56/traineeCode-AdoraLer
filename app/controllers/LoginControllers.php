@@ -14,7 +14,7 @@ class LoginController {
         }
     }
 
-    public static function getmessage() {
+    public static function getMessage() {
         return static::$recado;
     }
 }

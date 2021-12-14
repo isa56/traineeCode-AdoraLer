@@ -30,8 +30,8 @@
                                 <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
                             </div>
                             <input type="text" class="form-control" placeholder="nome@provedor.com" value="name">
-                            <?php 
-                                echo 
+                            <?php
+                               echo "aaa";
                             ?>
                         </div>
                         <div class="input-group form-group">
