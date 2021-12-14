@@ -236,15 +236,15 @@ class QueryBuilder
         echo '<br/>';*/
     }
 
-    public function valid_login($table, $parametro) {
-            $sql = "select email from tb_".$table. " WHERE email='".$parametro['email']."'"; 
+    public function valid_login($parametro) {
+            $sql = "select email from tb_usuarios  WHERE email='".$parametro['email']."'"; 
             $stmt = $this->pdo->query($sql);
             $email = $stmt->fetch();
-            $sql = "select senha from tb_".$table. " WHERE email='".$parametro['email']."'";
+            $sql = "select senha from tb_usuarios  WHERE email='".$parametro['email']."'";
             $stmt = $this->pdo->query($sql);
             $senha = $stmt->fetch();
             if(!empty($email)) {
-                if($parametro['senha']==$senha){
+                if($parametro['senha']==$senha['senha']){
                     return "correto";
                 } else {
                     return "senha incorreta";

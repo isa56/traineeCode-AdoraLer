@@ -11,7 +11,7 @@ $router->post('view_usuario', 'UsersController@admOptions');
 $router->post('edit_usuario', 'UsersController@edit');
 $router->post('editar_usuario', 'UsersController@edit');
 //$router->post('listagem_produtos', 'UsersController@listagem_produtos');
-$router->post('login', 'LoginControllers@login');
+$router->post('login', 'LoginController@login');
 
 
 //PRODUTO - post:
