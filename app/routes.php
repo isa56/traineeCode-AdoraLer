@@ -1,8 +1,10 @@
 <?php
-
+use App\Controllers\ProdutosController;
 
 //CATEGORIAS - get: 
 $router->get('editarc', 'PagesController@editarc');
+$router->get('categorias', 'CategoriasController@view');
+$router->post('delete_categoria', 'CategoriasController@delete');
 
 //CATEGORIAS - get:
 $router->post('editar_categorias', 'CategoriasController@update');
@@ -10,7 +12,7 @@ $router->post('editar_categorias', 'CategoriasController@update');
 //Sendo utilizado até o momento
 //USUÁRIO - post:
 
-use App\Controllers\ProdutosController;
+
 
 $router->post('adicionar_usuario', 'UsersController@create');
 $router->post('delete_usuario', 'UsersController@delete');
@@ -42,8 +44,7 @@ $router->get('guia_mochileiro', 'PagesController@guiaMochileiro');
 $router->get('produtos', 'PagesController@produtos');
 $router->get('adicionar_usuario', 'PagesController@adicionar_usuario');
 $router->get('adm','PagesController@adm');
-$router->get('categorias', 'CategoriasController@view');
-$router->post('delete_categoria', 'CategoriasController@delete');
+
 $router->get('admProd', 'PagesController@admProd');
 $router->get('addProd', 'PagesController@addProd');
 $router->get('delete_usuario', 'PagesController@delete');
