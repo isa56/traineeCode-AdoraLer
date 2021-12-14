@@ -41,11 +41,16 @@ header {
     margin-top: 40px;
     display: flex;
     align-items: center;
+    align-self: center;
+    justify-content:center;
+    justify-self:center;
     border: none;
     background-color: transparent;
 }
 
+
 .body-main-adm .card img {
+    justify-content:center;
     width: 80%;
     opacity: 0.9;
     height: 380px;

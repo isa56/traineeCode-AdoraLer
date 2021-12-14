@@ -25,5 +25,10 @@
 .body-login .card-header {
     font-family: 'Marck Script', cursive;
 }
-
+.body-login .ex-submit {
+    padding-left: 0px;
+}
+.body-login .botoes {
+    justify-self: center;
+}
 /*fim da área de login*/

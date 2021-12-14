@@ -31,7 +31,7 @@
                         <h4>Contas</h4>
                     </div>
                     <div class="col-auto" style="margin-bottom: 10px">
-                        <a href="adicionar_usuario" ><button type="submit" class="btn btn-primary">Novo usuario</button></a>
+                        <a href="adicionar_usuario" ><button type="submit" class="btn btn-primary botaoCompraAdd">Novo usuario</button></a>
                     </div> 
                 </div>
 
@@ -61,7 +61,7 @@
                                                 <!--action = "editar_usuario-->
                                                     <form method = "GET" action = "editar_usuario?">
                                                         <input type = "hidden" name = "id" value=<?= $user->id; ?>></input>
-                                                        <button type="submit" class="btn"><i class="bi bi-pencil-square"></i></button>
+                                                        <button type="submit" class="btn botaoCompra"><i class="bi bi-pencil-square"></i></button>
                                                     </form>
                                                 </div>
                                             </td>
@@ -69,7 +69,7 @@
                                                 <div style="display: flex;">
                                                     <form method = "POST" action = "delete_usuario">
                                                         <input type = "hidden" name="id" value=<?= $user->id; ?>></input>
-                                                        <button type="submit" class="btn"><i class="bi bi-trash"></i></button>
+                                                        <button type="submit" class="btn botaoCompra"><i class="bi bi-trash"></i></button>
                                                     </form>
                                                 </div>
                                             </td>
@@ -86,7 +86,7 @@
                 <?php for($i = 1;$i<$total_linhas;$i = $i+9) : ?> <!--Se-->
                     <form method = "GET" action = "userOption">
                         <input type = "hidden" name="end" value=<?= $cont ?>></input>
-                        <button type="submit" class="btn" style="border:1px solid;border-color:green"><?= $y ?></button>
+                        <button type="submit" class="btn botaoCompraAdd" style="border:1px solid;border-color:green"><?= $y ?></button>
                         <?php $y++; ?> <!--O y equivale ao número dos botões, aqui estou aumentando o número deles-->
                         <?php $cont = $cont+10; ?> <!--Me auxilia a passar o end para o UsersController, se tiverem 19 linhas na tabela, o primeiro botão vai 9 e o segundo 19
                                                         na hr de printar vou de >9-10 até <=9 e por ai vai, já que estou printando 10 por x-->                   
