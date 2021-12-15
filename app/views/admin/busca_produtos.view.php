@@ -41,7 +41,7 @@
                             <input class="form-control" type="text" name="mensagem" id="exampleFormControlTextarea1" rows="1"></input>
                         </div>
                         <div class="button">
-                            <input type="submit" value="Registrar" id="envia"  style="background-color:pink "> 
+                            <input type="submit" value="Pesquisar" id="envia"  style="background-color:pink "> 
                         </div>
                 </div>			
             </form>
@@ -104,7 +104,7 @@
             </div>
         </div>
         <?php
-            session_destroy();
+            //session_destroy();
             //session_start();
             //$_SESSION['user'] = $user->id;
         ?>

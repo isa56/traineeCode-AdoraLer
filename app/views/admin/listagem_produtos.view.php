@@ -16,14 +16,15 @@
         
         <?php include_once('app\views\includes\navbarAdm.php'); ?>
         <?php 
-            use App\Controllers\UsersController;
+            //use App\Controllers\UsersController;
+            use App\Controllers\ProdutosController;
             /*if(empty(UsersController::getMessage())) {
                 echo "entrou aqui";
             } else if(UsersController::getMessage() == "Não tem") {
                 $categoria = ['Categoria invalida'];
             }*/
-
-            if(!empty(UsersController::getMessage())) {
+            //if(!empty(UsersController::getMessage()))
+            if(!empty(ProdutosController::getMessage())) {
                 session_destroy();
                 /*echo "</br>";
                 echo "</br>";
@@ -106,9 +107,11 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <?php if(empty(UsersController::getMessage())) : ?>
+                                    <!--if(empty(UsersController::getMessage()))-->
+                                    <?php if(empty(ProdutosController::getMessage())) : ?>
                                         echo "entrou no 1";
-                                    <?php elseif(UsersController::getMessage() == 'Não tem') : ?>
+                                        <!--elseif(empty(UsersController::getMessage()))-->
+                                    <?php elseif(ProdutosController::getMessage() == 'Não tem') : ?>
                                         echo "entrou no 2";
                                         <tr> 
                                             <td class="td">Categoria inexistente</td>
@@ -123,7 +126,7 @@
                                         <?php foreach($produtos as $produto):?>
                                         <tr>
                                             <td class="td"><?= $produto->nome; ?></td>
-                                            <td class="td"><?= UsersController::getCategoria() ?></td>
+                                            <td class="td"><?= ProdutosController::getCategoria() ?></td>
                                             <td class="td"><?= $produto->preco; ?></td>
                                             <td class="td"><?= $produto->imagem; ?></td>
                                             <td class="td"><?= $produto->descricao; ?></td>

@@ -17,13 +17,19 @@ class ProdutosController {
         //if(!isset($_POST['start'])) {
             session_start(); // starta a sessão para acessar a QueryBuilder e buscar o número total de linhas na tabela na variavel $_SESSION['tabela'];
             $_SESSION['total'] = "a";
+            if(isset($_SESSION['categ'])) {
+                unset($_SESSION['categ']);
+            }
             $produtos = App::get('database')->selectAll('produtos'); // requisita tudo da tabela usuarios;
             $_SESSION['categ'] = "a";
+            $_SESSION['array'] = $produtos;
             static::$categ = App::get('database')->selectAll('categorias'); // requisita tudo da tabela usuarios;
             $total = $_SESSION['total']; // passa o valor do total de linhas da tabela tb_usuarios para uma variavel, para que eu possa fechar essa sessão e abrir uma com a userOption
             session_destroy(); // fechando a sessão
             session_start(); // abrindo uma nova sessão
             $_SESSION['total'] = $total; // atribuindo o total de linhas da tabela para a nova variavel global $_SESSION['total'];
+            echo $_SESSION['total'];
+            //var_dump();
         //}
         if(isset($_GET['end'])) { 
             $_SESSION['end'] = $_GET['end'];
@@ -112,7 +118,7 @@ class ProdutosController {
 
     public function delete() {
         //echo 'chegou no delete';
-        App::get('database')->delete('usuarios', $_POST);
+        App::get('database')->delete('produtos', $_POST);
     }
 
     public function edit() {
@@ -176,7 +182,13 @@ class ProdutosController {
         return App::get('database')->validUser('usuarios', $_POST);
     }
 
+    //CORRIGINDO MERGING A PARTIR DQ!!!!!!!!!!!!!!//
+    
+
+
 }
+
+
 /*<?php
     if($_POST) {
         $senha          = $_POST['senha'];

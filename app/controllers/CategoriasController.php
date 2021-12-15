@@ -58,8 +58,4 @@ class CategoriasController
             return view('admin/editar_categoria');
         }
     }
-
-    
-
-    
 }

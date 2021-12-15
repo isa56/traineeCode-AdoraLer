@@ -33,7 +33,7 @@ $router->post('busca_produto', 'ProdutosController@busca_produto');
 //PRODUTO - get:
 $router->get('admProdView', 'ProdutosController@admProdView');
 $router->get('busca_produto','PagesController@busca_produto');
-
+$router->get('delete_produto', 'ProdutosController@delete');
 //Sendo utilizado até o momento
 //PAGES - get:
 $router->get('', 'PagesController@index');
@@ -47,6 +47,7 @@ $router->get('adm','PagesController@adm');
 
 $router->get('admProd', 'PagesController@admProd');
 $router->get('addProd', 'PagesController@addProd');
+$router->get('categorias', 'CategoriasController@view');
 $router->get('delete_usuario', 'PagesController@delete');
 $router->get('userOption', 'UsersController@admOptions');
 $router->get('editar_usuario', 'PagesController@edit');
