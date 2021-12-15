@@ -75,6 +75,10 @@ class PagesController
         return view('admin/listagem_produtos');
     }
 
+    public function editarc(){
+        return view('admin/editar_categoria');
+    }
+
     public function busca_produto() {
         return view('admin/busca_produtos');
     }

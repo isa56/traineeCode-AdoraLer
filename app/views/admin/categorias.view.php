@@ -17,6 +17,7 @@
     <?php include_once('app\views\includes\navbarAdm.php'); 
    
     ?>
+    
     <?php foreach ($categorias as $categoria) : ?>
      <h2>
     <?= $categoria->categoria ?>
@@ -40,11 +41,50 @@
                     <br>
                     <hr />
                     <h2 class="text-center">Categorias cadastradas</h2>
+                    <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table" >
+                                <thead >
+                                <tr class="dif">
+                                    <th>Nome</th>                      
+                                    <th>Editar</th>
+                                    <th>Deletar</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach($categorias as $categoria) : ?>
+                                        
+                                    <tr> 
+                                        
+                                        <td class="td"><?= $categoria->categoria; ?></td>                    
+                                        <td>
+                                            <div style="display: flex;">
+                                                <form method = "GET" action = "editarc">
+                                                    <input type = "hidden" name = "id" value=<?= $categoria->id; ?>>
+                                                    <input type = "hidden" name = "categoria" value=1; ?>
+                                                    <button type="submit" class="btn"><i class="bi bi-pencil-square"></i>
+                                                </form>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="display: flex;">
+                                                <form method = "POST" action = "delete_categoria">
+                                                    <input type = "hidden" name="id" value=<?= $categoria->id; ?>>
+                                                    <input type = "hidden" name = "categoria" value=1; ?>
+                                                    <button  type="submit" class="btn"><i class="bi bi-trash"></i>
+                                                    
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-                <div class="btn-group" role="group" aria-label="basic sample">
-                        <a href=" " class="btn btn-primary">Edita</a>
-                        <a href=" " class="btn btn-secondery">Exclui</a>
-                </div>
+            </div>
         </div>
     </div>
 
