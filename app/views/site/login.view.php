@@ -33,10 +33,10 @@
                             </div>
                             <input type="text" class="form-control" placeholder="nome@provedor.com" value="email" name="email">
                             <?php
-                            if( LoginController::getMessage() == "email invalido") {
-                                //métodos estaticos: estou utilizando a classe UsersController que é inserida no bloco php no inicio da pagina e sua função estatica que retorna a variavel presente lá com as msgs
-                                echo "Email invalido!";
-                            }
+                                if( LoginController::getMessage() == "email invalido") {
+                                    //métodos estaticos: estou utilizando a classe UsersController que é inserida no bloco php no inicio da pagina e sua função estatica que retorna a variavel presente lá com as msgs
+                                    //echo "Email invalido!";
+                                }
                             ?>
                         </div>
                         <div class="input-group form-group">
