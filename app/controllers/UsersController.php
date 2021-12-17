@@ -16,7 +16,7 @@ class UsersController {
             session_start(); // starta a sessão para acessar a QueryBuilder e buscar o número total de linhas na tabela na variavel $_SESSION['tabela'];
             $_SESSION['total'] = "a";
             //echo "aaaaaaa aqui";
-            $usuarios = App::get('database')->selectAll('usuarios'); // requisita tudo da tabela usuarios;
+            $usuarios = App::get('database')->selectAllUserOption('usuarios'); // requisita tudo da tabela usuarios;
             $total = $_SESSION['total']; // passa o valor do total de linhas da tabela tb_usuarios para uma variavel, para que eu possa fechar essa sessão e abrir uma com a userOption
             session_destroy(); // fechando a sessão
             session_start(); // abrindo uma nova sessão
@@ -118,6 +118,7 @@ class UsersController {
     public function delete() {
         //echo 'chegou no delete';
         App::get('database')->delete('usuarios', $_POST);
+        $this->admOptions();
     }
 
     public function edit() {

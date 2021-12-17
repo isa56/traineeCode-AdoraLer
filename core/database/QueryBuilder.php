@@ -15,13 +15,58 @@ class QueryBuilder
         $this->pdo = $pdo;
     }
 
+    /////////////////    USUARIOS AQUI    //////////////////////////////////////////////
+
+    public function selectAllUserOption($table) {
+        $query = "select * from tb_$table";
+        //retorna o total de elementos da tabela
+        $query2 = "SELECT COUNT(*) FROM tb_$table";
+        //echo($query2[0]);
+        /*$query2 = $this->pdo->query($query2);
+        $query2 = $query2->fetch();
+        $_SESSION['total'] = $query2[0];*/
+        //retorna o total de elementos da tabela
+        //var_dump();
+        try {
+            $query = $this->pdo->query($query);
+            //$query = $query->fetchAll(PDO::FETCH_OBJ);
+            //print_r($query);
+            
+            $query = $query->fetchAll(PDO::FETCH_OBJ);
+            //print_r($query);
+            //echo '<br/>';*/
+
+            $query2 = $this->pdo->query($query2);
+            $query2 = $query2->fetch();
+            //$_SESSION['total'] = $query2[0]; // atribui a variavel global só o número total de linhas da tabela;
+            if(isset($_SESSION['total'])) { // isso não é mais necessario pois passei essa função somente para a UserOption
+                /* se essa variavel tiver setada é por que a chamada dela veio da userOption que foi redirecionada para a UsersController, onde é setada
+                a variavel global que $_SESSION['total'];
+                */
+                $_SESSION['total'] = $query2[0]; // atribui a variavel global só o número total de linhas da tabela;
+            }
+            return $query;
+        } catch (Exception $e) {
+            die($e->getCode() . '--' . $e->getMessage());
+        }
+    }
+
+    /////////////////   FIM USUARIOS AQUI    //////////////////////////////////////////////
+
     public function selectAll($table)
     {
+        echo "entrou select all";
+        echo "</br>";
         if (isset($_SESSION['categ'])) {
             $query = "select categoria from tb_categorias";
+            echo "entrou select all 2";
+            echo "</br>";
+            var_dump(); 
         }
     
         if(isset($_SESSION['categ'])) {
+            echo "entrou aqui";
+            var_dump();
             $query = "select id from tb_categorias";
             $query2 = "select categoria_id from tb_produtos";
             try {
@@ -50,6 +95,8 @@ class QueryBuilder
                 die($e->getCode() . '--' . $e->getMessage());
             }
         } else {
+            echo "entrou select all";
+            echo "</br>";
             try {
                 $query = "select * from tb_$table";
                 //retorna o total de elementos da tabela
@@ -172,9 +219,9 @@ class QueryBuilder
             $this->pdo->query($query);
             header("Location: /categorias"); // voltando pra categorias
         } else {
-            $query = "delete from . $table where id = " . $parametro['id'] . "'"; // aqui a chamada meio da userOption por isso basta excluir a linha onde o id está localizado
+            $query = "delete from tb_$table where id = " . $parametro['id']; // aqui a chamada meio da userOption por isso basta excluir a linha onde o id está localizado
             $this->pdo->query($query);
-            header("Location: /userOption"); // retornando pra userOption;
+            //header("Location: /userOption"); // retornando pra userOption;
         }
         //echo 'entrou no if';
 
@@ -274,46 +321,43 @@ class QueryBuilder
                 }
             }
         }
+    }
 
-        function listagemProdutos($table, $table2, $parametro)
-        {
-            //$parametro = "produto";
-            //echo "tá aq";
-            $query = "SELECT id FROM tb_" . $table . " WHERE categoria='" . $parametro . "'";
-            try {
-                //echo $query;
-                $query = $this->pdo->query($query);
-                $categoria = $query->fetch(PDO::FETCH_OBJ);
-                //if($categoria == false) {
-                if (empty($categoria)) {
-                    $_SESSION['mensagem'] = "Não tem";
-                    $produto = [];
-                    return $produto;
-                } else {
-                    $query = "SELECT * FROM tb_" . $table2 . " Where categoria_id ='" . $categoria->id . "'";
-                    try {
-                        $query = $this->pdo->query($query);
-                        $categoria = $query->fetchAll(PDO::FETCH_OBJ);
+    function listagemProdutos($table, $table2, $parametro)
+    {
+        $query = "SELECT id FROM tb_" . $table . " WHERE categoria='" . $parametro . "'";
+        try {
+            //echo $query;
+            $query = $this->pdo->query($query);
+            $categoria = $query->fetch(PDO::FETCH_OBJ);
+            if (empty($categoria)) {
+                $_SESSION['mensagem'] = "Não tem";
+                $produto = [];
+                return $produto;
+            } else {
+                $query = "SELECT * FROM tb_" . $table2 . " Where categoria_id ='" . $categoria->id . "'";
+                try {
+                    $query = $this->pdo->query($query);
+                    $categoria = $query->fetchAll(PDO::FETCH_OBJ);
 
 
-                        //$object = new stdClass();
-                        //https://github.com/symfony/symfony/issues/2470;
-                        //$object = new \stdClass();
-                        //$object->categoria = $parametro;
-                        //$categoria[] = $object;
-                        //print_r($categoria);
-                        //var_dump;
+                    //$object = new stdClass();
+                    //https://github.com/symfony/symfony/issues/2470;
+                    //$object = new \stdClass();
+                    //$object->categoria = $parametro;
+                    //$categoria[] = $object;
+                    //print_r($categoria);
+                    //var_dump;
 
-                        return  $categoria;
-                    } catch (Exception $e) {
-                        echo $e->getCode() . "---" . $e->getMessage();
-                    }
+                    return  $categoria;
+                } catch (Exception $e) {
+                    echo $e->getCode() . "---" . $e->getMessage();
                 }
-            } catch (Exception $e) {
-                echo $e->getCode() . "---" . $e->getMessage();
             }
+        } catch (Exception $e) {
+            echo $e->getCode() . "---" . $e->getMessage();
         }
-
+    }
         function busca_produto($table, $parametro)
         {
             $query = "select * from tb_$table where nome='" . $parametro['mensagem'] . "'";
@@ -342,7 +386,8 @@ class QueryBuilder
 
             return $query;
         }
-    }
+
+
     public function selectAllCategorias ($table)
     {
         $query = "select * from $table";

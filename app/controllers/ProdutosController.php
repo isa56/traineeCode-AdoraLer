@@ -145,6 +145,8 @@ class ProdutosController {
     }
 
     public function listagem_produtos() {
+        /*echo "entrou listagem_produtos";
+        var_dump();*/
         session_start();
         $_SESSION['mensagem'] = "a";
         //só startando a variavel global aq;

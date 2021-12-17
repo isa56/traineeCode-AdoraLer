@@ -13,13 +13,13 @@ $router->post('editar_categorias', 'CategoriasController@update');
 //USUÁRIO - post:
 
 
-
+//USUARIOS
 $router->post('adicionar_usuario', 'UsersController@create');
 $router->post('delete_usuario', 'UsersController@delete');
 $router->post('view_usuario', 'UsersController@admOptions');
 $router->post('edit_usuario', 'UsersController@edit');
 $router->post('editar_usuario', 'UsersController@edit');
-$router->post('listagem_produtos', 'UsersController@listagem_produtos');
+//$router->post('listagem_produtos', 'ProdutosController@listagem_produtos');
 
 
 //PRODUTO - post:
@@ -34,6 +34,8 @@ $router->post('busca_produto', 'ProdutosController@busca_produto');
 $router->get('admProdView', 'ProdutosController@admProdView');
 $router->get('busca_produto','PagesController@busca_produto');
 $router->get('delete_produto', 'ProdutosController@delete');
+
+
 //Sendo utilizado até o momento
 //PAGES - get:
 $router->get('', 'PagesController@index');
