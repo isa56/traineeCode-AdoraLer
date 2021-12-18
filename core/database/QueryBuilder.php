@@ -53,6 +53,76 @@ class QueryBuilder
 
     /////////////////   FIM USUARIOS AQUI    //////////////////////////////////////////////
 
+    //iniciando produtos//
+
+    public function selectAllProdutos($table)
+    {   
+        if(isset($_SESSION['categ'])) {
+            $query = "select id from tb_categorias";
+            $query2 = "select categoria_id from tb_produtos";
+            try {
+                $query = $this->pdo->query($query);
+                $query2 = $this->pdo->query($query2);
+                //$query = $query->fetchAll(PDO::FETCH_OBJ);
+                //print_r($query);
+                
+                $query = $query->fetchAll(PDO::FETCH_OBJ);
+                $query2 = $query2->fetchAll(PDO::FETCH_OBJ);
+                $array =[];
+                $total = count($query2);
+                $total2 = count($query);
+                //var_dump();
+                $i=0;
+                for($i=0;$i<$total;$i++) {
+                    $array[] = $this->getCategoria($_SESSION['array'][$i]->categoria_id);
+                    //$array[] = $query[$query2[$i]->categoria_id-1]->categoria;
+                }
+                //var_dump;
+                //var_dump();
+                //var_dump();
+                return $array;
+            } catch (Exception $e) {
+                die($e->getCode() . '--' . $e->getMessage());
+            }
+        } else {
+            $query = "select * from tb_$table";
+            //retorna o total de elementos da tabela
+            $query2 = "SELECT COUNT(*) FROM tb_$table";
+            //echo($query2[0]);
+            /*$query2 = $this->pdo->query($query2);
+            $query2 = $query2->fetch();
+            $_SESSION['total'] = $query2[0];*/
+            //retorna o total de elementos da tabela
+            //var_dump();
+            try {
+                $query = $this->pdo->query($query);
+                //$query = $query->fetchAll(PDO::FETCH_OBJ);
+                //print_r($query);
+                
+                $query = $query->fetchAll(PDO::FETCH_OBJ);
+                //print_r($query);
+                //echo '<br/>';*/
+    
+                $query2 = $this->pdo->query($query2);
+                $query2 = $query2->fetch();
+                $_SESSION['total'] = $query2[0]; // atribui a variavel global só o número total de linhas da tabela;
+                return $query;
+            } catch (Exception $e) {
+                die($e->getCode() . '--' . $e->getMessage());
+            }
+        }
+    }
+
+    public function getCategoria($id) {
+        $query = "SELECT categoria from tb_categorias where id=$id";
+        $query = $this->pdo->query($query);
+        $query = $query->fetchAll(PDO::FETCH_OBJ);
+        return $query[0]->categoria;
+    }
+
+    //terminando produtos//
+
+    
     public function selectAll($table)
     {
         echo "entrou select all";
@@ -128,12 +198,12 @@ class QueryBuilder
         }
     }
 
-    public function getCategoria($id) {
+    /*public function getCategoria($id) {
         $query = "SELECT categoria from tb_categorias where id=$id";
         $query = $this->pdo->query($query);
         $query = $query->fetchAll(PDO::FETCH_OBJ);
         return $query[0]->categoria;
-    }
+    }*/
 
     public function select()
     {
