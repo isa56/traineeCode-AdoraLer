@@ -1,8 +1,8 @@
 
 body{
     background: linear-gradient(
-        rgba(235, 206, 231, 0.849),
-        rgba(231, 212, 229, 0.842) ) ,
+        rgba(254, 238, 205, 0.849),
+        rgba(254, 238, 205, 0.849) ) ,
         url("../img/fundo.jpg");
         background-position: right, left;
         transition: 5s;
