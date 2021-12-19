@@ -109,17 +109,27 @@ class ProdutosController {
         
     public function edit()
     {
-        $params = [
-            'nome' => $_POST['nome'],
-            'preco' => $_POST['preco'],
-            'descricao' => $_POST['descricao']
-        ];
-        //'id'=> $_POST['static::$id']
-        //falta colocar o id aqui, pra pegar no querybuilder, como ?? n sei
-        App::get('database')->editProduto('produtos', $params);
-        return view('admin/administrativaProdutos');
-    }      
+        $id = $_POST['id'];
+        $produto = App::get('database')->read('tb_produtos',$id);
+        $categoria = App::get('database')->selectAllNoPag('tb_categorias');
 
+        $params = [
+            'produto'=>$produto,
+            'categoria'=>$categoria
+        ];
+        //falta colocar o id aqui, pra pegar no querybuilder, como ?? n sei
+        return view('admin/editar_produto',$params);
+    }      
+    public function updateAction(){
+        App::get('database')->editProduto('produtos',  [
+            'nome' => $_POST['nome'],
+            'descricao' => $_POST['descricao'],
+            'preco' => $_POST['preco'],
+            'info_uteis' => $_POST['info_util'],
+            'id'=>$_POST['id']
+        ]);
+        header('Location: /admProdView');
+    }
     public function listagem_produtos() {
         /*echo "entrou listagem_produtos";
         var_dump();*/

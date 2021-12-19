@@ -45,12 +45,10 @@
                 <div class="card-body">
                   <h5 class="card-title"><?= $produto->nome; ?></h5>
                   <?php foreach ($categorias as $key => $categoria) : ?>
-                    <?php var_dump($categoria->id) ?>
                     <?php if ($categoria->id == $produto->categoria_id) : ?>
-                      <?php $catNome = $categoria->nome; ?>
+                      <p class="card-text">Categoria: <?= $categoria->categoria; ?></p>
                     <?php endif; ?>
                   <?php endforeach; ?>
-                  <p class="card-text">Categoria: <?= $catNome; ?></p>
                   <p class="card-text">Preço: <?= $produto->preco; ?></p>
                   <a href="#" class="btn btn-primary  botaoCompra">Comprar</a>
                 </div>
@@ -60,6 +58,7 @@
         <?php endforeach; ?>
       </div>
     </div>
+    
     <nav aria-label="Navegação de página exemplo">
       <ul class="pagination justify-content-center  paginacao">
         <li class="page-item disabled">

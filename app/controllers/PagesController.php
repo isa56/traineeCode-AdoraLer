@@ -39,10 +39,10 @@ class PagesController
         if (isset($_SESSION['categ'])) {
             unset($_SESSION['categ']);
         }
-        $produtos = App::get('database')->selectAll('produtos'); // requisita tudo da tabela usuarios;
+        $produtos = App::get('database')->selectAllProdutos('produtos'); // requisita tudo da tabela usuarios;
         $_SESSION['categ'] = "a";
         $_SESSION['array'] = $produtos;
-        $categorias = App::get('database')->selectAll('categorias'); // requisita tudo da tabela usuarios;
+        $categorias = App::get('database')->selectAllCategorias('tb_categorias'); // requisita tudo da tabela usuarios;
         $total = $_SESSION['total']; // passa o valor do total de linhas da tabela tb_usuarios para uma variavel, para que eu possa fechar essa sessão e abrir uma com a userOption
         //session_destroy(); // fechando a sessão
         //session_start(); // abrindo uma nova sessão
@@ -124,8 +124,8 @@ class PagesController
         return view('admin/busca_produtos');
     }
 
-    public function editar_produtos()
+    public function editar_produto()
     {
-        return view('admin/editar_produtos');
+        return view('admin/editar_produto');
     }
 }

@@ -27,10 +27,10 @@ $router->post('login', 'LoginController@login');
 $router->post('adicionar_produto', 'ProdutosController@create');
 $router->post('delete_produto', 'ProdutosController@delete');
 $router->post('view_produto', 'ProdutosController@ProdView');
-$router->post('editar_produto', 'ProdutosController@edit');
 $router->post('listagem_produtos', 'ProdutosController@listagem_produtos');
 $router->post('busca_produto', 'ProdutosController@busca_produto');
-$router->post('editar_produtos', 'PagesController@editar_produtos');
+$router->post('editar_produto', 'ProdutosController@edit');
+$router->post('updateAction', 'ProdutosController@updateAction');
 //PRODUTO - get:
 $router->get('admProdView', 'ProdutosController@admProdView');
 $router->get('busca_produto','PagesController@busca_produto');
