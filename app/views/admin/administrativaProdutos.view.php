@@ -36,6 +36,9 @@
                         <h4>Produtos:</h4>
                     </div>
                     <div class="col-auto" style="margin-bottom: 10px">
+                        <a href="busca_produto" ><button type="submit" class="btn btn-primary">Pesquisar</button></a>
+                    </div>
+                    <div class="col-auto" style="margin-bottom: 10px">
                         <a href="addProd" ><button type="submit" class="btn btn-primary">Novo Produto</button></a>
                     </div>
                 </div>
