@@ -39,11 +39,9 @@ class ProdutosController {
             $_SESSION['end'] = 9; // padrão é começar do 9 pois estou imprimindo 10 usuarios por vez;
         }
         return view('admin/administrativaProdutos', compact('produtos')); // retorno a view padrão e o compact com o vetor de usuarios retornado do Query Builder;
-
-        //antiga parte para backup
-        /*$usuarios = App::get('database')->selectAll('usuarios');
-        return view('admin/userOption', compact('usuarios'));*/
     }
+
+    
 
     public static function getMessage() {
         return static::$message;
