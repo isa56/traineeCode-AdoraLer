@@ -168,12 +168,13 @@ class ProdutosController {
         }
         $produtos = App::get('database')->busca_produto('produtos', $_POST);
         static::$message = $_SESSION['message'];
+        var_dump($produtos);
         session_destroy();
         session_start();
         $_SESSION['categ'] = "a";
         $_SESSION['produto'] = $produtos;
         static::$categ = App::get('database')->busca_produto('produtos', $_POST);
-        return view('site/paginaProdutos', compact('produtos'));
+        return view('site/pesquisaProd', compact('produtos'));
     }
     
     protected function alreadyExists() {

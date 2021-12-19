@@ -47,15 +47,6 @@
       <button class="btn btn-outline-success search-btn" id="pesquisar">Pesquisar</button>
     </div>
     <div class="card-deck">
-          <!-- <?php //if(empty(ProdutosController::getMessage())) : ?> -->
-          <!--<?php //elseif(ProdutosController::getMessage() == 'Não tem') : ?> -->
-            <!--<div class="card"> -->
-            <!--<div class="card-body"> -->
-            <!--<h5 class="card-title">Inexistente></h5> -->
-            <!--<p class="card-text">Inexistente</p> -->
-            <!--<p class="card-text">Inexistente</p> -->
-            <!--</div> -->
-            <!--<?php //else :?>  -->
       <div class="row">
         <?php foreach ($produtos as $key => $produto) : ?>
           <?php if ($key <= $_SESSION['end'] && $key > $_SESSION['end'] - 10) : ?>
