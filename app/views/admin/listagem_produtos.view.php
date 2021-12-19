@@ -38,7 +38,6 @@
                 echo "</br>";
                 echo "</br>";
                 print_r($key);
-                var_dump();*/
                 /*$x = 0;
                 print_r($usuarios);
                 do {

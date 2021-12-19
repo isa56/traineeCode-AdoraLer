@@ -39,7 +39,6 @@ class QueryBuilder
         $query2 = $query2->fetch();
         $_SESSION['total'] = $query2[0];*/
         //retorna o total de elementos da tabela
-        //var_dump();
         try {
             $query = $this->pdo->query($query);
             //$query = $query->fetchAll(PDO::FETCH_OBJ);
@@ -429,7 +428,6 @@ class QueryBuilder
                     //$object->categoria = $parametro;
                     //$categoria[] = $object;
                     //print_r($categoria);
-                    //var_dump;
 
                     return  $categoria;
                 } catch (Exception $e) {
@@ -490,6 +488,7 @@ class QueryBuilder
         
 
     }
+
 }
 
 

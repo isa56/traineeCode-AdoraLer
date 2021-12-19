@@ -65,7 +65,6 @@ class UsersController {
             //if()
             //echo 'passou o resultado';
             //echo $resultado . '---';
-            echo "entrou";
             $resultado = $this->alreadyExists();
             if($resultado == "correto") {
                 //'entrou';
@@ -74,7 +73,6 @@ class UsersController {
                 //echo $senha . '----' . $senhaConfirma;
                 if ($senha == $senhaConfirma) {
                     //echo 'entrou aqui';
-                    //var_dump();
                     //$mensagem = "<span class='sucesso'><b>Sucesso</b>: As senhas são iguais: ".$senha."</span>";
                     App::get('database')->insert('usuarios', [
                             'nome'=>$_POST['nome'],

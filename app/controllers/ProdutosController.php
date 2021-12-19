@@ -28,7 +28,6 @@ class ProdutosController {
             session_destroy(); // fechando a sessão
             session_start(); // abrindo uma nova sessão
             $_SESSION['total'] = $total; // atribuindo o total de linhas da tabela para a nova variavel global $_SESSION['total'];
-            //var_dump();
         //}
         if(isset($_GET['end'])) { 
             $_SESSION['end'] = $_GET['end'];
@@ -131,15 +130,12 @@ class ProdutosController {
         header('Location: /admProdView');
     }
     public function listagem_produtos() {
-        /*echo "entrou listagem_produtos";
-        var_dump();*/
         session_start();
         $_SESSION['mensagem'] = "a";
         //só startando a variavel global aq;
         $produtos = App::get('database')->listagemProdutos('categorias','produtos',$_POST['mensagem']);
         //pra dentro do QueryBuilder eu não ter de usar $_POST['mensagem'] eu já passo a mensagem aq pra acessar direto lá(preguiça)
         //print_r($produtos);
-        //var_dump();
         static::$categoria = $_POST['mensagem'];
         static::$message = $_SESSION['mensagem'];
         /*por ser uma variavel global(que em php se perde se vc tentar acessar um 3° arquivo, por exemplo, tá aq, passou pra query builder, voltou pra cá e foi pra listagem_produtos
@@ -162,6 +158,22 @@ class ProdutosController {
         $_SESSION['produto'] = $produtos;
         static::$categ = App::get('database')->busca_produto('produtos', $_POST);
         return view('admin/busca_produtos', compact('produtos'));
+    }
+
+    public function pesquisa() {
+        session_start();
+        $_SESSION['message'] = "a";
+        if (isset($_SESSION['categ'])) {
+            unset($_SESSION['categ']);
+        }
+        $produtos = App::get('database')->busca_produto('produtos', $_POST);
+        static::$message = $_SESSION['message'];
+        session_destroy();
+        session_start();
+        $_SESSION['categ'] = "a";
+        $_SESSION['produto'] = $produtos;
+        static::$categ = App::get('database')->busca_produto('produtos', $_POST);
+        return view('site/paginaProdutos', compact('produtos'));
     }
     
     protected function alreadyExists() {

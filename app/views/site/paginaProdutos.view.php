@@ -19,10 +19,14 @@
 <body>
 
   <?php include_once('app\views\includes\navbar.php'); ?>
+  <?php 
+    use App\Controllers\ProdutosController;
+    $categoria = ProdutosController::getCateg();
+  ?>
   <?php
-  echo $total_linhas = $_SESSION['total']; // passo o total de linhas retornado da UsersController para me auxiliar a criar os botões da paginação;
-  $cont = 9; // me auxilia a passar o end para a UsersController na segunda chamada dessa página
-  $y = 1; // me auxilia a númerar os botões
+    echo $total_linhas = $_SESSION['total']; // passo o total de linhas retornado da UsersController para me auxiliar a criar os botões da paginação;
+    $cont = 9; // me auxilia a passar o end para a UsersController na segunda chamada dessa página
+    $y = 1; // me auxilia a númerar os botões
   ?>
   <div class="container">
     <h1>Estante Virtual</h1>
@@ -32,10 +36,26 @@
       <li>Estante Virtual</li>
     </ul>
     <div class="form-inline my-2 my-lg-0">
+        <form action="pesquisa" method="POST">
+          <label>Nome do livro</label>
+          <input type="text" name= "mensagem" size="50" placeholder="Insira o nome do livro">
+          <button style="width:100px;">Pesquisar</button>
+        </form>
+    </div>
+    <div class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Oque está procurando?" aria-label="Pesquisar">
       <button class="btn btn-outline-success search-btn" id="pesquisar">Pesquisar</button>
     </div>
     <div class="card-deck">
+          <!-- <?php //if(empty(ProdutosController::getMessage())) : ?> -->
+          <!--<?php //elseif(ProdutosController::getMessage() == 'Não tem') : ?> -->
+            <!--<div class="card"> -->
+            <!--<div class="card-body"> -->
+            <!--<h5 class="card-title">Inexistente></h5> -->
+            <!--<p class="card-text">Inexistente</p> -->
+            <!--<p class="card-text">Inexistente</p> -->
+            <!--</div> -->
+            <!--<?php //else :?>  -->
       <div class="row">
         <?php foreach ($produtos as $key => $produto) : ?>
           <?php if ($key <= $_SESSION['end'] && $key > $_SESSION['end'] - 10) : ?>

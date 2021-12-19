@@ -56,7 +56,6 @@
                         <input type="password" placeholder="Digite sua senha" name="senha" required>
                         <?php
                             /*if($_SESSION['recado'] != "a") {
-                                echo 'porra';
                                 echo $_SESSION['recado']; 
                             }*/
                             if(!isset($_SESSION['recado'])) {
@@ -72,7 +71,6 @@
                         <input type="password" placeholder="Confirme sua senha" name="senha_confirma" required>
                         <?php
                             /*if($_SESSION['recado'] != "a") {
-                                echo 'porra';
                                 echo $_SESSION['recado']; 
                             }*/
                             if(!isset($_SESSION['recado'])) {

@@ -151,4 +151,9 @@ class PagesController
     {
         return view('admin/editar_produto');
     }
+
+    public function pesquisa() {
+        return view('site/pesquisa');
+    }
+
 }
