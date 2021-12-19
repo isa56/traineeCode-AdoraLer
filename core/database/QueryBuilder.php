@@ -260,7 +260,21 @@ class QueryBuilder
             //ESSE PARAMETRO AQUI POSSIVELMENTE É DIFERENTE, COM NOVOS CAMPOS COMO POR EXEMPLO, SENHA E NOVA SENHA, EMAIL E NOVO EMAIL, NOME E NOVO NOME, SEXO E NOVO SEXO;
         }
     }
-
+    public function editProduto($table, $parametro)
+    {
+        $sql = "UPDATE tb_{$table} SET ";
+        foreach ($parametro as $key => $parametros) {
+            $sql = $sql . "{$key} = '{$parametro}',";
+        }
+        $sql = rtrim($sql, " " . ",");
+        $sql = $sql . " WHERE id = {$parametro['id']}";
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
     public function delete($table, $parametro)
     {
         //print_r($parametro);
@@ -352,47 +366,30 @@ class QueryBuilder
                     return "email já utilizado";
                 }
             }
-            if (isset($parametro['produto'])) {
-                $sql = "select nome from tb_$table WHERE nome='" . $parametro['Nome'] . "'";
-                $stmt = $this->pdo->query($sql);
-                $nome = $stmt->fetch();
-                $sql = "select categoria from tb_categorias WHERE categoria='" . $parametro['Categoria'] . "'";
+            
+        }
+    }
+    function validProd($table, $parametro){
+        if (isset($parametro['produto'])) {
+            $sql = "select nome from tb_$table WHERE nome='" . $parametro['Nome'] . "'";
+            $stmt = $this->pdo->query($sql);
+            $nome = $stmt->fetch();
+            $sql = "select categoria from tb_categorias WHERE categoria='" . $parametro['Categoria'] . "'";
+            $stmt = $this->pdo->query($sql);
+            $categoria = $stmt->fetch();
+            if (empty($nome) && !empty($categoria)) {
+                $sql = "select id from tb_categorias WHERE categoria='" . $parametro['Categoria'] . "'";
                 $stmt = $this->pdo->query($sql);
                 $categoria = $stmt->fetch();
-                if (empty($nome) && !empty($categoria)) {
-                    $sql = "select id from tb_categorias WHERE categoria='" . $parametro['Categoria'] . "'";
-                    $stmt = $this->pdo->query($sql);
-                    $categoria = $stmt->fetch();
-                    $_SESSION['categoria_id'] = $categoria[0];
-                    return "correto";
-                } else if (empty($categoria)) {
-                    return "a categoria não existe";
-                } else if (!empty($nome)) {
-                    return "o produto já existe";
-                }
-            } else {
-                $sql = "select nome from tb_" . $table . " WHERE nome='" . $parametro['nome'] . "'";
-                $stmt = $this->pdo->query($sql);
-                $nome = $stmt->fetch();
-                $sql = "select nome from tb_" . $table . " WHERE email='" . $parametro['email'] . "'";
-                $stmt = $this->pdo->query($sql);
-                $email = $stmt->fetch();
-                if (empty($nome) && empty($email)) {
-                    return "correto";
-                } else {
-                    if (!empty($nome) && !empty($email)) {
-                        return "nome e email já utilizados";
-                    } else if (!empty($nome)) {
-                        return "nome já utilizado";
-                    } else {
-                        $_SESSION['foi'] = "n foi";
-                        return "email já utilizado";
-                    }
-                }
+                $_SESSION['categoria_id'] = $categoria[0];
+                return "correto";
+            } else if (empty($categoria)) {
+                return "a categoria não existe";
+            } else if (!empty($nome)) {
+                return "o produto já existe";
             }
         }
     }
-
     function listagemProdutos($table, $table2, $parametro)
     {
         $query = "SELECT id FROM tb_" . $table . " WHERE categoria='" . $parametro . "'";

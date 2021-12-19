@@ -83,7 +83,7 @@ class ProdutosController {
 
             session_start();
             $_SESSION['categoria_id'] = 'a';
-            $resultado = App::get('database')->validUser('produtos',$_POST);
+            $resultado = App::get('database')->validProd('produtos',$_POST);
             if($resultado == "correto") {
                 App::get('database')->insert('produtos', [
                         'nome'=>$_POST['Nome'],
@@ -100,20 +100,6 @@ class ProdutosController {
                 return view("admin/adicionar_produto");
             }
 
-            /*App::get('database')->insert('usuarios', [
-                'nome'=>$_POST['nome'],
-                'email'=>$_POST['email'],
-                'senha'=>$_POST['senha'],
-                'sexo'=>$_POST['genero']
-            ]);*/
-
-        /*App::get('database')->insert('usuarios', [
-                'nome'=>$_POST['nome'],
-                'email'=>$_POST['email'],
-                'senha'=>$_POST['senha'],
-                'sexo'=>$_POST['sexo']
-            ]
-        );*/
     }
 
     public function delete() {
@@ -121,27 +107,19 @@ class ProdutosController {
         App::get('database')->delete('produtos', $_POST);
     }
 
-    public function edit() {
-        //echo 'chegou no edit';
-        
-        $resultado = $this->alreadyExists();
-        if($resultado == "correto") {
-            $senha = $_POST['senha'];
-            $senhaConfirma  = $_POST['senha_confirma'];
-            //echo $senha . '----' . $senhaConfirma;
-            if ($senha == $senhaConfirma) {
-                App::get('database')->edit('usuarios', $_POST);
-            } else {
-                static::$message="As senhas não conferem";
-                static::$id = $_POST['id'];
-                return view("admin/editar_usuario");
-            }
-        } else {
-            static::$message= $resultado;
-            //"?id={$_POST['id']}"
-            static::$id = $_POST['id'];
-            return view("admin/editar_usuario");
-        }       
+    public function edit()
+    {
+        $params = [
+            "nome" => $_POST['nome'],
+            "preco" => $_POST['preco'],
+            "descricao" => $_POST['descricao'],
+            "imagem" => $_POST['imagem'],
+            "id" => $_POST['id']
+        ];
+        print_r($params);
+        var_dump();
+        App::get('database')->editProduto('produtos', $params);
+        return view('admin/administrativaProdutos');
     }
 
     public function listagem_produtos() {
