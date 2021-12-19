@@ -1,125 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br"></html>
+<html>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina de Produtos adm</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../../../public/css/listagemProdutos.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Raleway&display=swap" rel="stylesheet">
-</head>
+    <head>
+        <title>Estante Virtual</title>
+		    <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../../public/css/pagProdutos.css">
+    </head>
 
-<body>
+    <body>
 
-    <?php include_once('app\views\includes\navbarAdm.php'); ?>
-    <?php
-
-    use App\Controllers\ProdutosController;
-
-    $categ = ProdutosController::getCateg();
-    echo $total_linhas = $_SESSION['total']; // passo o total de linhas retornado da UsersController para me auxiliar a criar os botões da paginação;
-    $cont = 9; // me auxilia a passar o end para a UsersController na segunda chamada dessa página
-    $y = 1; // me auxilia a númerar os botões
-    //print_r($usuarios[0]);
-    ?>
-    <?php
-    if (!empty(ProdutosController::getMessage())) {
-        session_destroy();
-    }
-    ?>
-
-    <div class="container usersOption" style="padding: 0px">
-        <div class="card-body" style="margin: 0px;">
-            <div class="row">
-                <div class="col">
-                    <h4>Produtos:</h4>
-                </div>
-                <div class="col-auto" style="margin-bottom: 10px">
-                    <a href="busca_produto"><button type="submit" class="btn btn-primary">Pesquisar</button></a>
-                </div>
-                <div class="col-auto" style="margin-bottom: 10px">
-                    <a href="addProd"><button type="submit" class="btn btn-primary">Novo Produto</button></a>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="table-responsive-md ">
-                        <table class="table ">
-                            <thead>
-                                <tr class="dif">
-                                    <th>Produto</th>
-                                    <th>Categoria</th>
-                                    <th>Preço</th>
-                                    <th>Imagem</th>
-                                    <th>Descrição</th>
-                                    <th>Info uteis</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($produtos as $key => $produto) : ?>
-                                    <?php if ($key <= $_SESSION['end'] && $key > $_SESSION['end'] - 10) : ?>
-                                        <!--Estou printando 10 por x aqui, por exemplo, se o usuario clica no botão de n2 sera passado um end equivalente ao n19 por um método GET para a UserOption
-                                            lá essa $_GET['end'] sera passada para uma $_SESSION['end'] que sera retornada aqui nessa parte, logo esse if fica: if($key <=19 && $key > 9) faça, <=19 e >9 pois estou
-                                            printando de 10 em 10 e o vet($usuarios) começa do 0-->
-                                        <tr>
-                                            <td class="td "><?= $produto->nome; ?></td>
-                                            <td class="td"><?= $categ[$key]; ?></td>
-                                            <td class="td"><?= $produto->preco; ?></td>
-                                            <td class="td"><?= $produto->imagem; ?></td>
-                                            <td class="td scope='col-2'"><?= $produto->descricao; ?></td>
-                                            <td class="td scope='col-2'"><?= $produto->info_uteis; ?></td>
-                                            <td>
-                                                <div style="display: flex;">
-                                                    <!--action = "editar_usuario-->
-                                                    <form method="POST" action="editar_produto?">
-                                                        <input type="hidden" name="id" value=<?= $produto->id; ?>></input>
-                                                        <button type="submit" class="btn"><i class="bi bi-pencil-square"></i></button>
-                                                    </form>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div style="display: flex;">
-                                                    <form method="POST" action="delete_produto">
-                                                        <input type="hidden" name="id" value=<?= $produto->id; ?>></input>
-                                                        <button type="submit" class="btn"><i class="bi bi-trash"></i></button>
-                                                    </form>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+        <?php include_once('app\views\includes\navbar.php'); ?>
+        <?php 
+            use App\Controllers\ProdutosController;
+            $categoria = ProdutosController::getCateg();
+        ?>
+        <div class="container">
+			    <h1>Estante Virtual</h1>	
+          <ul class="breadcrumbs">
+            <li><a href="#">Início</a></li>
+            <li>></li>
+            <li>Estante Virtual</li>
+          </ul>
+          <div class="form-inline my-2 my-lg-0">
+          <form action="pesquisa" method="POST">
+            <label>Nome do livro</label>
+            <input type="text" name= "mensagem" size="50" placeholder="Insira o nome do livro">
+            <button style="width:100px;">Pesquisar</button>
+          </form>
+          </div>
+        <div class="card-deck">
+        <?php if(empty(ProdutosController::getMessage())) : ?>
+                                        
+        <?php elseif(ProdutosController::getMessage() == 'Não tem') : ?>
+          <div class="card">
+            <div class="card-body">
+            <h5 class="card-title">Inexistente></h5>
+            <p class="card-text">Inexistente</p>
+            <p class="card-text">Inexistente</p>
+          </div>
+        <?php else :?> 
+        <?php foreach($produtos as $key => $produto):?>
+          <div class="card">
+            <img class="card-img-top" src=<?=$produto->imagem; ?>alt="Imagem de capa do card">
+            <div class="card-body">
+            <h5 class="card-title"><?= $produto->nome; ?></h5>
+            <p class="card-text"><?=$categoria[$key];?></p>
+            <p class="card-text"><?=$produto->preco;?></p>
+            <a href="paginaGuiaMochileiro.html" class="btn btn-primary botaoCompra">Comprar</a>
+          </div>
+        <?php endforeach; ?>
+        <?php endif; ?>
         </div>
-        <div style="margin:auto;display:flex;justify-content:center">
-            <?php for ($i = 1; $i < $total_linhas; $i = $i + 9) : ?>
-                <!--Se-->
-                <form method="GET" action="admProdView">
-                    <input type="hidden" name="end" value=<?= $cont ?>></input>
-                    <button type="submit" class="btn" style="border:1px solid;border-color:green"><?= $y ?></button>
-                    <?php $y++; ?>
-                    <!--O y equivale ao número dos botões, aqui estou aumentando o número deles-->
-                    <?php $cont = $cont + 10; ?>
-                    <!--Me auxilia a passar o end para o UsersController, se tiverem 19 linhas na tabela, o primeiro botão vai 9 e o segundo 19
-                                                        na hr de printar vou de >9-10 até <=9 e por ai vai, já que estou printando 10 por x-->
-                </form>
-            <?php endfor; ?>
+        <nav aria-label="Navegação de página exemplo">
+          <ul class="pagination justify-content-center  paginacao">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1">Anterior</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">Próximo</a>
+            </li>
+          </ul>
+        </nav>
+        <a class="back_link" href="index.html">&larr;Voltar<a>
         </div>
-    </div>
-    <?php
-    session_destroy();
-    //session_start();
-    //$_SESSION['user'] = $user->id;
-    ?>
-</body>
 
+        <?php require('app\views\includes\footer.php'); ?>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
 </html>
