@@ -39,9 +39,9 @@
       <div class="row">
         <?php foreach ($produtos as $key => $produto) : ?>
           <?php if ($key <= $_SESSION['end'] && $key > $_SESSION['end'] - 10) : ?>
-            <div class="col-3">
+            <div class="col colun">
               <div class="card">
-                <img class="card-img-top" src='../../public/img/"$produto=>imagem".jpg' alt="Imagem de capa do card">
+                <img class="card-img-top" src='../../public/img/<?= $produto->imagem;?>.jpg' alt="Imagem de capa do card">
                 <div class="card-body">
                   <h5 class="card-title"><?= $produto->nome; ?></h5>
                   <?php foreach ($categorias as $key => $categoria) : ?>
@@ -64,7 +64,7 @@
     <div style="margin:auto;display:flex;justify-content:center">
             <?php for ($i = 1; $i < $total_linhas; $i = $i + 9) : ?>
                 <!--Se-->
-                <form method="GET" action="ProdView">
+                <form method="GET" action="produtos">
                     <input type="hidden" name="end" value=<?= $cont ?>></input>
                     <button type="submit" class="btn botaoCompraAdd" style="border:1px solid;border-color:#F7883F"><?= $y ?></button>
                     <?php $y++; ?>

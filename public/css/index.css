@@ -129,8 +129,26 @@ div[class^="col"] {
 	background-color: #7B5B5A;
 	color: #F7883F;
 }
+.cards-produtos{
+	display: flex!important;
+	justify-content: center!important;
+	align-items: center;
+}
 .card-deck{
 	align-items: center;
+}
+.deck{
+	display: flex!important;
+	justify-content: center!important;
+	align-items: center;
+}
+.colun{
+	display: flex!important;
+	justify-content: center!important;
+	align-items: center;
+}
+.kard{
+	justify-content: center!important;
 }
 .card-img-top{
 	height: 220px!important;
@@ -192,5 +210,11 @@ div[class^="col"] {
 	background-color: #7B5B5A;
 	color: whitesmoke;
 }
+/*@media (max-width: 1000px) {
+	.section-carousel{
+		max-width: 500px;
+		max-height: 500px;
+	}	
+}*/
 /*Fim da home ----------
 ------------------------*/

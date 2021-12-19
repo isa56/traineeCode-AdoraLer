@@ -13,7 +13,30 @@ class PagesController
 
     public function index()
     {
-        return view('site/index');
+        session_start(); // starta a sessão para acessar a QueryBuilder e buscar o número total de linhas na tabela na variavel $_SESSION['tabela'];
+        $_SESSION['total'] = "a";
+        if (isset($_SESSION['categ'])) {
+            unset($_SESSION['categ']);
+        }
+        $produtos = App::get('database')->selectAllProdutos('produtos'); // requisita tudo da tabela usuarios;
+        $_SESSION['categ'] = "a";
+        $_SESSION['array'] = $produtos;
+        $categorias = App::get('database')->selectAllCategorias('tb_categorias'); // requisita tudo da tabela usuarios;
+        $total = $_SESSION['total']; // passa o valor do total de linhas da tabela tb_usuarios para uma variavel, para que eu possa fechar essa sessão e abrir uma com a userOption
+        //session_destroy(); // fechando a sessão
+        //session_start(); // abrindo uma nova sessão
+        $_SESSION['total'] = $total; // atribuindo o total de linhas da tabela para a nova variavel global $_SESSION['total'];
+        echo $_SESSION['total'];
+        //var_dump();
+        //}
+        if (isset($_GET['end'])) {
+            $_SESSION['end'] = $_GET['end'];
+            /* se não for a primeira vez acessando a userOption a gente vai receber de onde começar a exibir os usuarios por um método get na variavel $_GET['end']; 
+            e retornar ele por uma variavel global $_SESSION['end']; pois precisamos acessar esse fim para imprimir todos os usuarios na tabela*/
+        } else {
+            $_SESSION['end'] = 9; // padrão é começar do 9 pois estou imprimindo 10 usuarios por vez;
+        }
+        return view('site/index', compact('produtos', 'categorias'));
     }
 
     public function contato()

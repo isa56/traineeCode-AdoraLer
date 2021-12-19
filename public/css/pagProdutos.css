@@ -111,14 +111,22 @@ body{
 .card-deck{
 	align-items: center;
 }
+.card{
+	align-items: center;
+}
+.colun{
+	display: flex!important;
+	justify-content: center!important;
+	align-items: center;
+}
 .botaoCompra{
-	background-color:#F1C8C7;
-	color:#F7883F;
-	border: #F7883F;
+	background-color:#F1C8C7!important;;
+	color:#F7883F!important;;
+	border: #F7883F!important;;
 }
 .botaoCompra:hover{
-	background-color:#7B5B5A;
-	color: #F7883F !important;;
+	background-color:#7B5B5A!important;;
+	color: #F7883F !important;
 }
 .paginacao{
 	margin-top: 30px!important;
@@ -126,20 +134,23 @@ body{
 
 }
 .page-link{
-	color: #7B5B5A;
+	color: #7B5B5A!important;
 }
 .page-link:hover{
-	color: #7B5B5A;
+	color: #7B5B5A!important;
 }
 .back_link{
 	margin-top: 20px;
 	margin-bottom: 10px;
 	padding-bottom: 300px;
-	color: #F19B75;
+	color: #F19B75!important;
 	text-transform: none;
 }
 .back_link:hover{
-	color: #F19B75;
+	color: #F19B75!important;
+}
+.botaoCompraAdd{
+	color: #F19B75!important;
 }
 @media (max-width: 1000px) {
 

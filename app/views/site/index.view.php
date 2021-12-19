@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,8 +14,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
 </head>
+
 <body class="home">
-    
+
     <?php include_once('app\views\includes\navbar.php'); ?>
     <!--Isso aqui é só para ter uma ideia, qql mudança é valida
     !-->
@@ -28,7 +30,7 @@
 
     <section class="section-carousel">
         <div class="container container-home">
-            
+
             <div id="slideshow" class="slide carousel">
 
                 <!--Lista responsavel pelo número de partições do carousel-->
@@ -43,17 +45,17 @@
 
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="../../public/img/anuncio1.png" class="w-100"/>
+                        <img src="../../public/img/anuncio1.png" class="w-100" />
                     </div>
                     <div class="carousel-item">
-                        <img src="../../public/img/anuncio2.png" class="w-100"/>
+                        <img src="../../public/img/anuncio2.png" class="w-100" />
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Testando</h5>
                             <p>Isso aqui</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="../../public/img/anuncio3.png" class="w-100"/>
+                        <img src="../../public/img/anuncio3.png" class="w-100" />
                     </div>
                 </div>
 
@@ -75,7 +77,7 @@
     <!--Area dos produtos adicionados!-->
     <!--Dar uma olhada nos cards-->
     <section class="section-body-home">
-        
+
         <!--As divs ".col" tem o texto alinhado a esquerda por padrão, mas
         mudei no css pro centro-->
 
@@ -117,41 +119,34 @@
                 </div>
                 <h1>Lançamentos</h1>
             </div>
-            <div class="card-deck">
-                <div class="card">
-                    <img class="card-img-top" src="../../public/img/livroconectadas2.jpg" alt="Imagem de capa do card">
-                    <div class="card-body">
-                        <h5 class="card-title">Título do card</h5>
-                        <p class="card-text">Este é um card mais longo com suporte a texto embaixo.</p>
-                        <a href="#" class="btn btn-primary botaoCompra">Comprar</a>
-                    </div>
-                </div>
-                <div class="card">
-                  <img class="card-img-top" src="../../public/img/livroguiadefinitivo.jpg" alt="Imagem de capa do card">
-                  <div class="card-body">
-                    <h5 class="card-title">Título do card</h5>
-                    <p class="card-text">Este é um card com suporte a texto embaixo.</p>
-                    <a href="#" class="btn btn-primary botaoCompra">Comprar</a>
-                  </div>
-                </div>
-                <div class="card">
-                  <img class="card-img-top" src="../../public/img/livroconectadas1.jpg" alt="Imagem de capa do card">
-                  <div class="card-body">
-                    <h5 class="card-title">Título do card</h5>
-                    <p class="card-text">Este é um card maior com suporte a texto embaixo.</p>
-                    <a href="#" class="btn btn-primary botaoCompra">Comprar</a>
-                  </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="../../public/img/livroconectadas1.jpg" alt="Imagem de capa do card">
-                    <div class="card-body">
-                      <h5 class="card-title">Título do card</h5>
-                      <p class="card-text">Este é um card maior com suporte a texto embaixo.</p>
-                      <a href="#" class="btn btn-primary botaoCompra">Comprar</a>
+            <div class="cards-produtos">
+                <div class="card-deck deck">
+                    <div class="row">
+                        <?php $cont = 0 ?>
+                        <?php foreach ($produtos as $key => $produto) : ?>
+                            <?php if ($cont < 4) : ?>
+                                <div class="col colun">
+                                    <div class="card kard">
+                                        <img class="card-img-top" src='../../public/img/<?= $produto->imagem; ?>.jpg' alt="Imagem de capa do card">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><?= $produto->nome; ?></h5>
+                                            <?php foreach ($categorias as $key => $categoria) : ?>
+                                                <?php if ($categoria->id == $produto->categoria_id) : ?>
+                                                    <p class="card-text">Categoria: <?= $categoria->categoria; ?></p>
+                                                <?php endif; ?>
+                                            <?php endforeach; ?>
+                                            <p class="card-text">Preço: <?= $produto->preco; ?></p>
+                                            <a href="#" class="btn btn-primary  botaoCompra">Comprar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php $cont++; ?>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
-            
+
 
             <!-- About Us: -->
             <div class="row info">
@@ -180,4 +175,5 @@
     <script src="../../public/js/jquery-3.6.0.min.js"></script>
     <script src="../../public/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
