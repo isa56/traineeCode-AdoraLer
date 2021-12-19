@@ -127,14 +127,13 @@ class ProdutosController {
     public function edit()
     {
         $params = [
-            "nome" => $_POST["nome"],
-            "preco" => $_POST['preco'],
-            "descricao" => $_POST["descricao"],
-            "imagem" => $_POST["imagem"],
-            "id" => $_POST["id"]
+            'nome' => $_POST['nome'],
+            'preco' => $_POST['preco'],
+            'descricao' => $_POST['descricao']
         ];
-    
-        App::get('database')->editProduto('produtos', $_POST);
+        //'id'=> $_POST['static::$id']
+        //falta colocar o id aqui, pra pegar no querybuilder, como ?? n sei
+        App::get('database')->editProduto('produtos', $params);
         return view('admin/administrativaProdutos');
     }      
 

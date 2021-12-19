@@ -49,11 +49,11 @@
                     </div>
                     <div class="input-box">
                         <span class="details">Novo Preco</span>
-                        <input type="text" placeholder="Digite novo preco" name="preco" id="preco">
+                        <input type="text" placeholder="Digite novo preco" name="preco" >
                     </div>
                     <div class="input-box">
                         <span class="details">descricao</span>
-                        <input type="password" placeholder="Digite a nova descricao" name="descricao">
+                        <input type="text" placeholder="Digite a nova descricao" name="descricao">
                     </div>
                     <div class="input-box">
                         <span class="details">info uteis</span>

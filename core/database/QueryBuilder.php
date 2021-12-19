@@ -138,12 +138,16 @@ class QueryBuilder
     }
     public function editProduto($table, $parametro)
     {
+        print_r($parametro);
         $sql = "UPDATE tb_{$table} SET ";
         foreach ($parametro as $key => $parametros) {
-            $sql = $sql . "{$key} = '{$parametro}',";
+            $sql = $sql . "{$key} = '{$parametros}',";
         }
         $sql = rtrim($sql, " " . ",");
         $sql = $sql . " WHERE id = {$parametro['id']}";
+        
+        echo "<br>";
+        echo $sql;
         try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute();
