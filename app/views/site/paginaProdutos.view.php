@@ -17,6 +17,10 @@
     <body>
 
         <?php include_once('app\views\includes\navbar.php'); ?>
+        <?php 
+            use App\Controllers\ProdutosController;
+            $categoria = ProdutosController::getCateg();
+        ?>
         <div class="container">
 			    <h1>Estante Virtual</h1>	
           <ul class="breadcrumbs">
@@ -25,28 +29,35 @@
             <li>Estante Virtual</li>
           </ul>
           <div class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Oque está procurando?" aria-label="Pesquisar">
-            <button class="btn btn-outline-success search-btn" id="pesquisar">Pesquisar</button>
+          <form action="pesquisa" method="POST">
+            <label>Nome do livro</label>
+            <input type="text" name= "mensagem" size="50" placeholder="Insira o nome do livro">
+            <button style="width:100px;">Pesquisar</button>
+          </form>
           </div>
         <div class="card-deck">
+        <?php if(empty(ProdutosController::getMessage())) : ?>
+                                        
+        <?php elseif(ProdutosController::getMessage() == 'Não tem') : ?>
           <div class="card">
-              <img class="card-img-top" src="../../public/img/livroconectadas1.jpg" alt="Imagem de capa do card">
-              <div class="card-body">
-                <h5 class="card-title">Livro Conectada</h5>
-                <p class="card-text">Categoria.</p>
-                <p class="card-text">R$200,00.</p>
-                <a href="#" class="btn btn-primary  botaoCompra">Comprar</a>
-              </div>
-          </div>
-          <div class="card">
-            <img class="card-img-top" src="../../public/img/livroguiadefinitivo.jpg" alt="Imagem de capa do card">
+            <img class="card-img-top" src alt="Imagem de capa do card">
             <div class="card-body">
-              <h5 class="card-title">Livro Guia do mochileiro das galáxias</h5>
-                  <p class="card-text">Categoria.</p>
-                  <p class="card-text">R$200,00.</p>
-                  <a href="paginaGuiaMochileiro.html" class="btn btn-primary botaoCompra">Comprar</a>
-            </div>
+            <h5 class="card-title">Inexistente></h5>
+            <p class="card-text">Inexistente</p>
+            <p class="card-text">Inexistente</p>
           </div>
+        <?php else :?> 
+        <?php foreach($produtos as $key => $produto):?>
+          <div class="card">
+            <img class="card-img-top" src=<?=$produto->imagem; ?>alt="Imagem de capa do card">
+            <div class="card-body">
+            <h5 class="card-title"><?= $produto->nome; ?></h5>
+            <p class="card-text"><?=$categoria[$key];?></p>
+            <p class="card-text"><?=$produto->preco;?></p>
+            <a href="paginaGuiaMochileiro.html" class="btn btn-primary botaoCompra">Comprar</a>
+          </div>
+        <?php endforeach; ?>
+        <?php endif; ?>
         </div>
         <nav aria-label="Navegação de página exemplo">
           <ul class="pagination justify-content-center  paginacao">

@@ -83,4 +83,8 @@ class PagesController
         return view('admin/busca_produtos');
     }
 
+    public function pesquisa() {
+        return view('site/pesquisa');
+    }
+
 }
