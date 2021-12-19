@@ -40,7 +40,6 @@
                                         
         <?php elseif(ProdutosController::getMessage() == 'Não tem') : ?>
           <div class="card">
-            <img class="card-img-top" src alt="Imagem de capa do card">
             <div class="card-body">
             <h5 class="card-title">Inexistente></h5>
             <p class="card-text">Inexistente</p>

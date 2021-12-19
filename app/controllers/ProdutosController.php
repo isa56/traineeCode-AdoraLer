@@ -168,7 +168,7 @@ class ProdutosController {
         $_SESSION['categ'] = "a";
         $_SESSION['produto'] = $produtos;
         static::$categ = App::get('database')->busca_produto('produtos', $_POST);
-        return view('site/pesquisa', compact('produtos'));
+        return view('site/paginaProdutos', compact('produtos'));
     }
     
     protected function alreadyExists() {
