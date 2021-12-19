@@ -157,7 +157,7 @@ class QueryBuilder
         } catch (Exception $e) {
             die($e->getMessage());
         }
-        header("Location: /adm");
+       
     }
 
     public function edit($table, $parametro)

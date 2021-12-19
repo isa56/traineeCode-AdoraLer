@@ -30,5 +30,5 @@
   //Enviar
   mail($destino, $assunto, $arquivo, $headers);
   
-  echo "<meta http-equiv='refresh' content='10;URL=../../contato.view.php'>";
+  echo "<meta http-equiv='refresh' content='10;URL=../../contato'>";
 ?>

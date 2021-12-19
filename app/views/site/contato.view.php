@@ -32,7 +32,7 @@
 				<h1>Contato</h1>
 				
 			<div class="form-background">
-				<form action="./envia email.php" method="GET" class="card">
+				<form action="./enviaEmail" method="GET" class="card">
 
 
 				

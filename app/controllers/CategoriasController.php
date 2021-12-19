@@ -32,7 +32,11 @@ class CategoriasController
 
     public function create()
     {
-
+        App::get('database')->insert('categorias', $_POST);
+        $categorias=App::get('database')->selectAllCategorias('tb_categorias');
+        return view('admin/categorias', compact('categorias'));
+        
+        
     }
 
     public function read()

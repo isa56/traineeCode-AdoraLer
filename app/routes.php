@@ -5,7 +5,7 @@ use App\Controllers\ProdutosController;
 $router->get('editarc', 'PagesController@editarc');
 $router->get('categorias', 'CategoriasController@view');
 $router->post('delete_categoria', 'CategoriasController@delete');
-
+$router->post('criar_categorias', 'CategoriasController@create');
 //CATEGORIAS - get:
 $router->post('editar_categorias', 'CategoriasController@update');
 

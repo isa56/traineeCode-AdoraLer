@@ -22,11 +22,11 @@
             <div CLASS="ROW">
                 <div class="col-md-12 col-sm-12">
                     <h2 class="text-center">Cadastro de categorias</h2>
-                    <form name="fmCategorias" method="get" action="categorias.html">
+                    <form name="fmCategorias" method="post" action="criar_categorias">
                         <label>Nome da Categoria:</label>
-                        <input type="text" name="txtCategoria" class="form-control" maxlength="50"><br>
+                        <input type="text" name="categoria" class="form-control" maxlength="50"><br>
                         <div class="d-grid gap-2">
-                            <button onclick="alertausuario('mensagem do java')" class="btn btn-primary" type="button">Cadastrar</button>
+                            <button onclick="alertausuario('mensagem do java')" class="btn btn-primary" type="submit">Cadastrar</button>
                         </div>
 
                     </form>
