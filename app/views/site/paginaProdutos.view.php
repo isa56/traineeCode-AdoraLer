@@ -41,7 +41,7 @@
           <?php if ($key <= $_SESSION['end'] && $key > $_SESSION['end'] - 10) : ?>
             <div class="col-3">
               <div class="card">
-                <img class="card-img-top" src="../../public/img/livroconectadas1.jpg" alt="Imagem de capa do card">
+                <img class="card-img-top" src='../../public/img/"$produto=>imagem".jpg' alt="Imagem de capa do card">
                 <div class="card-body">
                   <h5 class="card-title"><?= $produto->nome; ?></h5>
                   <?php foreach ($categorias as $key => $categoria) : ?>
@@ -59,20 +59,22 @@
       </div>
     </div>
     
-    <nav aria-label="Navegação de página exemplo">
-      <ul class="pagination justify-content-center  paginacao">
-        <li class="page-item disabled">
-          <a class="page-link" href="#" tabindex="-1">Anterior</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-          <a class="page-link" href="#">Próximo</a>
-        </li>
-      </ul>
-    </nav>
+    
     <a class="back_link" href="index.html">&larr;Voltar<a>
+    <div style="margin:auto;display:flex;justify-content:center">
+            <?php for ($i = 1; $i < $total_linhas; $i = $i + 9) : ?>
+                <!--Se-->
+                <form method="GET" action="ProdView">
+                    <input type="hidden" name="end" value=<?= $cont ?>></input>
+                    <button type="submit" class="btn botaoCompraAdd" style="border:1px solid;border-color:#F7883F"><?= $y ?></button>
+                    <?php $y++; ?>
+                    <!--O y equivale ao número dos botões, aqui estou aumentando o número deles-->
+                    <?php $cont = $cont + 10; ?>
+                    <!--Me auxilia a passar o end para o UsersController, se tiverem 19 linhas na tabela, o primeiro botão vai 9 e o segundo 19
+                                                        na hr de printar vou de >9-10 até <=9 e por ai vai, já que estou printando 10 por x-->
+                </form>
+            <?php endfor; ?>
+    </div>
   </div>
 
   <?php require('app\views\includes\footer.php'); ?>

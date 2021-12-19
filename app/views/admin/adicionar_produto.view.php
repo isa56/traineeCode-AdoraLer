@@ -58,6 +58,10 @@
                             
                         ?>
                     </div> 
+                    <div class="input-box">
+                        <span class="details">Imagem</span>
+                        <input type="text" placeholder="Digite o nome do JPG" name="Imagem" required>
+                    </div>
                 </div>
 
                 <div class="button">
