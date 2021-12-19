@@ -32,7 +32,7 @@
                 <a href="userOption" class="nav-item nav-link"><i class="bi bi-people-fill"></i>Gerenciamento de usuário</a>
                 <a href="categorias" class="nav-item nav-link"><i class="bi bi-tags-fill"></i>Categorias</a>
                 <a href="admProdView" class="nav-item nav-link"><i class="bi bi-cart-fill"></i>Produtos</a>
-                <button action="/login" class="btn btn-danger nav-item"><i class="bi bi-door-open-fill"></i>Deslogar</button> 
+                <a href="/app/views/admin/logout.php" class="btn btn-danger nav-item"><i class="bi bi-door-open-fill"></i>Deslogar</a> 
             </div>
 
         </nav>
