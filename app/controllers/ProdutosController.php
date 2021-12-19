@@ -20,15 +20,14 @@ class ProdutosController {
             if(isset($_SESSION['categ'])) {
                 unset($_SESSION['categ']);
             }
-            $produtos = App::get('database')->selectAll('produtos'); // requisita tudo da tabela usuarios;
+            $produtos = App::get('database')->selectAllProdutos('produtos'); // requisita tudo da tabela usuarios;
             $_SESSION['categ'] = "a";
             $_SESSION['array'] = $produtos;
-            static::$categ = App::get('database')->selectAll('categorias'); // requisita tudo da tabela usuarios;
+            static::$categ = App::get('database')->selectAllProdutos('categorias'); // requisita tudo da tabela usuarios;
             $total = $_SESSION['total']; // passa o valor do total de linhas da tabela tb_usuarios para uma variavel, para que eu possa fechar essa sessão e abrir uma com a userOption
             session_destroy(); // fechando a sessão
             session_start(); // abrindo uma nova sessão
             $_SESSION['total'] = $total; // atribuindo o total de linhas da tabela para a nova variavel global $_SESSION['total'];
-            echo $_SESSION['total'];
             //var_dump();
         //}
         if(isset($_GET['end'])) { 
@@ -81,7 +80,7 @@ class ProdutosController {
 
             session_start();
             $_SESSION['categoria_id'] = 'a';
-            $resultado = App::get('database')->validUser('produtos',$_POST);
+            $resultado = App::get('database')->validProd('produtos',$_POST);
             if($resultado == "correto") {
                 App::get('database')->insert('produtos', [
                         'nome'=>$_POST['Nome'],
@@ -98,20 +97,6 @@ class ProdutosController {
                 return view("admin/adicionar_produto");
             }
 
-            /*App::get('database')->insert('usuarios', [
-                'nome'=>$_POST['nome'],
-                'email'=>$_POST['email'],
-                'senha'=>$_POST['senha'],
-                'sexo'=>$_POST['genero']
-            ]);*/
-
-        /*App::get('database')->insert('usuarios', [
-                'nome'=>$_POST['nome'],
-                'email'=>$_POST['email'],
-                'senha'=>$_POST['senha'],
-                'sexo'=>$_POST['sexo']
-            ]
-        );*/
     }
 
     public function delete() {
@@ -136,6 +121,8 @@ class ProdutosController {
     }      
 
     public function listagem_produtos() {
+        /*echo "entrou listagem_produtos";
+        var_dump();*/
         session_start();
         $_SESSION['mensagem'] = "a";
         //só startando a variavel global aq;

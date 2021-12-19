@@ -1,13 +1,14 @@
 
 body{
     background: linear-gradient(
-        rgba(235, 206, 231, 0.849),
-        rgba(231, 212, 229, 0.842) ) ,
+        rgba(254, 238, 205, 0.849),
+        rgba(254, 238, 205, 0.849) ) ,
         url("../img/fundo.jpg");
         background-position: right, left;
         transition: 5s;
     font-family: 'Raleway', sans-serif;
     text-align: center;margin-bottom: 20%;
+    
 }
 
 .titulo-site{
@@ -15,14 +16,13 @@ body{
     font-family: 'Marck Script', cursive;
     font-size: 25px;
     height: 100px;
-    margin-left: 2%;
+    margin-left: 5%;
     margin-top: 8%;
     text-align: start;
 }
 
 .content {
     margin: 2%;
-    
 }
 
 .content p{
@@ -31,12 +31,14 @@ body{
     font-size: 20px;
     line-height: 30px;
     text-align: center;
+    margin-left: 20% !important; 
 }
 
 .content img{
     align-items: center;
     /* height: 50%; */
     width: 60%;
+    margin-left: 20% !important; 
 }
 
 .bolinha {

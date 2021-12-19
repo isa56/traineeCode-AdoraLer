@@ -109,10 +109,10 @@
                                 <tbody>
                                     <!--if(empty(UsersController::getMessage()))-->
                                     <?php if(empty(ProdutosController::getMessage())) : ?>
-                                        echo "entrou no 1";
+                                        <!--echo "entrou no 1";-->
                                         <!--elseif(empty(UsersController::getMessage()))-->
                                     <?php elseif(ProdutosController::getMessage() == 'Não tem') : ?>
-                                        echo "entrou no 2";
+                                        <!--echo "entrou no 2";-->
                                         <tr> 
                                             <td class="td">Categoria inexistente</td>
                                             <td class="td">Categoria inexistente</td>
@@ -122,7 +122,7 @@
                                             <td class="td">Categoria inexistente</td>
                                         </tr>
                                     <?php else :?> 
-                                        echo "entrou no 3";
+                                        <!--echo "entrou no 3";-->
                                         <?php foreach($produtos as $produto):?>
                                         <tr>
                                             <td class="td"><?= $produto->nome; ?></td>

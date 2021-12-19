@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controllers;
 
 use App\Core\App;
@@ -20,14 +19,24 @@ class CategoriasController
     }
     
     public function view() {
-        $categorias=App::get('database')->selectAll('categorias');
+        $categorias=App::get('database')->selectAllCategorias('tb_categorias');
         return view('admin/categorias', compact('categorias'));
+    }
+
+    public function delete() {
+        echo 'chegou no delete';
+        App::get('database')->delete('categorias', $_POST);
+
     }
 
 
     public function create()
     {
-
+        App::get('database')->insert('categorias', $_POST);
+        $categorias=App::get('database')->selectAllCategorias('tb_categorias');
+        return view('admin/categorias', compact('categorias'));
+        
+        
     }
 
     public function read()
@@ -52,12 +61,5 @@ class CategoriasController
             static::$message = "Os nomes não conferem";
             return view('admin/editar_categoria');
         }
-    }
-
-    public function delete() {
-        //echo $_POST['categoria'];
-        App::get('database')->deleteCategorias('categorias', $_POST);
-        header("Location: /categorias");
-        
     }
 }

@@ -164,7 +164,7 @@ class Router
                 "{$controller} does not respond to the {$action} action."
             );
         }
-
+        
         return $controller->$action();
         /* 
             Se a url tiver sido adm a partir de um método get ele vai chamar a PagesController(função), sim trata-se da função presente no doc PagesController.php, o qual só é posisvel
