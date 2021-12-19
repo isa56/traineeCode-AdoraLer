@@ -58,4 +58,4 @@ $router->get('listagem_produtos', 'PagesController@listagem_produtos');
 //Sendo utilizado até o momento
 //Pages - post
 
-$router->post('login', 'LoginControllers@login');
+$router->post('login', 'LoginController@login');

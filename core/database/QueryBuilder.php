@@ -53,6 +53,76 @@ class QueryBuilder
 
     /////////////////   FIM USUARIOS AQUI    //////////////////////////////////////////////
 
+    //iniciando produtos//
+
+    public function selectAllProdutos($table)
+    {   
+        if(isset($_SESSION['categ'])) {
+            $query = "select id from tb_categorias";
+            $query2 = "select categoria_id from tb_produtos";
+            try {
+                $query = $this->pdo->query($query);
+                $query2 = $this->pdo->query($query2);
+                //$query = $query->fetchAll(PDO::FETCH_OBJ);
+                //print_r($query);
+                
+                $query = $query->fetchAll(PDO::FETCH_OBJ);
+                $query2 = $query2->fetchAll(PDO::FETCH_OBJ);
+                $array =[];
+                $total = count($query2);
+                $total2 = count($query);
+                //var_dump();
+                $i=0;
+                for($i=0;$i<$total;$i++) {
+                    $array[] = $this->getCategoria($_SESSION['array'][$i]->categoria_id);
+                    //$array[] = $query[$query2[$i]->categoria_id-1]->categoria;
+                }
+                //var_dump;
+                //var_dump();
+                //var_dump();
+                return $array;
+            } catch (Exception $e) {
+                die($e->getCode() . '--' . $e->getMessage());
+            }
+        } else {
+            $query = "select * from tb_$table";
+            //retorna o total de elementos da tabela
+            $query2 = "SELECT COUNT(*) FROM tb_$table";
+            //echo($query2[0]);
+            /*$query2 = $this->pdo->query($query2);
+            $query2 = $query2->fetch();
+            $_SESSION['total'] = $query2[0];*/
+            //retorna o total de elementos da tabela
+            //var_dump();
+            try {
+                $query = $this->pdo->query($query);
+                //$query = $query->fetchAll(PDO::FETCH_OBJ);
+                //print_r($query);
+                
+                $query = $query->fetchAll(PDO::FETCH_OBJ);
+                //print_r($query);
+                //echo '<br/>';*/
+    
+                $query2 = $this->pdo->query($query2);
+                $query2 = $query2->fetch();
+                $_SESSION['total'] = $query2[0]; // atribui a variavel global só o número total de linhas da tabela;
+                return $query;
+            } catch (Exception $e) {
+                die($e->getCode() . '--' . $e->getMessage());
+            }
+        }
+    }
+
+    public function getCategoria($id) {
+        $query = "SELECT categoria from tb_categorias where id=$id";
+        $query = $this->pdo->query($query);
+        $query = $query->fetchAll(PDO::FETCH_OBJ);
+        return $query[0]->categoria;
+    }
+
+    //terminando produtos//
+
+    
     public function selectAll($table)
     {
         echo "entrou select all";
@@ -128,12 +198,12 @@ class QueryBuilder
         }
     }
 
-    public function getCategoria($id) {
+    /*public function getCategoria($id) {
         $query = "SELECT categoria from tb_categorias where id=$id";
         $query = $this->pdo->query($query);
         $query = $query->fetchAll(PDO::FETCH_OBJ);
         return $query[0]->categoria;
-    }
+    }*/
 
     public function select()
     {
@@ -190,7 +260,21 @@ class QueryBuilder
             //ESSE PARAMETRO AQUI POSSIVELMENTE É DIFERENTE, COM NOVOS CAMPOS COMO POR EXEMPLO, SENHA E NOVA SENHA, EMAIL E NOVO EMAIL, NOME E NOVO NOME, SEXO E NOVO SEXO;
         }
     }
-
+    public function editProduto($table, $parametro)
+    {
+        $sql = "UPDATE tb_{$table} SET ";
+        foreach ($parametro as $key => $parametros) {
+            $sql = $sql . "{$key} = '{$parametro}',";
+        }
+        $sql = rtrim($sql, " " . ",");
+        $sql = $sql . " WHERE id = {$parametro['id']}";
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
     public function delete($table, $parametro)
     {
         //print_r($parametro);
@@ -282,47 +366,48 @@ class QueryBuilder
                     return "email já utilizado";
                 }
             }
-            if (isset($parametro['produto'])) {
-                $sql = "select nome from tb_$table WHERE nome='" . $parametro['Nome'] . "'";
-                $stmt = $this->pdo->query($sql);
-                $nome = $stmt->fetch();
-                $sql = "select categoria from tb_categorias WHERE categoria='" . $parametro['Categoria'] . "'";
+            
+        }
+    }
+    function validProd($table, $parametro){
+        if (isset($parametro['produto'])) {
+            $sql = "select nome from tb_$table WHERE nome='" . $parametro['Nome'] . "'";
+            $stmt = $this->pdo->query($sql);
+            $nome = $stmt->fetch();
+            $sql = "select categoria from tb_categorias WHERE categoria='" . $parametro['Categoria'] . "'";
+            $stmt = $this->pdo->query($sql);
+            $categoria = $stmt->fetch();
+            if (empty($nome) && !empty($categoria)) {
+                $sql = "select id from tb_categorias WHERE categoria='" . $parametro['Categoria'] . "'";
                 $stmt = $this->pdo->query($sql);
                 $categoria = $stmt->fetch();
-                if (empty($nome) && !empty($categoria)) {
-                    $sql = "select id from tb_categorias WHERE categoria='" . $parametro['Categoria'] . "'";
-                    $stmt = $this->pdo->query($sql);
-                    $categoria = $stmt->fetch();
-                    $_SESSION['categoria_id'] = $categoria[0];
-                    return "correto";
-                } else if (empty($categoria)) {
-                    return "a categoria não existe";
-                } else if (!empty($nome)) {
-                    return "o produto já existe";
-                }
-            } else {
-                $sql = "select nome from tb_" . $table . " WHERE nome='" . $parametro['nome'] . "'";
-                $stmt = $this->pdo->query($sql);
-                $nome = $stmt->fetch();
-                $sql = "select nome from tb_" . $table . " WHERE email='" . $parametro['email'] . "'";
-                $stmt = $this->pdo->query($sql);
-                $email = $stmt->fetch();
-                if (empty($nome) && empty($email)) {
-                    return "correto";
-                } else {
-                    if (!empty($nome) && !empty($email)) {
-                        return "nome e email já utilizados";
-                    } else if (!empty($nome)) {
-                        return "nome já utilizado";
-                    } else {
-                        $_SESSION['foi'] = "n foi";
-                        return "email já utilizado";
-                    }
-                }
+                $_SESSION['categoria_id'] = $categoria[0];
+                return "correto";
+            } else if (empty($categoria)) {
+                return "a categoria não existe";
+            } else if (!empty($nome)) {
+                return "o produto já existe";
             }
         }
     }
+    public function valid_login($parametro) {
+        $sql = "select email from tb_usuarios  WHERE email='".$parametro['email']."'"; 
+        $stmt = $this->pdo->query($sql);
+        $email = $stmt->fetch();
+        $sql = "select senha from tb_usuarios  WHERE email='".$parametro['email']."'";
+        $stmt = $this->pdo->query($sql);
+        $senha = $stmt->fetch();
+        if(!empty($email)) {
+            if($parametro['senha']==$senha['senha']){
+                return "correto";
+            } else {
+                return "senha incorreta";
+            }
+        }else {
+            return "email invalido";
+        }
 
+}
     function listagemProdutos($table, $table2, $parametro)
     {
         $query = "SELECT id FROM tb_" . $table . " WHERE categoria='" . $parametro . "'";

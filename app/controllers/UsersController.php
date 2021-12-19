@@ -146,24 +146,6 @@ class UsersController {
 
     //TIRAR ESSA FUNÇÃO AQUI(DEVE FICAR NA PRODUTOS CONTROLLER)
 
-    public function listagem_produtos() {
-        session_start();
-        $_SESSION['mensagem'] = "a";
-        //só startando a variavel global aq;
-        $produtos = App::get('database')->listagemProdutos('categorias','produtos',$_POST['mensagem']);
-        //pra dentro do QueryBuilder eu não ter de usar $_POST['mensagem'] eu já passo a mensagem aq pra acessar direto lá(preguiça)
-        //print_r($produtos);
-        //var_dump();
-        static::$categoria = $_POST['mensagem'];
-        static::$message = $_SESSION['mensagem'];
-        /*por ser uma variavel global(que em php se perde se vc tentar acessar um 3° arquivo, por exemplo, tá aq, passou pra query builder, voltou pra cá e foi pra listagem_produtos
-        ela se perde, mas como só foi pra querybuilder e voltou pra cá e logo dps é passada pra uma variavel da UsersController que vai ser acessada por uma função dq, ela fica disponivel pra 
-        quem chamou)*/
-        return view('admin/listagem_produtos', compact('produtos'));
-    }
-    
-    //TIRAR ESSA FUNÇÃO AQUI(DEVE FICAR NA PRODUTOS CONTROLLER)
-
     protected function alreadyExists() {
         //if($_POST['nome'] != App::get('database')->read('usuarios', 'nome'));
         //$_POST['nome'];
@@ -171,18 +153,4 @@ class UsersController {
     }
 
 }
-/*<?php
-    if($_POST) {
-        $senha          = $_POST['senha'];
-        $senhaConfirma  = $_POST['senha_confirma'];
-        if ($senha == "") {
-            $mensagem = "<span class='aviso'><b>Aviso</b>: Senha não foi alterada!</span>";
-        } else if ($senha == $senhaConfirma) {
-            $mensagem = "<span class='sucesso'><b>Sucesso</b>: As senhas são iguais: ".$senha."</span>";
-        } else {
-            $mensagem = "<span class='erro'><b>Erro</b>: As senhas não conferem!</span>";
-        }
-        echo "<p id='mensagem'>".$mensagem."</p>";
-    }
-?>*/
 ?>
