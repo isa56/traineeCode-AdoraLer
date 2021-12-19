@@ -16,7 +16,9 @@
     
 
     <?php include_once('app\views\includes\navbar.php'); ?>
-
+    <?php 
+        use App\Controllers\LoginController; 
+    ?>
     <div class="container-fluid d-flex justify-content-center align-items-center">
         <div class="card-container d-flex justify-content-center align-items-center w-100">
             <div class="card w-100">
@@ -29,13 +31,24 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="nome@provedor.com">
+                            <input type="text" class="form-control" placeholder="nome@provedor.com" value="email" name="email">
+                            <?php
+                                if( LoginController::getMessage() == "email invalido") {
+                                    //métodos estaticos: estou utilizando a classe UsersController que é inserida no bloco php no inicio da pagina e sua função estatica que retorna a variavel presente lá com as msgs
+                                    echo "Email invalido!";
+                                }
+                            ?>
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
                             </div>
-                            <input type="password" class="form-control" placeholder="*********">
+                            <input type="password" class="form-control" placeholder="*********" value="senha" name="senha">
+                            <?php
+                            if( LoginController::getMessage() == "senha incorreta") {
+                                echo "Senha incorreta!";
+                            }
+                            ?>
                         </div>
                         <div class="form-group">
                             <a href="adicionar_usuario"><input style="background-color: #E9ECEF;" value="Cadastrar" class="btn float-right login_btn ex-submit"></a>

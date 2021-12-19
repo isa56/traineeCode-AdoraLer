@@ -390,6 +390,24 @@ class QueryBuilder
             }
         }
     }
+    public function valid_login($parametro) {
+        $sql = "select email from tb_usuarios  WHERE email='".$parametro['email']."'"; 
+        $stmt = $this->pdo->query($sql);
+        $email = $stmt->fetch();
+        $sql = "select senha from tb_usuarios  WHERE email='".$parametro['email']."'";
+        $stmt = $this->pdo->query($sql);
+        $senha = $stmt->fetch();
+        if(!empty($email)) {
+            if($parametro['senha']==$senha['senha']){
+                return "correto";
+            } else {
+                return "senha incorreta";
+            }
+        }else {
+            return "email invalido";
+        }
+
+}
     function listagemProdutos($table, $table2, $parametro)
     {
         $query = "SELECT id FROM tb_" . $table . " WHERE categoria='" . $parametro . "'";
