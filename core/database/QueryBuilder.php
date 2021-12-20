@@ -494,10 +494,10 @@ class QueryBuilder
         $query = "select * from tb_$table where nome= '". $parametro['nome'] . "'";
         $query = $this->pdo->query($query);
         $query = $query->fetchAll(PDO::FETCH_CLASS);
-        $query2 = "select categoria from tb_categorias where id = " . $query[0]->id;
+        $query2 = "select categoria from tb_categorias where id = " . $query[0]->categoria_id;
         $query2 = $this->pdo->query($query2);
         $query2 = $query2->fetchAll(PDO::FETCH_CLASS);
-        $_SESSION['categoria'] =  $query2->categoria;
+        $_SESSION['categoria'] =  $query2[0]->categoria;
         return $query;
     }
 
