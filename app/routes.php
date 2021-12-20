@@ -41,7 +41,6 @@ $router->get('admProdView', 'ProdutosController@admProdView');
 $router->get('busca_produto','PagesController@busca_produto');
 $router->get('delete_produto', 'ProdutosController@delete');
 $router->get('produto_individual', 'ProdutosController@produtoIndividual');
-
 //Sendo utilizado até o momento
 //PAGES - get:
 $router->get('', 'PagesController@index');

@@ -25,9 +25,9 @@
     $categoria = ProdutosController::getCateg();
     ?>
     <ul class="breadcrumbs">
-      <li><a href="index.html">Início</a></li>
+      <li><a href="">Início</a></li>
       <li>></li>
-      <li><a href="paginaProdutos.html">Estante</a></li>
+      <li><a href="produtos">Estante</a></li>
       <li>></li>
       <li> Livro Mochileiro</li>
     </ul>

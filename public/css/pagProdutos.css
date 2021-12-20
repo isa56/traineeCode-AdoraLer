@@ -82,6 +82,9 @@ body{
 	background-color: #7B5B5A;
 
 }
+.container {
+	justify-content: center!important;
+}
 .container h1{
 	font-weight: 600;
 }

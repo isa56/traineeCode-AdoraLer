@@ -45,17 +45,17 @@
 
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="../../public/img/anuncio1.png" class="w-100" />
+                        <img src="../../public/img/anuncio11.jpg" class="w-100" />
                     </div>
                     <div class="carousel-item">
-                        <img src="../../public/img/anuncio2.png" class="w-100" />
+                        <img src="../../public/img/anuncio12.jpg" class="w-100" />
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Testando</h5>
                             <p>Isso aqui</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="../../public/img/anuncio3.png" class="w-100" />
+                        <img src="../../public/img/anuncio13.jpg" class="w-100" />
                     </div>
                 </div>
 
@@ -85,7 +85,7 @@
         <div class="container container-home">
             <div class="categorias" style="text-align: center;">
                 <h1>Navegue por categoria</h1>
-                <a class="botaodnv" href="listagem_produtos" >Buscar Produtos por categorias</a>
+                <a class="botaodnv botaoCompra btn btn-lg active mx-auto d-block" href="listagem_produtos" >Buscar Produtos por categorias</a>
                 <div class="contactPage-home">
                     <div class="contact-home">
                         <h4>Precisa falar com a gente?</h4>

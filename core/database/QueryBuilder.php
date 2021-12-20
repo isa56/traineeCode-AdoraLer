@@ -263,7 +263,7 @@ class QueryBuilder
         }
         $sql = rtrim($sql, " " . ",");
         $sql = $sql . " WHERE id = {$id}";
-        echo $sql;
+        //echo $sql;
         try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute();
