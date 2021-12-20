@@ -26,4 +26,16 @@
     font-family: 'Marck Script', cursive;
 }
 
+@media(max-width:361px) {
+    .cadastrar {
+        margin-right: -35px;
+        padding-right: -45px;
+    }
+    .login {
+        margin-left: 25px;
+        margin-right: -34px;
+    }
+}
+
+
 /*fim da área de login*/

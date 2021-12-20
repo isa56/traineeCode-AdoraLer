@@ -154,6 +154,22 @@ class ProdutosController {
         static::$categ = App::get('database')->busca_produto('produtos', $_POST);
         return view('admin/busca_produtos', compact('produtos'));
     }
+
+    public function pesquisa() {
+        session_start();
+        $_SESSION['message'] = "a";
+        if (isset($_SESSION['categ'])) {
+            unset($_SESSION['categ']);
+        }
+        $produtos = App::get('database')->busca_produto('produtos', $_POST);
+        static::$message = $_SESSION['message'];
+        session_destroy();
+        session_start();
+        $_SESSION['categ'] = "a";
+        $_SESSION['produto'] = $produtos;
+        static::$categ = App::get('database')->busca_produto('produtos', $_POST);
+        return view('site/paginaProdutos', compact('produtos'));
+    }
     
     protected function alreadyExists() {
         //if($_POST['nome'] != App::get('database')->read('usuarios', 'nome'));

@@ -65,7 +65,7 @@ class UsersController {
             //if()
             //echo 'passou o resultado';
             //echo $resultado . '---';
-            echo "entrou";
+            //echo "entrou";
             $resultado = $this->alreadyExists();
             if($resultado == "correto") {
                 //'entrou';
