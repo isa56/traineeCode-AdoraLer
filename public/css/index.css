@@ -180,7 +180,9 @@ div[class^="col"] {
 	text-align: justify;
 	font-size: medium;
 	font-weight: 500;
+	/*a*/
 }
+
 .info-inside a {
 	color: #7B5B5A;
 	background-color: #F1C8C7;
