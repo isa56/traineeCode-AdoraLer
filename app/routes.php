@@ -11,7 +11,7 @@ $router->post('editar_categorias', 'CategoriasController@update');
 
 //Sendo utilizado até o momento
 //USUÁRIO - post:
-
+$router->post('enviaEmail', 'enviaEmailController@enviaEmail');
 
 //USUARIOS
 $router->post('adicionar_usuario', 'UsersController@create');

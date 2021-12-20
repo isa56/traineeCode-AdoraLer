@@ -19,10 +19,12 @@ body{
     margin-left: 5%;
     margin-top: 8%;
     text-align: start;
+    
 }
 
 .content {
     margin: 2%;
+    
 }
 
 .content p{
@@ -38,7 +40,7 @@ body{
     align-items: center;
     /* height: 50%; */
     width: 60%;
-    margin-left: 20% !important; 
+     
 }
 
 .bolinha {
