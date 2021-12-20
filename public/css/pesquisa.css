@@ -1,0 +1,161 @@
+/*CSS Página produtos começa aqui*/
+body{
+	background-image: url('../../public/img/background2.jpg');
+	width: 100%;
+	height: 100%;
+	background-size: 100%;
+	background-repeat: no;
+	font-family: 'Marck Script', sans-serif;
+	font-family: 'Raleway', sans-serif;
+}
+.container{
+	background-color: white;
+	padding-top: 20 10 20 10;
+}
+.container h1{
+	color: #F7883F;
+	margin-left: 0px;
+	font-weight: normal;
+	font-family: 'Marck Script';
+}
+.breadcrumbs {
+	list-style: none;
+	padding-left: 0px;
+	color:#F7883F;
+}
+.breadcrumbs li{
+	display: inline-block;
+	font-weight: 300;
+}
+.breadcrumbs a{
+	color:#F7883F;
+}
+.miniatura{
+	width: 240px;
+	height: 350px;
+	display: inline-block;
+	margin-left: 10px;
+    margin-right: 10px;
+	margin-bottom: 15px;
+	overflow: hidden;
+    border: 1px solid #F7883F;
+}
+.miniatura a{
+	text-decoration: none;
+}
+.blackbox{
+	width: 240px;
+	height: 350px;
+	opacity: 0;
+	
+}
+.blackbox:hover {
+	opacity: 0.8;
+	transition:1s;
+}
+.blackbox_text{
+	text-align: center;
+	padding-top: 120px;
+}
+.blackbox_text h1{
+	font-size: 16px;
+	background-color: #7B5B5A;
+	color: #F7883F;
+	text-transform: uppercase;
+	margin-top: 0;
+	margin-left: 0;
+	padding-left: 0;
+}
+.blackbox_text h2{
+    color: #F19B75;
+	background-color: #7B5B5A;
+	text-transform: none;
+	font-weight: 400;
+	margin-top: 0;
+}
+.search-btn{
+	background-color: #F1C8C7;
+	color: #F7883F!important;
+	border-color: transparent!important;
+}
+.search-btn:hover{
+	background-color: #7B5B5A;
+
+}
+.container h1{
+	font-weight: 600;
+}
+
+.card{
+	max-width: 200px!important;
+	margin-top: 20px;
+	display: inline-block;	
+}
+.card-img-top{
+	height: 220px!important;
+	width: 200px!important;
+}
+.card-body{
+	padding-bottom: 0;
+	width: 200px!important;
+	height: 220px!important;
+}
+.card-title{
+	color: #7B5B5A;
+	height: 60px;
+}
+.card-text{
+	color: #7B5B5A;
+	margin-bottom: 0;
+}
+.card-deck{
+    display: block;
+	align-items: center;
+}
+.card{
+	align-items: center;
+}
+.colun{
+	display: flex!important;
+	justify-content: center!important;
+	align-items: center;
+}
+.botaoCompra{
+	background-color:#F1C8C7!important;;
+	color:#F7883F!important;;
+	border: #F7883F!important;;
+}
+.botaoCompra:hover{
+	background-color:#7B5B5A!important;;
+	color: #F7883F !important;
+}
+.paginacao{
+	margin-top: 30px!important;
+	margin-bottom: 0;
+
+}
+.page-link{
+	color: #7B5B5A!important;
+}
+.page-link:hover{
+	color: #7B5B5A!important;
+}
+.back_link{
+	margin-top: 20px;
+	margin-bottom: 10px;
+	padding-bottom: 300px;
+	color: #F19B75!important;
+	text-transform: none;
+}
+.back_link:hover{
+	color: #F19B75!important;
+}
+.botaoCompraAdd{
+	color: #F19B75!important;
+}
+@media (max-width: 1000px) {
+
+	
+}
+}
+/*CSS Página produtos termina aqui*/

@@ -187,6 +187,11 @@ class ProdutosController {
         session_start();
         $_SESSION['categoria'] = "a";
         $produto = App::get('database')->produtoIndividual('produtos', $_POST);
+        $a=$_SESSION['categoria'];
+        session_destroy();
+        session_start();
+        $_SESSION['categoria'] = $a;
+        // $categoria = App::get('database')->selectAllCategorias('tb_categorias');
         return view('site/paginaGuiaMochileiro', compact('produto'));
     }
 

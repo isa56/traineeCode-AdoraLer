@@ -497,7 +497,7 @@ class QueryBuilder
         $query2 = "select categoria from tb_categorias where id = " . $query[0]->id;
         $query2 = $this->pdo->query($query2);
         $query2 = $query2->fetchAll(PDO::FETCH_CLASS);
-        $_SESSION['categoria'] =  $query2[0]->categoria;
+        $_SESSION['categoria'] =  $query2->categoria;
         return $query;
     }
 

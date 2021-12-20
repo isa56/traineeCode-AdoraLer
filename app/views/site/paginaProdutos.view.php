@@ -37,14 +37,9 @@
     </ul>
     <div class="form-inline my-2 my-lg-0">
         <form action="pesquisa" method="POST">
-          <label>Nome do livro</label>
-          <input type="text" name= "mensagem" size="50" placeholder="Insira o nome do livro">
-          <button style="width:100px;">Pesquisar</button>
+          <input type="text" name= "mensagem" size="50" placeholder="Oque está procurando" aria-label="Pesquisar">
+          <button class="btn btn-outline-success search-btn botaoCompra" style="width:100px;">Pesquisar</button>
         </form>
-    </div>
-    <div class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Oque está procurando?" aria-label="Pesquisar">
-      <button class="btn btn-outline-success search-btn" id="pesquisar">Pesquisar</button>
     </div>
     <div class="card-deck">
       <div class="row">
