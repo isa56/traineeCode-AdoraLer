@@ -30,7 +30,7 @@
                         <label>Nome da Categoria:</label>
                         <input type="text" name="categoria" class="form-control" maxlength="50"><br>
                         <div class="d-grid gap-2">
-                            <button onclick="alertausuario('mensagem do java')" class="btn btn-primary" type="submit">Cadastrar</button>
+                            <button onclick="alertausuario('mensagem do java')" class="btn btn-primary botaoComprar" type="submit">Cadastrar</button>
                         </div>
 
                     </form>

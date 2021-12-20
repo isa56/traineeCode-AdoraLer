@@ -49,7 +49,6 @@
                 */
             }
             /*echo "<br/>";
-            echo "A PORRA DA MENSAGEM GIGANTE QUE TÁ AQUI E CIMA DJ IASGUJASH
             GASHASGHASUGASGHASUJGASHGIASJGASIJGOASJGSÇJGOSDKHJSDUHGIOGSPGKSDGJSDAGDGOKSDMLAGDSGAPSDOGMSDGOPMASPMG";
             echo "<br/>";
             echo UsersController::getMessage();

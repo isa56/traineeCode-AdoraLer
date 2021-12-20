@@ -26,8 +26,6 @@ class PagesController
         //session_destroy(); // fechando a sessão
         //session_start(); // abrindo uma nova sessão
         $_SESSION['total'] = $total; // atribuindo o total de linhas da tabela para a nova variavel global $_SESSION['total'];
-        echo $_SESSION['total'];
-        //var_dump();
         //}
         if (isset($_GET['end'])) {
             $_SESSION['end'] = $_GET['end'];
@@ -41,7 +39,6 @@ class PagesController
 
     public function contato()
     {
-        //var_dump("Bateu no Controller");
         return view('site/contato');
     }
 
@@ -70,8 +67,6 @@ class PagesController
         //session_destroy(); // fechando a sessão
         //session_start(); // abrindo uma nova sessão
         $_SESSION['total'] = $total; // atribuindo o total de linhas da tabela para a nova variavel global $_SESSION['total'];
-        echo $_SESSION['total'];
-        //var_dump();
         //}
         if (isset($_GET['end'])) {
             $_SESSION['end'] = $_GET['end'];
