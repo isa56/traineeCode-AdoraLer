@@ -168,7 +168,6 @@ class ProdutosController {
         }
         $produtos = App::get('database')->busca_produto('produtos', $_POST);
         static::$message = $_SESSION['message'];
-        var_dump($produtos);
         session_destroy();
         session_start();
         $_SESSION['categ'] = "a";
