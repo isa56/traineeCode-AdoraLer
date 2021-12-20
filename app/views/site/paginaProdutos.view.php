@@ -57,7 +57,7 @@
                   <?php endforeach; ?>
                   <p class="card-text">Preço: <?= $produto->preco; ?></p>
                   <form action="produto_individual" method="POST">
-                    <input type="hidden" name="nome" value=<?=$produto->nome?>></input>
+                    <input type="hidden" name="id" value=<?=$produto->id?>></input>
                     <button class="btn btn-primary  botaoCompra" value="Comprar">Comprar</button>
                   </form>
                 </div>

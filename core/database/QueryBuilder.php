@@ -491,7 +491,7 @@ class QueryBuilder
 
 
     public function produtoIndividual($table, $parametro) {
-        $query = "select * from tb_$table where nome= '". $parametro['nome'] . "'";
+        $query = "select * from tb_$table where id= '". $parametro['id'] . "'";
         $query = $this->pdo->query($query);
         $query = $query->fetchAll(PDO::FETCH_CLASS);
         $query2 = "select categoria from tb_categorias where id = " . $query[0]->categoria_id;
