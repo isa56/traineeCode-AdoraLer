@@ -50,9 +50,6 @@
                             }
                             ?>
                         </div>
-                        <div class="form-group">
-                            <a href="adicionar_usuario"><input style="background-color: #E9ECEF;" value="Cadastrar" class="btn float-right login_btn ex-submit"></a>
-                        </div>
                         <div class="row">
                             <div class="col col-8">
                                 <div class="form-group botoes">

@@ -32,6 +32,7 @@ $router->post('busca_produto', 'ProdutosController@busca_produto');
 $router->post('editar_produto', 'ProdutosController@edit');
 $router->post('updateAction', 'ProdutosController@updateAction');
 $router->post('pesquisa', 'ProdutosController@pesquisa');
+$router->post('produto_individual', 'ProdutosController@produtoIndividual');
 //$router->post('pesquisa', 'ProdutosController@');
 //PRODUTO - get:
 $router->get('admProdView', 'ProdutosController@admProdView');

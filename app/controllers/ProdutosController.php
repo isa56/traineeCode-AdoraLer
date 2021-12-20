@@ -183,6 +183,13 @@ class ProdutosController {
         return App::get('database')->validUser('usuarios', $_POST);
     }
 
+    public function produtoIndividual() {
+        session_start();
+        $_SESSION['categoria'] = "a";
+        $produto = App::get('database')->produtoIndividual('produtos', $_POST);
+        return view('site/paginaGuiaMochileiro', compact('produto'));
+    }
+
     //CORRIGINDO MERGING A PARTIR DQ!!!!!!!!!!!!!!//
     
 

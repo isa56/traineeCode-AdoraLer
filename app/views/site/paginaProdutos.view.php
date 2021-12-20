@@ -61,7 +61,10 @@
                     <?php endif; ?>
                   <?php endforeach; ?>
                   <p class="card-text">Preço: <?= $produto->preco; ?></p>
-                  <a href="#" class="btn btn-primary  botaoCompra">Comprar</a>
+                  <form action="produto_individual" method="POST">
+                    <input type="hidden" name="nome" value=<?=$produto->nome?>></input>
+                    <button class="btn btn-primary  botaoCompra" value="Comprar">Comprar</button>
+                  </form>
                 </div>
               </div>
             </div>
