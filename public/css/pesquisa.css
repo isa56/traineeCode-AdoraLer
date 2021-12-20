@@ -109,6 +109,7 @@ body{
 	margin-bottom: 0;
 }
 .card-deck{
+    display: block;
 	align-items: center;
 }
 .card{

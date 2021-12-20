@@ -28,7 +28,9 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="card">
-                        <img src="../../../public/img/usuario.jpg" class="card-img-top">
+                        <a href="userOption"> 
+                            <img src="../../../public/img/usuario.jpg" href="userOption" class="card-img-top">
+                        </a>
                         <div class="card-body">
                             <h5 class="card-title">Usuarios</h5>
                         </div>
@@ -36,15 +38,19 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="card">
-                        <img src="../../../public/img/livroconectadas1.jpg" class="card-img-top">
+                        <a href="categorias">
+                            <img src="../../../public/img/livroconectadas1.jpg" class="card-img-top">
+                        
                         <div class="card-body">
                             <h5 class="card-title">Categorias</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <div class="card">
-                        <img src="../../../public/img/livros.jpg" class="card-img-top">
+                    <div class="card"> 
+                        <a href="admProdView">
+                            <img src="../../../public/img/livros.jpg" class="card-img-top">
+                        </a>
                         <div class="card-body">
                             <h5 class="card-title">Produtos</h5>
                             <p></p>

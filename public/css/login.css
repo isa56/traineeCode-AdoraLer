@@ -25,6 +25,7 @@
 .body-login .card-header {
     font-family: 'Marck Script', cursive;
 }
+<<<<<<< HEAD
 
 @media(max-width:361px) {
     .cadastrar {
@@ -38,4 +39,12 @@
 }
 
 
+=======
+.body-login .ex-submit {
+    padding-left: 0px;
+}
+.body-login .botoes {
+    justify-self: center;
+}
+>>>>>>> editProdutos
 /*fim da área de login*/

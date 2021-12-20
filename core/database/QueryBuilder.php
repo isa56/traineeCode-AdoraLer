@@ -16,6 +16,19 @@ class QueryBuilder
     }
 
     /////////////////    USUARIOS AQUI    //////////////////////////////////////////////
+    public function selectAllNoPag($table)
+    {
+
+        $sql = "SELECT * FROM {$table} ";
+
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_CLASS);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
 
     public function selectAllUserOption($table) {
         $query = "select * from tb_$table";
@@ -26,7 +39,6 @@ class QueryBuilder
         $query2 = $query2->fetch();
         $_SESSION['total'] = $query2[0];*/
         //retorna o total de elementos da tabela
-        //var_dump();
         try {
             $query = $this->pdo->query($query);
             //$query = $query->fetchAll(PDO::FETCH_OBJ);
@@ -71,15 +83,10 @@ class QueryBuilder
                 $array =[];
                 $total = count($query2);
                 $total2 = count($query);
-                //var_dump();
                 $i=0;
                 for($i=0;$i<$total;$i++) {
                     $array[] = $this->getCategoria($_SESSION['array'][$i]->categoria_id);
-                    //$array[] = $query[$query2[$i]->categoria_id-1]->categoria;
                 }
-                //var_dump;
-                //var_dump();
-                //var_dump();
                 return $array;
             } catch (Exception $e) {
                 die($e->getCode() . '--' . $e->getMessage());
@@ -88,20 +95,10 @@ class QueryBuilder
             $query = "select * from tb_$table";
             //retorna o total de elementos da tabela
             $query2 = "SELECT COUNT(*) FROM tb_$table";
-            //echo($query2[0]);
-            /*$query2 = $this->pdo->query($query2);
-            $query2 = $query2->fetch();
-            $_SESSION['total'] = $query2[0];*/
-            //retorna o total de elementos da tabela
-            //var_dump();
             try {
                 $query = $this->pdo->query($query);
-                //$query = $query->fetchAll(PDO::FETCH_OBJ);
-                //print_r($query);
                 
                 $query = $query->fetchAll(PDO::FETCH_OBJ);
-                //print_r($query);
-                //echo '<br/>';*/
     
                 $query2 = $this->pdo->query($query2);
                 $query2 = $query2->fetch();
@@ -131,18 +128,16 @@ class QueryBuilder
             $query = "select categoria from tb_categorias";
             echo "entrou select all 2";
             echo "</br>";
-            var_dump(); 
         }
     
         if(isset($_SESSION['categ'])) {
             echo "entrou aqui";
-            var_dump();
             $query = "select id from tb_categorias";
             $query2 = "select categoria_id from tb_produtos";
             try {
                 $query = $this->pdo->query($query);
                 $query2 = $this->pdo->query($query2);
-               
+            
 
                 $query = $query->fetchAll(PDO::FETCH_OBJ);
                 $query2 = $query2->fetchAll(PDO::FETCH_OBJ);
@@ -153,13 +148,13 @@ class QueryBuilder
                     $array[] = $query[$query2[$i]->categoria_id - 1]->categoria;
                 }
                 $total2 = count($query);
-   
+
                 $i=0;
                 for($i=0;$i<$total;$i++) {
                     $array[] = $this->getCategoria($_SESSION['array'][$i]->categoria_id);
                     
                 }
-     
+
                 return $array;
             } catch (Exception $e) {
                 die($e->getCode() . '--' . $e->getMessage());
@@ -227,7 +222,6 @@ class QueryBuilder
         } catch (Exception $e) {
             die($e->getMessage());
         }
-       
     }
 
     public function edit($table, $parametro)
@@ -260,14 +254,16 @@ class QueryBuilder
             //ESSE PARAMETRO AQUI POSSIVELMENTE É DIFERENTE, COM NOVOS CAMPOS COMO POR EXEMPLO, SENHA E NOVA SENHA, EMAIL E NOVO EMAIL, NOME E NOVO NOME, SEXO E NOVO SEXO;
         }
     }
-    public function editProduto($table, $parametro)
+    public function editProduto($table, $parametros)
     {
         $sql = "UPDATE tb_{$table} SET ";
-        foreach ($parametro as $key => $parametros) {
+        $id=$parametros['id'];
+        foreach ($parametros as $key => $parametro) {
             $sql = $sql . "{$key} = '{$parametro}',";
         }
         $sql = rtrim($sql, " " . ",");
-        $sql = $sql . " WHERE id = {$parametro['id']}";
+        $sql = $sql . " WHERE id = {$id}";
+        echo $sql;
         try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute();
@@ -275,6 +271,7 @@ class QueryBuilder
             die($e->getMessage());
         }
     }
+
     public function delete($table, $parametro)
     {
         //print_r($parametro);
@@ -315,21 +312,18 @@ class QueryBuilder
         $query = "delete from tb_".$table." where id = '".$parametro['id']."'";
         $this->pdo->query($query);
         $query = "UPDATE id from tb_$table where id > ".$parametro['id']." id=id-1";
-        header("Location: /userOption");
+        //header("Location: /userOption");
     }
 
     public function read($table, $parametro)
     {
+        $sql = "SELECT * FROM {$table} WHERE id = {$parametro}";
 
-        /*try {
-            $stmt = $this->pdo->prepare($sql);
-            echo '<br/>';
-            echo 'chegou aq';
-            $stmt->execute($parametros);
-            
-        } catch (Exception $e) {
-            die($e->getMessage());
-        }*/
+        $stmt = $this->pdo->prepare($sql);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
 
     public function validUser($table, $parametro)
@@ -390,24 +384,26 @@ class QueryBuilder
             }
         }
     }
-    public function valid_login($parametro) {
-        $sql = "select email from tb_usuarios  WHERE email='".$parametro['email']."'"; 
-        $stmt = $this->pdo->query($sql);
-        $email = $stmt->fetch();
-        $sql = "select senha from tb_usuarios  WHERE email='".$parametro['email']."'";
-        $stmt = $this->pdo->query($sql);
-        $senha = $stmt->fetch();
-        if(!empty($email)) {
-            if($parametro['senha']==$senha['senha']){
-                return "correto";
-            } else {
-                return "senha incorreta";
-            }
-        }else {
-            return "email invalido";
-        }
 
-}
+    function valid_login($parametro) {
+            $sql = "select email from tb_usuarios  WHERE email='".$parametro['email']."'"; 
+            $stmt = $this->pdo->query($sql);
+            $email = $stmt->fetch();
+            $sql = "select senha from tb_usuarios  WHERE email='".$parametro['email']."'";
+            $stmt = $this->pdo->query($sql);
+            $senha = $stmt->fetch();
+            if(!empty($email)) {
+                if($parametro['senha']==$senha['senha']){
+                    return "correto";
+                } else {
+                    return "senha incorreta";
+                }
+            }else {
+                return "email invalido";
+            }
+
+    }
+
     function listagemProdutos($table, $table2, $parametro)
     {
         $query = "SELECT id FROM tb_" . $table . " WHERE categoria='" . $parametro . "'";
@@ -432,7 +428,6 @@ class QueryBuilder
                     //$object->categoria = $parametro;
                     //$categoria[] = $object;
                     //print_r($categoria);
-                    //var_dump;
 
                     return  $categoria;
                 } catch (Exception $e) {
@@ -492,6 +487,18 @@ class QueryBuilder
         $query = "select * from $table";
         
 
+    }
+
+
+    public function produtoIndividual($table, $parametro) {
+        $query = "select * from tb_$table where nome= '". $parametro['nome'] . "'";
+        $query = $this->pdo->query($query);
+        $query = $query->fetchAll(PDO::FETCH_CLASS);
+        $query2 = "select categoria from tb_categorias where id = " . $query[0]->id;
+        $query2 = $this->pdo->query($query2);
+        $query2 = $query2->fetchAll(PDO::FETCH_CLASS);
+        $_SESSION['categoria'] =  $query2->categoria;
+        return $query;
     }
 
 }

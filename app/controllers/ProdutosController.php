@@ -28,7 +28,6 @@ class ProdutosController {
             session_destroy(); // fechando a sessão
             session_start(); // abrindo uma nova sessão
             $_SESSION['total'] = $total; // atribuindo o total de linhas da tabela para a nova variavel global $_SESSION['total'];
-            //var_dump();
         //}
         if(isset($_GET['end'])) { 
             $_SESSION['end'] = $_GET['end'];
@@ -38,11 +37,9 @@ class ProdutosController {
             $_SESSION['end'] = 9; // padrão é começar do 9 pois estou imprimindo 10 usuarios por vez;
         }
         return view('admin/administrativaProdutos', compact('produtos')); // retorno a view padrão e o compact com o vetor de usuarios retornado do Query Builder;
-
-        //antiga parte para backup
-        /*$usuarios = App::get('database')->selectAll('usuarios');
-        return view('admin/userOption', compact('usuarios'));*/
     }
+
+    
 
     public static function getMessage() {
         return static::$message;
@@ -104,33 +101,41 @@ class ProdutosController {
     public function delete() {
         //echo 'chegou no delete';
         App::get('database')->delete('produtos', $_POST);
+        $this->admProdView();
     }
+    
 
+        
     public function edit()
     {
-        $params = [
-            "nome" => $_POST['nome'],
-            "preco" => $_POST['preco'],
-            "descricao" => $_POST['descricao'],
-            "imagem" => $_POST['imagem'],
-            "id" => $_POST['id']
-        ];
-        print_r($params);
-        var_dump();
-        App::get('database')->editProduto('produtos', $params);
-        return view('admin/administrativaProdutos');
-    }
+        $id = $_POST['id'];
+        $produto = App::get('database')->read('tb_produtos',$id);
+        $categoria = App::get('database')->selectAllNoPag('tb_categorias');
 
+        $params = [
+            'produto'=>$produto,
+            'categoria'=>$categoria
+        ];
+        //falta colocar o id aqui, pra pegar no querybuilder, como ?? n sei
+        return view('admin/editar_produto',$params);
+    }      
+    public function updateAction(){
+        App::get('database')->editProduto('produtos',  [
+            'nome' => $_POST['nome'],
+            'descricao' => $_POST['descricao'],
+            'preco' => $_POST['preco'],
+            'info_uteis' => $_POST['info_util'],
+            'id'=>$_POST['id']
+        ]);
+        header('Location: /admProdView');
+    }
     public function listagem_produtos() {
-        /*echo "entrou listagem_produtos";
-        var_dump();*/
         session_start();
         $_SESSION['mensagem'] = "a";
         //só startando a variavel global aq;
         $produtos = App::get('database')->listagemProdutos('categorias','produtos',$_POST['mensagem']);
         //pra dentro do QueryBuilder eu não ter de usar $_POST['mensagem'] eu já passo a mensagem aq pra acessar direto lá(preguiça)
         //print_r($produtos);
-        //var_dump();
         static::$categoria = $_POST['mensagem'];
         static::$message = $_SESSION['mensagem'];
         /*por ser uma variavel global(que em php se perde se vc tentar acessar um 3° arquivo, por exemplo, tá aq, passou pra query builder, voltou pra cá e foi pra listagem_produtos
@@ -163,18 +168,31 @@ class ProdutosController {
         }
         $produtos = App::get('database')->busca_produto('produtos', $_POST);
         static::$message = $_SESSION['message'];
+        var_dump($produtos);
         session_destroy();
         session_start();
         $_SESSION['categ'] = "a";
         $_SESSION['produto'] = $produtos;
         static::$categ = App::get('database')->busca_produto('produtos', $_POST);
-        return view('site/paginaProdutos', compact('produtos'));
+        return view('site/pesquisaProd', compact('produtos'));
     }
     
     protected function alreadyExists() {
         //if($_POST['nome'] != App::get('database')->read('usuarios', 'nome'));
         //$_POST['nome'];
         return App::get('database')->validUser('usuarios', $_POST);
+    }
+
+    public function produtoIndividual() {
+        session_start();
+        $_SESSION['categoria'] = "a";
+        $produto = App::get('database')->produtoIndividual('produtos', $_POST);
+        $a=$_SESSION['categoria'];
+        session_destroy();
+        session_start();
+        $_SESSION['categoria'] = $a;
+        // $categoria = App::get('database')->selectAllCategorias('tb_categorias');
+        return view('site/paginaGuiaMochileiro', compact('produto'));
     }
 
     //CORRIGINDO MERGING A PARTIR DQ!!!!!!!!!!!!!!//

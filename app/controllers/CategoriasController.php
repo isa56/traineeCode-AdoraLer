@@ -24,7 +24,6 @@ class CategoriasController
     }
 
     public function delete() {
-        echo 'chegou no delete';
         App::get('database')->delete('categorias', $_POST);
 
     }

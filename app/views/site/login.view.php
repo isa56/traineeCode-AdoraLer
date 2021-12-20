@@ -52,12 +52,20 @@
                         </div>
                         <div class="row">
                             <div class="col col-8">
+<<<<<<< HEAD
                                 <div class="form-group botoes cadastrar">
+=======
+                                <div class="form-group botoes">
+>>>>>>> editProdutos
                                     <a href="adicionar_usuario"><input style="background-color: #E9ECEF;" value="Cadastrar" class="btn float-right login_btn ex-submit"></a>
                                 </div>
                             </div>
                             <div class="col col-4">
+<<<<<<< HEAD
                                 <div class="form-group botoes login">
+=======
+                                <div class="form-group botoes">
+>>>>>>> editProdutos
                                     <input type="submit" value="LogIn" class="btn float-right login_btn" style="margin-right:20px" >
                                 </div>
                             </div>

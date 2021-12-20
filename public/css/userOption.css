@@ -30,3 +30,17 @@ body {
     background-size: cover;
     overflow-x: hidden;
 }
+.botaoCompraAdd{
+	background-color:#7B5B5A!important;
+	color:#F7883F!important;
+	border: #F7883F!important;
+}
+.botaoCompra{
+	background-color:transparent!important;
+	color:#7B5B5A!important;
+	border: #F7883F!important;
+}
+.botaoCompra:hover{
+	background-color:#7B5B5A!important;
+	color: #F7883F !important;
+}

@@ -13,30 +13,34 @@ $router->post('editar_categorias', 'CategoriasController@update');
 //USUÁRIO - post:
 $router->post('enviaEmail', 'enviaEmailController@enviaEmail');
 
+
 //USUARIOS
 $router->post('adicionar_usuario', 'UsersController@create');
 $router->post('delete_usuario', 'UsersController@delete');
 $router->post('view_usuario', 'UsersController@admOptions');
 $router->post('edit_usuario', 'UsersController@edit');
 $router->post('editar_usuario', 'UsersController@edit');
+//$router->post('listagem_produtos', 'UsersController@listagem_produtos');
+$router->post('login', 'LoginController@login');
 //$router->post('listagem_produtos', 'ProdutosController@listagem_produtos');
 
 
 //PRODUTO - post:
 $router->post('adicionar_produto', 'ProdutosController@create');
 $router->post('delete_produto', 'ProdutosController@delete');
-$router->post('view_produto', 'ProdutosController@admOptions');
-$router->post('edit_produto', 'ProdutosController@edit');
-$router->post('editar_produto', 'ProdutosController@edit');
+$router->post('view_produto', 'ProdutosController@ProdView');
 $router->post('listagem_produtos', 'ProdutosController@listagem_produtos');
 $router->post('busca_produto', 'ProdutosController@busca_produto');
+$router->post('editar_produto', 'ProdutosController@edit');
+$router->post('updateAction', 'ProdutosController@updateAction');
 $router->post('pesquisa', 'ProdutosController@pesquisa');
+$router->post('produto_individual', 'ProdutosController@produtoIndividual');
 //$router->post('pesquisa', 'ProdutosController@');
 //PRODUTO - get:
 $router->get('admProdView', 'ProdutosController@admProdView');
 $router->get('busca_produto','PagesController@busca_produto');
 $router->get('delete_produto', 'ProdutosController@delete');
-
+$router->get('produto_individual', 'ProdutosController@produtoIndividual');
 
 //Sendo utilizado até o momento
 //PAGES - get:
