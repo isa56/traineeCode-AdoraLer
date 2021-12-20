@@ -192,5 +192,9 @@ div[class^="col"] {
 	background-color: #7B5B5A;
 	color: whitesmoke;
 }
+
+.botaodnv {
+	border: solid 1px;
+}
 /*Fim da home ----------
 ------------------------*/

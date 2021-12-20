@@ -31,7 +31,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="nome@provedor.com" value="email" name="email">
+                            <input type="text" class="form-control" placeholder="nome@provedor.com"  name="email">
                             <?php
                                 if( LoginController::getMessage() == "email invalido") {
                                     //métodos estaticos: estou utilizando a classe UsersController que é inserida no bloco php no inicio da pagina e sua função estatica que retorna a variavel presente lá com as msgs
@@ -43,7 +43,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
                             </div>
-                            <input type="password" class="form-control" placeholder="*********" value="senha" name="senha">
+                            <input type="password" class="form-control" placeholder="*********"  name="senha">
                             <?php
                             if( LoginController::getMessage() == "senha incorreta") {
                                 echo "Senha incorreta!";

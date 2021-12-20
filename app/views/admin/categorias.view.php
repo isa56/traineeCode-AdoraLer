@@ -1,3 +1,7 @@
+<?php 
+    use App\Controllers\LoginController; 
+?>
+
 <!DOCTYPE html>
 <html>
 

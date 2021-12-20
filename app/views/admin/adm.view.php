@@ -1,3 +1,10 @@
+<?php 
+    use App\Controllers\LoginController;
+    session_start();
+    $_SESSION['login'] = LoginController::getLogin();
+?>
+
+<?php if($_SESSION['login']) : ?>
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -52,5 +59,8 @@
     <script src="../../public/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+<?php else : ?>
+    <?php return view('site/login') ?>
+<?php endif; ?>
 
 
