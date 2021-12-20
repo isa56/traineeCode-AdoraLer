@@ -14,7 +14,7 @@
     </head>
     <body>
         
-        <?php include_once('app\views\includes\navbarAdm.php'); ?>
+        <?php include_once('app\views\includes\navbar.php'); ?>
         <?php 
             //use App\Controllers\UsersController;
             use App\Controllers\ProdutosController;

@@ -85,32 +85,7 @@
         <div class="container container-home">
             <div class="categorias" style="text-align: center;">
                 <h1>Navegue por categoria</h1>
-                <div class="botoesCategoria">
-                    <div style="background-image: url('../../public/img/logoRomance.jpg')" class="miniatura" id="romance">
-                        <a href="#">
-                        </a>
-                    </div>
-                    <div style="background-image: url('../../public/img/logoTerror.jpg')" class="miniatura" id="terror">
-                        <a href="#">
-                        </a>
-                    </div>
-                    <div style="background-image: url('../../public/img/logoFicção.jpg')" class="miniatura" id="ficcaoCientifica">
-                        <a href="#">
-                        </a>
-                    </div>
-                    <div style="background-image: url('../../public/img/logoInfantil.jpg')" class="miniatura" id="infantil">
-                        <a href="#">
-                        </a>
-                    </div>
-                    <div style="background-image: url('../../public/img/logoHeroi.jpg')" class="miniatura" id="herois">
-                        <a href="#">
-                        </a>
-                    </div>
-                    <div style="background-image: url('../../public/img/logoBiografia.jpg')" class="miniatura" id="biografia">
-                        <a href="#">
-                        </a>
-                    </div>
-                </div>
+                <a class="botaodnv" href="listagem_produtos" >Buscar Produtos por categorias</a>
                 <div class="contactPage-home">
                     <div class="contact-home">
                         <h4>Precisa falar com a gente?</h4>

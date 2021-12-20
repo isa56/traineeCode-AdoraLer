@@ -1,3 +1,7 @@
+<?php 
+    use App\Controllers\LoginController; 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -19,7 +23,7 @@
             //echo $_SESSION['total'];
             //echo $_SESSION['end'];
             //echo "</br>";
-            echo $total_linhas = $_SESSION['total']; // passo o total de linhas retornado da UsersController para me auxiliar a criar os botões da paginação;
+            $total_linhas = $_SESSION['total']; // passo o total de linhas retornado da UsersController para me auxiliar a criar os botões da paginação;
             $cont = 9; // me auxilia a passar o end para a UsersController na segunda chamada dessa página
             $y = 1; // me auxilia a númerar os botões
             //print_r($usuarios[0]);

@@ -210,11 +210,17 @@ div[class^="col"] {
 	background-color: #7B5B5A;
 	color: whitesmoke;
 }
+
+.botaodnv {
+	border: solid 1px;
+}
+
 /*@media (max-width: 1000px) {
 	.section-carousel{
 		max-width: 500px;
 		max-height: 500px;
 	}	
 }*/
+
 /*Fim da home ----------
 ------------------------*/

@@ -32,32 +32,32 @@
 				<h1>Contato</h1>
 				
 			<div class="form-background">
-				<form action="./enviaEmail" method="GET" class="card">
+				<form action="enviaEmail" method="POST" class="card">
 
 
 				
 					<div class="mb-3">
 						<label for="exampleFormControlInput1" class="form-label">nome: </label>
-						<textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+						<textarea class="form-control" id="exampleFormControlTextarea1" name="nome" rows="1"></textarea>
 					</div>
 					<div class="mb-3">
 						<label for="exampleFormControlInput1" class="form-label">email: </label>
-						<textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+						<textarea class="form-control" id="exampleFormControlTextarea1" name="email" rows="1"></textarea>
 					</div>
 					<div class="mb-3">
 						<label for="exampleFormControlTextarea1" class="form-label">telefone: </label>
-						<textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+						<textarea class="form-control" id="exampleFormControlTextarea1" name="telefone" rows="1"></textarea>
 					</div>
 					<div class="mb-3">
 						<label for="exampleFormControlTextarea1" class="form-label">assunto: </label>
-						<textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+						<textarea class="form-control" id="exampleFormControlTextarea1" name="assunto" rows="1"></textarea>
 					</div>
 					<div class="mb-3">
 						<label for="exampleFormControlTextarea1" class="form-label">mensagem: </label>
-						<textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+						<textarea class="form-control" id="exampleFormControlTextarea1" name="mensagem" rows="5"></textarea>
 					</div>
 
-					<button type="button" class="btn btn-primary btn-lg">Enviar</button>
+					<button type="submit" class="btn btn-primary btn-lg">Enviar</button>
 
 				</form>
 			</div>			

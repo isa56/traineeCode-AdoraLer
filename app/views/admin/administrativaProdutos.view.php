@@ -1,3 +1,15 @@
+<?php 
+    use App\Controllers\LoginController; 
+    use App\Controllers\ProdutosController;
+    $categ = ProdutosController::getCateg();
+    $total_linhas = $_SESSION['total']; // passo o total de linhas retornado da UsersController para me auxiliar a criar os botões da paginação;
+    $cont = 9; // me auxilia a passar o end para a UsersController na segunda chamada dessa página
+    $y = 1; // me auxilia a númerar os botões
+    if(!empty(ProdutosController::getMessage())) {
+        session_destroy();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,6 +30,27 @@
 
     <?php include_once('app\views\includes\navbarAdm.php'); ?>
     <?php
+    $categ = ProdutosController::getCateg();
+    $total_linhas = $_SESSION['total']; // passo o total de linhas retornado da UsersController para me auxiliar a criar os botões da paginação;
+    $cont = 9; // me auxilia a passar o end para a UsersController na segunda chamada dessa página
+    $y = 1; // me auxilia a númerar os botões
+    //print_r($usuarios[0]);
+    ?>
+    <?php
+    if (!empty(ProdutosController::getMessage())) {
+        session_destroy();
+    }
+    ?>
+
+    <div class="container usersOption" style="padding: 0px">
+        <div class="card-body" style="margin: 0px;">
+            <div class="row">
+                <div class="col">
+                    <h4>Produtos:</h4>
+                </div>
+                <div class="col-auto" style="margin-bottom: 10px">
+                    <a href="addProd"><button type="submit" class="btn btn-primary  botaoCompraAdd">Novo Produto</button></a>
+                </div>
 
     use App\Controllers\ProdutosController;
 
@@ -97,6 +130,13 @@
                 </div>
             </div>
         </div>
+        <?php
+            session_destroy();
+            //session_start();
+            //$_SESSION['user'] = $user->id;
+        ?>
+    </body>
+</html>
         <div style="margin:auto;display:flex;justify-content:center">
             <?php for ($i = 1; $i < $total_linhas; $i = $i + 9) : ?>
                 <!--Se-->
